@@ -15,6 +15,7 @@ const VIDEO_SRC = "/brand/accufab-video.mp4";
 const MAX_VIDEO_SECONDS = 4;
 const FALLBACK_NAVIGATION_MS = 4500;
 const FADE_OUT_MS = 750;
+const ROUTE_SETTLE_MS = 150;
 
 type TransitionContextValue = {
   navigateWithTransition: (href: string) => void;
@@ -71,7 +72,8 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
     if (!isPlaying || !isCompleting.current) return;
     if (targetPathname.current && pathname !== targetPathname.current) return;
 
-    finishTransition();
+    const settleTimer = setTimeout(finishTransition, ROUTE_SETTLE_MS);
+    return () => clearTimeout(settleTimer);
   }, [finishTransition, isPlaying, pathname]);
 
   const navigateWithTransition = useCallback(
@@ -87,6 +89,7 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
         return;
       }
 
+      router.prefetch(href);
       clearTimers();
       targetHref.current = href;
       targetPathname.current = null;
@@ -140,10 +143,11 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
           aria-label="Loading next page"
           role="status"
         >
+          <div className="absolute inset-0 bg-black" aria-hidden />
           <video
             ref={videoRef}
             src={VIDEO_SRC}
-            className="h-full w-full object-contain"
+            className="relative h-full w-full object-contain"
             muted
             playsInline
             preload="auto"

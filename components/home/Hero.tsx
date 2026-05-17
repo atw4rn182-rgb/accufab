@@ -59,9 +59,7 @@ export function Hero() {
           </p>
 
           <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
-            Precision <span className="text-gradient-accent">CNC</span>{" "}
-            <span className="text-accent">&amp;</span>{" "}
-            <span className="text-gradient-accent">Manual Machining</span>
+            Welcome to <span className="text-gradient-accent">Accu-Fab</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-sm font-semibold uppercase leading-relaxed tracking-[0.12em] text-accent sm:text-base">
