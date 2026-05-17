@@ -59,12 +59,14 @@ export function Hero() {
           </p>
 
           <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
-            Precision Welding <span className="text-accent">&amp;</span>{" "}
-            <span className="text-gradient-accent">CNC Machining</span>
+            Precision <span className="text-gradient-accent">CNC</span>{" "}
+            <span className="text-accent">&amp;</span>{" "}
+            <span className="text-gradient-accent">Manual Machining</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-sm font-semibold uppercase leading-relaxed tracking-[0.12em] text-accent sm:text-base">
             Hydraulic Cylinder Repair <span className="text-steel-500">•</span> Custom Fabrication{" "}
+            <span className="text-steel-500">•</span> CNC &amp; Manual Machining{" "}
             <span className="text-steel-500">•</span> Heavy Duty Equipment Repair{" "}
             <span className="text-steel-500">•</span> Mining <span className="text-steel-500">&amp;</span>{" "}
             Drill Pipe

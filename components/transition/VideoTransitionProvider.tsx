@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const VIDEO_SRC = "/brand/accufab-video.mp4";
 const MAX_VIDEO_SECONDS = 4;
@@ -24,10 +24,12 @@ const TransitionContext = createContext<TransitionContextValue | null>(null);
 
 export function VideoTransitionProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isFading, setIsFading] = useState(false);
   const targetHref = useRef<string | null>(null);
+  const targetPathname = useRef<string | null>(null);
   const fallbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const completeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -40,6 +42,20 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
     completeTimer.current = null;
   }, []);
 
+  const finishTransition = useCallback(() => {
+    if (completeTimer.current) clearTimeout(completeTimer.current);
+
+    setIsFading(true);
+    completeTimer.current = setTimeout(() => {
+      setIsPlaying(false);
+      setIsVisible(false);
+      setIsFading(false);
+      isCompleting.current = false;
+      targetHref.current = null;
+      targetPathname.current = null;
+    }, FADE_OUT_MS);
+  }, []);
+
   const completeTransition = useCallback(() => {
     const href = targetHref.current;
     if (!href || isCompleting.current) return;
@@ -47,17 +63,16 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
     isCompleting.current = true;
     clearTimers();
     videoRef.current?.pause();
-    setIsFading(true);
-
-    completeTimer.current = setTimeout(() => {
-      router.push(href);
-      setIsPlaying(false);
-      setIsVisible(false);
-      setIsFading(false);
-      isCompleting.current = false;
-      targetHref.current = null;
-    }, FADE_OUT_MS);
+    targetPathname.current = new URL(href, window.location.origin).pathname;
+    router.push(href);
   }, [clearTimers, router]);
+
+  useEffect(() => {
+    if (!isPlaying || !isCompleting.current) return;
+    if (targetPathname.current && pathname !== targetPathname.current) return;
+
+    finishTransition();
+  }, [finishTransition, isPlaying, pathname]);
 
   const navigateWithTransition = useCallback(
     (href: string) => {
@@ -74,6 +89,7 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
 
       clearTimers();
       targetHref.current = href;
+      targetPathname.current = null;
       isCompleting.current = false;
       setIsVisible(false);
       setIsFading(false);

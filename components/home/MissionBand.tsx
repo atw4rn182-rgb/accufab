@@ -11,10 +11,10 @@ export function MissionBand() {
             Quality metalwork, plainly stated.
           </h2>
           <p className="mt-8 text-lg leading-relaxed text-steel-400">
-            Accu-Fab concentrates on weld quality, machined accuracy, drill pipe work, and fabrication craftsmanship for
+            Accu-Fab concentrates on weld quality, CNC and manual machining accuracy, drill pipe work, and fabrication craftsmanship for
             customers who prefer a direct shop relationship. Share your drawings and tolerances—we will
-            review scope, timelines, and the most practical way to fabricate your parts in Milan, New
-            Mexico.
+            review scope, timelines, and the most practical way to fabricate your parts from Grants, New
+            Mexico, serving the Four Corners region and Texas.
           </p>
         </div>
       </div>

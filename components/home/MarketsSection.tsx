@@ -18,7 +18,7 @@ export function MarketsSection() {
           titleId="markets-heading"
           eyebrow="Solutions & Markets"
           title="Segments powered by weldments, machined detail & fabricated metal"
-          description="From walk-in repairs and one-off fabrications to more involved programs—we support Milan and the broader region when schedules, prints, and fit-up expectations need to align."
+          description="From walk-in repairs and one-off fabrications to more involved programs—we support Grants, the Four Corners region, and Texas when schedules, prints, and fit-up expectations need to align."
           align="center"
           className="mb-14 lg:mb-16"
         />

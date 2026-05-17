@@ -2,15 +2,15 @@ export const COMPANY = {
   name: "Accu-Fab",
   /** Sitewide description: hero intro, footer, Open Graph defaults */
   tagline:
-    "At our locally owned shop in Milan, New Mexico, no job is too small. Using our state-of-the-art equipment, we can handle anything from cutting keyways to CNC machining. Whether you need precision art cutouts or complex fabrication and machining work, Accu-Fab is your go-to partner.",
+    "At our locally owned shop in Grants, New Mexico, no job is too small. Using our CNC and manual machining equipment, we can handle anything from cutting keyways to precision repair work, custom fabrication, and complex machining. Accu-Fab serves the Four Corners region and Texas as your go-to partner.",
   /** Short positioning line for hero badges & footer accents */
   shortTagline:
-    "Precision Welding • CNC Machining • Drill Pipe and Fabrication • Made in USA",
+    "Precision Welding • CNC and Manual Machining • Four Corners + Texas",
   phone: "(505) 876-0658",
   phoneHref: "tel:+15058760658",
   email: "Accufab.weld@gmail.com",
   emailHref: "mailto:Accufab.weld@gmail.com",
-  address: "Milan, New Mexico",
+  address: "Grants, New Mexico",
 } as const;
 
 /** Top-level navigation — routed section pages */
@@ -61,7 +61,7 @@ export const STRENGTHS = [
   {
     title: "Welding & Machining Depth",
     description:
-      "Certified weld processes (MIG/TIG), fixture-supported assemblies, and CNC machining matched to print-critical features.",
+      "Certified weld processes (MIG/TIG), fixture-supported assemblies, and CNC plus manual machining matched to repair, fit-up, and print-critical features.",
     icon: "flame",
   },
   {
@@ -89,9 +89,9 @@ export const HOME_CAPABILITIES = [
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&q=80",
   },
   {
-    title: "CNC Machining",
+    title: "CNC and Manual Machining",
     description:
-      "Milling, turning, tight tolerances, and machined interfaces integrated with weldments, drill pipe work, and fabrication.",
+      "CNC machining, manual mill and lathe work, tight tolerances, and machined interfaces integrated with weldments, drill pipe work, and fabrication.",
     icon: "machining",
     image:
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
@@ -195,7 +195,7 @@ export const CAPABILITIES = [
     id: "fabrication",
     title: "Metal Fabrication",
     description:
-      "Laser-cut blanks, punched features, brake-formed geometry, MIG/TIG weldments, and integrated CNC machining.",
+      "Laser-cut blanks, punched features, brake-formed geometry, MIG/TIG weldments, and integrated CNC and manual machining.",
     image:
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80",
   },
@@ -299,7 +299,7 @@ export const PROJECTS = [
       "Structural MIG weldments plus machined bracketry and alignment features for aisle-ready rack assemblies.",
     image:
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=900&q=80",
-    tags: ["MIG Welding", "CNC Machining", "Fabrication"],
+    tags: ["MIG Welding", "CNC and Manual Machining", "Fabrication"],
   },
   {
     title: "Laser-Cut PDU Chassis Weldments",
@@ -341,10 +341,10 @@ export const PROJECTS = [
     title: "Heavy Plate Base Weldments",
     client: "Capital Equipment OEM",
     description:
-      "Thick-plate weld prep, multi-pass weldments, and CNC machining of mounting pads tied to assembly-level tolerances.",
+      "Thick-plate weld prep, multi-pass weldments, and CNC plus manual machining of mounting pads tied to assembly-level tolerances.",
     image:
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&q=80",
-    tags: ["Heavy Weldments", "CNC Machining", "Alignment"],
+    tags: ["Heavy Weldments", "CNC and Manual Machining", "Alignment"],
   },
 ] as const;
 

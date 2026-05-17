@@ -6,7 +6,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.accu-fab.com";
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${COMPANY.name} | Precision Welding, CNC Machining & Drill Pipe and Fabrication`,
+    default: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
     template: `%s | ${COMPANY.name}`,
   },
   description: COMPANY.tagline,
@@ -15,6 +15,7 @@ export const baseMetadata: Metadata = {
     "MIG welding",
     "TIG welding",
     "CNC machining",
+    "manual machining",
     "drill pipe and fabrication",
     "laser cutting",
     "metal forming",
@@ -28,7 +29,7 @@ export const baseMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: COMPANY.name,
-    title: `${COMPANY.name} | Precision Welding, CNC Machining & Fabrication`,
+    title: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
     description: COMPANY.tagline,
     images: [
       {
@@ -41,7 +42,7 @@ export const baseMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY.name} | Precision Welding, CNC Machining & Fabrication`,
+    title: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
     description: COMPANY.tagline,
   },
   robots: {

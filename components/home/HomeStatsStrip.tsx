@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 /** Simple qualitative highlights — avoids invented metrics */
 const HIGHLIGHTS = [
-  { value: "Local", label: "Milan, New Mexico · locally owned shop" },
+  { value: "Local", label: "Grants, New Mexico · locally owned shop" },
   { value: "Welding", label: "MIG & TIG precision welding" },
-  { value: "Machining", label: "In-house CNC capabilities" },
+  { value: "Machining", label: "In-house CNC and manual machining" },
   { value: "Fabrication", label: "Laser, forming & assembly" },
   { value: "Full scope", label: "One-off builds through production volumes" },
 ] as const;

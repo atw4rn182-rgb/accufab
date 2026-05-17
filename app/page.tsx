@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
 
 const missionStatement =
-  "At Accu-Fab, we are committed to delivering high-quality welding, machining, and fabrication work with pride and precision. No job is too small. Every project receives the same attention to detail.";
+  "At Accu-Fab, we are committed to delivering high-quality welding, CNC and manual machining, and fabrication work with pride and precision. From Grants, New Mexico, we support the Four Corners region and Texas with the same attention to detail on every project.";
 
 const servicePhotos = Array.from(
   { length: 11 },

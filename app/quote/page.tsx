@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "Get A Quote",
-  "Tell Accu-Fab about your welding, CNC machining, drill pipe, or fabrication project.",
+  "Tell Accu-Fab about your welding, CNC and manual machining, drill pipe, or fabrication project.",
   "/quote"
 );
 
