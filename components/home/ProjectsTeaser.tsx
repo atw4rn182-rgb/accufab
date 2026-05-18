@@ -31,7 +31,7 @@ export function ProjectsTeaser() {
               <motion.article
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.22 }}
-                className="group relative overflow-hidden rounded-sm border border-white/10 bg-charcoal-950/82 ring-1 ring-transparent transition-[box-shadow,border-color] duration-300 hover:border-accent/45 hover:shadow-2xl hover:shadow-accent/10 hover:ring-accent/25"
+                className="group relative overflow-hidden rounded-sm border border-brand-blue-light/10 bg-charcoal-950/82 ring-1 ring-transparent transition-[box-shadow,border-color] duration-300 hover:border-brand-blue-light/45 hover:shadow-2xl hover:shadow-brand-blue-light/10 hover:ring-brand-blue-light/25"
               >
                 <Link
                   href="/quote"
@@ -46,7 +46,7 @@ export function ProjectsTeaser() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute left-4 top-4 rounded-sm bg-charcoal-950/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent backdrop-blur-sm">
+                    <div className="absolute left-4 top-4 rounded-sm bg-charcoal-950/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-brand-blue-light backdrop-blur-sm">
                       Featured
                     </div>
                     <div
@@ -60,18 +60,18 @@ export function ProjectsTeaser() {
                       </span>
                     </div>
                   </div>
-                  <div className="border-t border-white/10 p-5">
-                    <p className="text-xs font-medium uppercase tracking-wider text-accent">
+                  <div className="border-t border-brand-blue-light/10 p-5">
+                    <p className="text-xs font-medium uppercase tracking-wider text-brand-blue-light">
                       {project.client}
                     </p>
-                    <h3 className="mt-2 text-lg font-semibold text-white transition-colors group-hover:text-accent">
+                    <h3 className="mt-2 text-lg font-semibold text-steel-100 transition-colors group-hover:text-brand-blue-light">
                       {project.title}
                     </h3>
                     <p className="mt-2 line-clamp-2 text-sm text-steel-400">{project.description}</p>
                     <ul className="mt-3 flex flex-wrap gap-2" aria-label="Project tags">
                       {project.tags.map((tag) => (
                         <li key={tag}>
-                          <span className="rounded-sm border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-steel-300">
+                          <span className="rounded-sm border border-brand-blue-light/10 bg-white/5 px-2 py-0.5 text-xs text-steel-300">
                             {tag}
                           </span>
                         </li>

@@ -29,7 +29,7 @@ export function MarketsSection() {
               <motion.article
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.22 }}
-                className="group relative overflow-hidden rounded-sm border border-white/10 bg-charcoal-800/40 ring-1 ring-transparent transition-all duration-300 hover:border-accent/40 hover:ring-accent/20"
+                className="group relative overflow-hidden rounded-sm border border-brand-blue-light/10 bg-charcoal-800/40 ring-1 ring-transparent transition-all duration-300 hover:border-brand-blue-light/40 hover:ring-brand-blue-light/20"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <SafeRemoteImage
@@ -44,7 +44,7 @@ export function MarketsSection() {
                     aria-hidden
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold tracking-tight text-white">{market.title}</h3>
+                    <h3 className="text-xl font-bold tracking-tight text-steel-100">{market.title}</h3>
                     <p className="mt-2 max-w-xl text-sm leading-relaxed text-steel-300">
                       {market.description}
                     </p>

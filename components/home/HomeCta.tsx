@@ -9,7 +9,7 @@ export function HomeCta() {
   return (
     <section
       aria-labelledby="home-cta-heading"
-      className="border-t border-accent/20 bg-charcoal-950/10 pb-28 pt-20 sm:pb-32 sm:pt-24"
+      className="border-t border-brand-blue-light/20 bg-charcoal-950/10 pb-28 pt-20 sm:pb-32 sm:pt-24"
     >
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -17,10 +17,10 @@ export function HomeCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mx-auto flex max-w-3xl flex-col items-center rounded-sm border border-white/10 bg-charcoal-900/55 px-8 py-12 text-center sm:px-12 sm:py-14"
+          className="mx-auto flex max-w-3xl flex-col items-center rounded-sm border border-brand-blue-light/15 bg-charcoal-900/55 px-8 py-12 text-center sm:px-12 sm:py-14"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Contact</p>
-          <h2 id="home-cta-heading" className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-light">Contact</p>
+          <h2 id="home-cta-heading" className="mt-4 text-3xl font-bold tracking-tight text-steel-100 sm:text-4xl">
             Ready to start your project?
           </h2>
           <p className="mt-6 max-w-xl text-steel-400">

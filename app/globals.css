@@ -1,18 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-charcoal-950: #0a0a0c;
-  --color-charcoal-900: #111114;
-  --color-charcoal-800: #1a1a1f;
-  --color-charcoal-700: #25252d;
-  --color-charcoal-600: #32323c;
-  --color-steel-500: #6b7280;
-  --color-steel-400: #9ca3af;
-  --color-steel-300: #d1d5db;
-  /* Brand orange — consistent CTAs & highlights */
-  --color-accent: #ff6200;
-  --color-accent-hover: #e55800;
-  --color-accent-muted: #ff620033;
+  --color-charcoal-950: #050910;
+  --color-charcoal-900: #09111d;
+  --color-charcoal-800: #101b2b;
+  --color-charcoal-700: #172538;
+  --color-charcoal-600: #203149;
+  --color-steel-500: #7b8492;
+  --color-steel-400: #aeb6c2;
+  --color-steel-300: #d3d6dc;
+  --color-steel-200: #e7e9ed;
+  --color-steel-100: #f2f3f5;
+  --color-brand-blue: #2f5f9d;
+  --color-brand-blue-light: #82a6d6;
+  --color-brand-blue-dark: #142d50;
+  /* Logo gold — primary CTAs & warm highlights */
+  --color-accent: #d5a245;
+  --color-accent-light: #f0c86a;
+  --color-accent-hover: #b9852f;
+  --color-accent-muted: #d5a24533;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -24,21 +30,21 @@
   }
 
   body {
-    @apply bg-charcoal-950 text-white antialiased;
+    @apply overflow-x-hidden bg-charcoal-950 text-steel-100 antialiased;
   }
 
   ::selection {
-    @apply bg-accent/30 text-white;
+    @apply bg-accent/35 text-charcoal-950;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-white via-steel-300 to-steel-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-steel-100 via-steel-300 to-steel-400 bg-clip-text text-transparent;
   }
 
   .text-gradient-accent {
-    @apply bg-gradient-to-r from-accent to-orange-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-blue-light via-steel-200 to-brand-blue bg-clip-text text-transparent;
   }
 
   .section-padding {
@@ -51,13 +57,13 @@
 
   .industrial-grid {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(130, 166, 214, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(130, 166, 214, 0.08) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .glow-accent {
-    box-shadow: 0 0 60px -12px rgba(255, 98, 0, 0.4);
+    box-shadow: 0 0 60px -12px rgba(213, 162, 69, 0.48);
   }
 
   /* Offset anchor jumps below sticky navbar */

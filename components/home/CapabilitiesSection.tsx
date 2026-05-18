@@ -43,7 +43,7 @@ export function CapabilitiesSection() {
             const Icon = capabilityIcons[cap.icon];
             return (
               <AnimateIn key={cap.title} delay={i * 0.06}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-white/10 bg-charcoal-900/72 transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:shadow-xl hover:shadow-accent/10">
+                <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-brand-blue-light/10 bg-charcoal-900/72 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-light/45 hover:shadow-xl hover:shadow-brand-blue-light/10">
                   <div className="relative h-28 w-full shrink-0 overflow-hidden">
                     <SafeRemoteImage
                       src={cap.image}
@@ -58,10 +58,10 @@ export function CapabilitiesSection() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-sm bg-accent/15 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-sm bg-brand-blue-light/15 text-brand-blue-light transition-colors duration-300 group-hover:bg-brand-blue-light group-hover:text-charcoal-950">
                       <Icon className="h-5 w-5 shrink-0" strokeWidth={1.75} aria-hidden />
                     </div>
-                    <h3 className="text-base font-semibold leading-snug text-white">{cap.title}</h3>
+                    <h3 className="text-base font-semibold leading-snug text-steel-100">{cap.title}</h3>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-steel-400">
                       {cap.description}
                     </p>

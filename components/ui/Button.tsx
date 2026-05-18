@@ -30,11 +30,11 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/25",
-  secondary: "bg-charcoal-700 text-white hover:bg-charcoal-600 border border-charcoal-600",
+    "bg-accent text-charcoal-950 hover:bg-accent-light shadow-lg shadow-accent/25",
+  secondary: "bg-charcoal-700 text-steel-100 hover:bg-charcoal-600 border border-charcoal-600",
   outline:
-    "border border-steel-500/50 text-white hover:border-accent hover:text-accent bg-transparent",
-  ghost: "text-steel-300 hover:text-white hover:bg-white/5",
+    "border border-brand-blue-light/45 text-steel-100 hover:border-accent hover:text-accent bg-transparent",
+  ghost: "text-steel-300 hover:text-steel-100 hover:bg-white/5",
 };
 
 const sizes: Record<ButtonSize, string> = {

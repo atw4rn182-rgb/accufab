@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -8,7 +9,7 @@ interface LogoProps {
   priority?: boolean;
 }
 
-export function Logo({ className, variant = "default" }: LogoProps) {
+export function Logo({ className, variant = "default", priority = false }: LogoProps) {
   return (
     <Link
       href="/"
@@ -17,11 +18,18 @@ export function Logo({ className, variant = "default" }: LogoProps) {
     >
       <span
         className={cn(
-          "text-2xl font-black uppercase tracking-tight transition-colors duration-200 sm:text-3xl",
-          variant === "light" ? "text-white group-hover:text-accent" : "text-white"
+          "relative block h-10 w-[150px] transition duration-200 group-hover:brightness-110 sm:h-11 sm:w-[170px] lg:w-[185px]",
+          variant === "light" ? "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]" : "drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
         )}
       >
-        Accu<span className="text-accent">-Fab</span>
+        <Image
+          src="/brand/accufab-wordmark.png"
+          alt="Accu-Fab LLC"
+          fill
+          priority={priority}
+          sizes="(max-width: 640px) 150px, (max-width: 1024px) 170px, 185px"
+          className="object-contain object-left"
+        />
       </span>
     </Link>
   );

@@ -13,12 +13,12 @@ export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
   return (
     <div className="mx-auto flex max-w-lg flex-col items-center text-center">
       <div
-        className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent"
+        className="flex h-14 w-14 items-center justify-center rounded-full border border-brand-blue-light/40 bg-brand-blue-light/10 text-brand-blue-light"
         aria-hidden
       >
         <AlertTriangle className="h-7 w-7" strokeWidth={1.75} />
       </div>
-      <h1 className="mt-8 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+      <h1 className="mt-8 text-2xl font-bold tracking-tight text-steel-100 sm:text-3xl">
         We hit a snag loading this page
       </h1>
       <p className="mt-4 text-base leading-relaxed text-steel-400">
@@ -38,7 +38,7 @@ export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
       <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
         <button
           type="button"
-          className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-colors hover:bg-accent-hover"
+          className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-charcoal-950 shadow-lg shadow-accent/20 transition-colors hover:bg-accent-light"
           onClick={() => {
             if (typeof window !== "undefined") window.location.reload();
           }}
@@ -47,14 +47,14 @@ export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
         </button>
         <button
           type="button"
-          className="rounded-sm border border-steel-500/50 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-accent hover:text-accent"
+          className="rounded-sm border border-brand-blue-light/45 bg-transparent px-6 py-3 text-sm font-semibold text-steel-100 transition-colors hover:border-accent hover:text-accent"
           onClick={() => reset()}
         >
           Try again
         </button>
         <Link
           href="/"
-          className="inline-flex items-center justify-center rounded-sm border border-white/15 px-6 py-3 text-sm font-semibold text-steel-300 transition-colors hover:border-white/25 hover:text-white"
+          className="inline-flex items-center justify-center rounded-sm border border-brand-blue-light/20 px-6 py-3 text-sm font-semibold text-steel-300 transition-colors hover:border-brand-blue-light/35 hover:text-steel-100"
         >
           Home
         </Link>

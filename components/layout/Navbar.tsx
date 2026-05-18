@@ -38,7 +38,7 @@ export function Navbar() {
   const navLinkClass = (active: boolean) =>
     cn(
       "relative inline-flex rounded-sm px-3 py-2 text-sm font-medium transition-colors duration-200 sm:px-4",
-      active ? "text-accent" : "text-steel-300 hover:text-white"
+      active ? "text-brand-blue-light" : "text-steel-300 hover:text-steel-100"
     );
 
   return (
@@ -46,7 +46,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-white/5 bg-charcoal-950/94 shadow-md shadow-black/25 backdrop-blur-xl"
+          ? "border-b border-brand-blue-light/10 bg-charcoal-950/94 shadow-md shadow-black/25 backdrop-blur-xl"
           : "bg-transparent"
       )}
       role="banner"
@@ -82,7 +82,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-sm border border-white/15 text-white transition-colors hover:border-accent/50 hover:text-accent lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-sm border border-brand-blue-light/25 text-steel-100 transition-colors hover:border-accent/60 hover:text-accent lg:hidden"
           onClick={() => setMobileOpen((o) => !o)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
@@ -100,7 +100,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-b border-white/5 bg-charcoal-950/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-b border-brand-blue-light/10 bg-charcoal-950/95 backdrop-blur-xl lg:hidden"
           >
             <ul className="flex flex-col gap-0.5 px-4 pb-5 pt-1" role="list">
               {NAV_LINKS.map((link) => {
@@ -111,7 +111,7 @@ export function Navbar() {
                       href={link.href}
                       className={cn(
                         "block rounded-sm px-3 py-3 text-base font-medium",
-                        active ? "bg-accent/10 text-accent" : "text-steel-300 hover:bg-white/[0.04] hover:text-white"
+                        active ? "bg-brand-blue-light/10 text-brand-blue-light" : "text-steel-300 hover:bg-white/[0.04] hover:text-steel-100"
                       )}
                       aria-current={active ? "page" : undefined}
                     >

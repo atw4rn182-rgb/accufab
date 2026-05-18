@@ -17,7 +17,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="min-h-screen bg-charcoal-950 font-sans text-white antialiased">
+      <body className="min-h-screen bg-charcoal-950 font-sans text-steel-100 antialiased">
         <div className="flex min-h-screen flex-col items-center justify-center px-6 py-24">
           <AppErrorFallback reset={reset} error={error} />
         </div>

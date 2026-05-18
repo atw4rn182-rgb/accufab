@@ -15,7 +15,7 @@ export function HomeStatsStrip() {
   return (
     <section
       aria-label="At a glance"
-      className="border-y border-white/10 bg-charcoal-900/50 py-14 sm:py-16"
+      className="border-y border-brand-blue-light/10 bg-charcoal-900/50 py-14 sm:py-16"
     >
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -27,7 +27,7 @@ export function HomeStatsStrip() {
         >
           {HIGHLIGHTS.map((row) => (
             <div key={row.label} className="min-w-0 text-left">
-              <p className="text-lg font-semibold uppercase tracking-[0.12em] text-accent sm:text-xl">
+              <p className="text-lg font-semibold uppercase tracking-[0.12em] text-brand-blue-light sm:text-xl">
                 {row.value}
               </p>
               <p className="mt-2 text-sm leading-snug text-steel-400">{row.label}</p>

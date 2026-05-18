@@ -4,7 +4,7 @@ import { useState } from "react";
 import { COMPANY } from "@/lib/constants";
 
 const inputClass =
-  "mt-2 w-full rounded-sm border border-white/10 bg-charcoal-950/70 px-4 py-3 text-base text-white outline-none transition-colors placeholder:text-steel-500 focus:border-accent focus:ring-2 focus:ring-accent/20";
+  "mt-2 w-full rounded-sm border border-brand-blue-light/15 bg-charcoal-950/70 px-4 py-3 text-base text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/20";
 
 const labelClass = "block text-sm font-semibold uppercase tracking-[0.12em] text-steel-300";
 
@@ -72,7 +72,7 @@ export function QuoteForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="mt-8 space-y-6 rounded-sm border border-white/10 bg-charcoal-900/45 p-5 shadow-2xl shadow-black/20 sm:p-6"
+      className="mt-8 space-y-6 rounded-sm border border-brand-blue-light/15 bg-charcoal-900/45 p-5 shadow-2xl shadow-black/20 sm:p-6"
     >
       <div>
         <label htmlFor="project-type" className={labelClass}>
@@ -168,18 +168,18 @@ export function QuoteForm() {
       </div>
 
       {showConfirmationOption ? (
-        <label className="flex items-start gap-3 rounded-sm border border-white/10 bg-white/[0.04] p-4 text-base leading-relaxed text-steel-300">
+        <label className="flex items-start gap-3 rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base leading-relaxed text-steel-300">
           <input
             type="checkbox"
             checked={sendConfirmation}
             onChange={(event) => setSendConfirmation(event.currentTarget.checked)}
-            className="mt-1 h-4 w-4 rounded border-white/20 bg-charcoal-950 text-accent accent-[#f97316]"
+            className="mt-1 h-4 w-4 rounded border-brand-blue-light/25 bg-charcoal-950 text-accent accent-[#d5a245]"
           />
           <span>Also send me a confirmation email</span>
         </label>
       ) : null}
 
-      <p className="rounded-sm border border-white/10 bg-white/[0.04] p-4 text-base leading-relaxed text-steel-300">
+      <p className="rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base leading-relaxed text-steel-300">
         Please fill out this questionnaire as completely as possible. The more details you give us,
         the better we can help you.
       </p>
@@ -204,15 +204,15 @@ export function QuoteForm() {
         </p>
       ) : null}
 
-      <div className="rounded-sm border border-accent/30 bg-accent/10 p-5 text-center shadow-lg shadow-accent/10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+      <div className="rounded-sm border border-brand-blue-light/30 bg-brand-blue-dark/20 p-5 text-center shadow-lg shadow-brand-blue-light/10">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-light">
           Texting is preferred
         </p>
         <p className="mt-4 text-base text-steel-300">
           Phone:{" "}
           <a
             href={COMPANY.phoneHref}
-            className="text-2xl font-black tracking-tight text-white transition-colors hover:text-accent sm:text-3xl"
+            className="text-2xl font-black tracking-tight text-steel-100 transition-colors hover:text-accent sm:text-3xl"
           >
             {COMPANY.phone}
           </a>
