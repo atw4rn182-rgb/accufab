@@ -2,7 +2,7 @@ export const COMPANY = {
   name: "Accu-Fab",
   /** Sitewide description: hero intro, footer, Open Graph defaults */
   tagline:
-    "At our locally owned shop in Grants, NM, no job is too small. With CNC and manual machining equipment, precision welding, hydraulic repair, and custom fabrication capabilities, Accu-Fab serves the Four Corners region and Texas as your go-to partner.",
+    "At our locally owned shop in Milan, New Mexico, no job is too small. With CNC and manual machining equipment, precision welding, hydraulic repair, and custom fabrication capabilities, Accu-Fab serves the Four Corners region and Texas as your go-to partner.",
   /** Short positioning line for hero badges & footer accents */
   shortTagline:
     "Precision Welding • CNC and Manual Machining • Four Corners + Texas",
@@ -10,7 +10,7 @@ export const COMPANY = {
   phoneHref: "tel:+15058760658",
   email: "Accufab.weld@gmail.com",
   emailHref: "mailto:Accufab.weld@gmail.com",
-  address: "Grants, NM",
+  address: "Milan, New Mexico",
 } as const;
 
 /** Top-level navigation — routed section pages */

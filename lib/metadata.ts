@@ -4,7 +4,7 @@ import { COMPANY } from "./constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://accufabnm.com";
 const googleSiteVerification = "Cit3l9CILL9Bwp0P-u_RsBbKGg7";
 const homeDescription =
-  "Accu-Fab provides precision welding, CNC and manual machining, hydraulic repair, and custom fabrication for Grants, Four Corners, and Texas projects.";
+  "Accu-Fab provides precision welding, CNC and manual machining, hydraulic repair, and custom fabrication for Milan, Four Corners, and Texas projects.";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),

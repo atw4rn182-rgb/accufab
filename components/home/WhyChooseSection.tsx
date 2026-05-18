@@ -27,7 +27,7 @@ export function WhyChooseSection() {
           titleId="why-heading"
           eyebrow="Why Accu-Fab"
           title="American weld & fabrication craftsmanship your drawings deserve"
-          description="Experienced welders, machinists, and fabricators who treat joint planning, machined interfaces, and finish expectations as seriously as dimensional checks—starting with straightforward communication in Grants, NM."
+          description="Experienced welders, machinists, and fabricators who treat joint planning, machined interfaces, and finish expectations as seriously as dimensional checks—starting with straightforward communication in Milan, New Mexico."
           align="center"
           className="mb-12 lg:mb-14"
         />

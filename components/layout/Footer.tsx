@@ -75,7 +75,7 @@ export function Footer() {
             © {year} {COMPANY.name}. All rights reserved.
           </p>
           <p className="text-center text-xs text-steel-500 sm:text-right">
-            Locally owned · Precision welding · CNC and manual machining · Grants, NM
+            Locally owned · Precision welding · CNC and manual machining · Milan, New Mexico
           </p>
         </div>
       </div>
