@@ -52,7 +52,7 @@ export function Navbar() {
       role="banner"
     >
       <nav
-        className="container-narrow flex min-h-[4.25rem] items-center justify-between gap-4 px-4 py-2.5 sm:px-6 lg:min-h-[4.5rem] lg:px-8"
+        className="container-narrow flex min-h-[4.25rem] items-center justify-between gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 lg:min-h-[4.5rem] lg:px-8"
         aria-label="Main navigation"
       >
         <Logo priority />
@@ -82,7 +82,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-sm border border-brand-blue-light/25 text-steel-100 transition-colors hover:border-accent/60 hover:text-accent lg:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-brand-blue-light/25 text-steel-100 transition-colors hover:border-accent/60 hover:text-accent lg:hidden"
           onClick={() => setMobileOpen((o) => !o)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"

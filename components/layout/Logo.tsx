@@ -13,7 +13,7 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
   const logoSizeClass =
     variant === "light"
       ? "h-14 w-[225px] drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)] sm:h-16 sm:w-[280px] lg:h-[4.75rem] lg:w-[330px]"
-      : "h-14 w-[230px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] min-[390px]:h-16 min-[390px]:w-[280px] sm:h-20 sm:w-[360px] lg:h-24 lg:w-[430px]";
+      : "h-14 w-[min(230px,calc(100vw-5.75rem))] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] min-[390px]:h-16 min-[390px]:w-[min(280px,calc(100vw-6rem))] sm:h-20 sm:w-[360px] lg:h-24 lg:w-[430px]";
   const imageSizes =
     variant === "light"
       ? "(max-width: 640px) 225px, (max-width: 1024px) 280px, 330px"
