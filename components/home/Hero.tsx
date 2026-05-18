@@ -36,12 +36,12 @@ export function Hero() {
           fill
           priority
           quality={100}
-          className="object-contain object-center opacity-95 sm:opacity-100"
+          className="object-contain object-center opacity-100"
           sizes="(max-width: 640px) 100vw, 100vw"
         />
-        <div className="absolute inset-0 bg-charcoal-950/18 sm:bg-charcoal-950/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/72 via-charcoal-950/24 to-charcoal-950/10 sm:from-charcoal-950/62 sm:via-charcoal-950/18 sm:to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal-950/96 via-charcoal-950/48 to-transparent sm:h-1/2 sm:from-charcoal-950/92 sm:via-charcoal-950/42 sm:to-transparent" />
+        <div className="absolute inset-0 bg-charcoal-950/4 sm:bg-charcoal-950/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/44 via-charcoal-950/10 to-transparent sm:from-charcoal-950/62 sm:via-charcoal-950/18 sm:to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal-950/74 via-charcoal-950/22 to-transparent sm:h-1/2 sm:from-charcoal-950/92 sm:via-charcoal-950/42 sm:to-transparent" />
       </div>
 
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-90" aria-hidden />
