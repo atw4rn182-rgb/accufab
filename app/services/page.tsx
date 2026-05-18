@@ -1,9 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { COMPANY } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = pageMetadata("Services", COMPANY.tagline, "/services");
+export const metadata: Metadata = pageMetadata(
+  "Services",
+  "View Accu-Fab services with real shop photos: CNC and manual machining, precision welding, hydraulic cylinder repair, and fabrication for tough work.",
+  "/services"
+);
 
 const missionStatement =
   "At Accu-Fab, we are committed to delivering high-quality welding, machining, and fabrication work with pride and precision. No job is too small. Every project receives the same attention to detail.";

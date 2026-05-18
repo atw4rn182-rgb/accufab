@@ -3,7 +3,11 @@ import { InnerPageShell } from "@/components/layout/InnerPageShell";
 import { COMPANY } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = pageMetadata("Capabilities", COMPANY.tagline, "/capabilities");
+export const metadata: Metadata = pageMetadata(
+  "Capabilities",
+  "Explore Accu-Fab capabilities: precision welding, CNC and manual machining, drill pipe work, hydraulic repair, and custom fabrication for tough jobs.",
+  "/capabilities"
+);
 
 export default function CapabilitiesPage() {
   return (

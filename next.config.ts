@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     ],
     /** Cached optimized images TTL (seconds); reduces repeated Sharp work across deploys/clients */
     minimumCacheTTL: 60 * 60 * 24,
-    qualities: [75, 85],
+    qualities: [75, 85, 92, 100],
   },
 };
 

@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "Get A Quote",
-  "Tell Accu-Fab about your welding, CNC and manual machining, drill pipe, or fabrication project.",
+  "Request a quote from Accu-Fab for welding, CNC and manual machining, hydraulic repair, drill pipe, or custom fabrication projects in Grants, NM today.",
   "/quote"
 );
 

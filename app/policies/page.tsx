@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Policies",
-  "Accu-Fab policies including privacy, terms, and supplier guidelines.",
+  "Review Accu-Fab policies for privacy, terms, and supplier guidelines for welding, machining, hydraulic repair, and fabrication work with confidence.",
   "/policies"
 );
 

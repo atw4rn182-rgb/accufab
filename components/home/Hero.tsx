@@ -18,7 +18,7 @@ const secondaryLinkClass = cn(
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden pb-20 pt-36 sm:pb-24 sm:pt-40 lg:min-h-[min(90vh,52rem)] lg:pb-24 lg:pt-48"
+      className="relative flex min-h-[calc(100vh-4rem)] items-start overflow-hidden pb-12 pt-24 sm:min-h-[calc(100vh-5rem)] sm:items-center sm:pb-24 sm:pt-40 lg:min-h-[min(90vh,52rem)] lg:pb-24 lg:pt-48"
       aria-label="Hero"
     >
       <div className="absolute inset-0" aria-hidden>
@@ -26,7 +26,8 @@ export function Hero() {
           src="/brand/accufab-logo.jpg"
           alt=""
           fill
-          className="scale-105 object-cover object-center blur-sm"
+          quality={92}
+          className="hidden scale-105 object-cover object-center blur-sm sm:block"
           sizes="100vw"
         />
         <Image
@@ -34,37 +35,36 @@ export function Hero() {
           alt=""
           fill
           priority
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xDR5lI7c86kTgHvjJUBXbF6S8fV9X8b8fE6bG8jGd9Z6WbB8hF5f9Z7Z8fF6b//Z"
-          className="object-contain object-center"
-          sizes="100vw"
+          quality={100}
+          className="object-contain object-center opacity-95 sm:opacity-100"
+          sizes="(max-width: 640px) 100vw, 100vw"
         />
-        <div className="absolute inset-0 bg-charcoal-950/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/62 via-charcoal-950/18 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-charcoal-950/92 via-charcoal-950/42 to-transparent" />
+        <div className="absolute inset-0 bg-charcoal-950/18 sm:bg-charcoal-950/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/72 via-charcoal-950/24 to-charcoal-950/10 sm:from-charcoal-950/62 sm:via-charcoal-950/18 sm:to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-charcoal-950/96 via-charcoal-950/48 to-transparent sm:h-1/2 sm:from-charcoal-950/92 sm:via-charcoal-950/42 sm:to-transparent" />
       </div>
 
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-90" aria-hidden />
 
-      <div className="container-narrow relative z-10 translate-y-8 px-4 sm:translate-y-10 sm:px-6 lg:translate-y-12 lg:px-8">
+      <div className="container-narrow relative z-10 px-4 sm:translate-y-10 sm:px-6 lg:translate-y-12 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto max-w-3xl rounded-sm border border-white/10 bg-charcoal-950/22 px-5 py-8 text-center shadow-2xl shadow-black/25 backdrop-blur-[1px] sm:px-8 lg:max-w-[40rem]"
+          className="mx-auto max-w-3xl rounded-sm border border-white/15 bg-charcoal-950/62 px-5 py-6 text-center shadow-2xl shadow-black/45 sm:border-white/10 sm:bg-charcoal-950/22 sm:px-8 sm:py-8 sm:shadow-black/25 sm:backdrop-blur-[1px] lg:max-w-[40rem]"
         >
-          <p className="mb-6 inline-flex flex-wrap justify-center gap-x-2 rounded-sm border border-accent/35 bg-accent/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent sm:text-xs">
+          <p className="mb-4 inline-flex flex-wrap justify-center gap-x-2 rounded-sm border border-accent/45 bg-accent/15 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mb-6 sm:border-accent/35 sm:bg-accent/10 sm:text-xs sm:drop-shadow-none">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent animate-pulse" aria-hidden />
             <span>{COMPANY.shortTagline}</span>
           </p>
 
-          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
+          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.9)] sm:text-5xl sm:drop-shadow-none lg:text-[3.35rem]">
             Precision <span className="text-gradient-accent">CNC</span>{" "}
             <span className="text-accent">and</span>{" "}
             <span className="text-gradient-accent">Manual Machining</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm font-semibold uppercase leading-relaxed tracking-[0.12em] text-accent sm:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-sm font-semibold uppercase leading-relaxed tracking-[0.12em] text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mt-6 sm:text-base sm:drop-shadow-none">
             Hydraulic Cylinder Repair <span className="text-steel-500">•</span> Custom Fabrication{" "}
             <span className="text-steel-500">•</span> CNC &amp; Manual Machining{" "}
             <span className="text-steel-500">•</span> Heavy Duty Equipment Repair{" "}
@@ -72,11 +72,11 @@ export function Hero() {
             Drill Pipe
           </p>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-steel-300 sm:text-xl">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-steel-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mt-8 sm:text-xl sm:text-steel-300 sm:drop-shadow-none">
             {COMPANY.tagline}
           </p>
 
-          <div className="mx-auto mt-12 flex max-w-md flex-col gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center">
+          <div className="mx-auto mt-7 flex max-w-md flex-col gap-3 sm:mt-12 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Button href="/quote" size="lg" className="glow-accent shrink-0" transition>
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />

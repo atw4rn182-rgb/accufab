@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { COMPANY } from "./constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.accu-fab.com";
+const homeDescription =
+  "Accu-Fab provides precision welding, CNC and manual machining, hydraulic repair, and custom fabrication for Grants, Four Corners, and Texas projects.";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -9,7 +11,7 @@ export const baseMetadata: Metadata = {
     default: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
     template: `%s | ${COMPANY.name}`,
   },
-  description: COMPANY.tagline,
+  description: homeDescription,
   keywords: [
     "precision welding",
     "MIG welding",
@@ -25,12 +27,15 @@ export const baseMetadata: Metadata = {
     "OEM metal fabrication",
   ],
   authors: [{ name: COMPANY.name }],
+  verification: {
+    google: "Cit3l9CILL9Bwp0P-u_RsBbKGg7J",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: COMPANY.name,
     title: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
-    description: COMPANY.tagline,
+    description: homeDescription,
     images: [
       {
         url: "/og-image.jpg",
@@ -43,7 +48,7 @@ export const baseMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
-    description: COMPANY.tagline,
+    description: homeDescription,
   },
   robots: {
     index: true,
@@ -63,6 +68,10 @@ export function pageMetadata(
       title: `${title} | ${COMPANY.name}`,
       description,
       url: `${siteUrl}${path}`,
+    },
+    twitter: {
+      title: `${title} | ${COMPANY.name}`,
+      description,
     },
     alternates: {
       canonical: `${siteUrl}${path}`,

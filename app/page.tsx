@@ -6,7 +6,7 @@ const missionStatement =
 
 const servicePhotos = Array.from(
   { length: 11 },
-  (_, index) => `/images/service-${String(index + 1).padStart(2, "0")}.png?v=latest-chat-upload`
+  (_, index) => `/images/service-${String(index + 1).padStart(2, "0")}.png`
 );
 
 /**

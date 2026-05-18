@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "News",
-  "Accu-Fab news and announcements.",
+  "Read Accu-Fab news about precision welding, CNC and manual machining, fabrication, hydraulic repair, and service across Four Corners and Texas work.",
   "/news"
 );
 

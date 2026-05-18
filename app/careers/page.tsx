@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Careers",
-  "Explore careers at Accu-Fab — precision manufacturing made in the USA.",
+  "Explore Accu-Fab careers in precision welding, CNC and manual machining, hydraulic repair, and fabrication at our locally owned Grants, NM shop team.",
   "/careers"
 );
 

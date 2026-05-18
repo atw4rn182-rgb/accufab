@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { InnerPageShell } from "@/components/layout/InnerPageShell";
-import { COMPANY } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = pageMetadata("Projects", COMPANY.tagline, "/projects");
+export const metadata: Metadata = pageMetadata(
+  "Projects",
+  "See Accu-Fab project examples for welded repairs, CNC and manual machining, drill pipe work, and custom fabrication built with precision and pride.",
+  "/projects"
+);
 
 export default function ProjectsPage() {
   return (
