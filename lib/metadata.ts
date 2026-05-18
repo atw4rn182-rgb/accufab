@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { COMPANY } from "./constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://accufabnm.com";
-const googleSiteVerification = "Cit3l9CILL9Bwp0P-u_RsBbKGg7J";
+const googleSiteVerification = "Cit3l9CILL9Bwp0P-u_RsBbKGg7";
 const homeDescription =
   "Accu-Fab provides precision welding, CNC and manual machining, hydraulic repair, and custom fabrication for Grants, Four Corners, and Texas projects.";
 
