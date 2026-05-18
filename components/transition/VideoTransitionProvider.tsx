@@ -12,10 +12,9 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 
 const VIDEO_SRC = "/brand/accufab-video.mp4";
-const MAX_VIDEO_SECONDS = 4;
-const FALLBACK_NAVIGATION_MS = 4500;
+const FALLBACK_NAVIGATION_MS = 120000;
 const FADE_OUT_MS = 750;
-const ROUTE_SETTLE_MS = 150;
+const ROUTE_SETTLE_MS = 300;
 
 type TransitionContextValue = {
   navigateWithTransition: (href: string) => void;
@@ -154,11 +153,6 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
             preload="auto"
             onEnded={completeTransition}
             onError={completeTransition}
-            onTimeUpdate={(event) => {
-              if (event.currentTarget.currentTime >= MAX_VIDEO_SECONDS) {
-                completeTransition();
-              }
-            }}
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/10 to-black/20" />
           <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-accent/20" />
