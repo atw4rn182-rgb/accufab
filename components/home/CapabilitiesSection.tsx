@@ -33,7 +33,7 @@ export function CapabilitiesSection() {
           titleId="capabilities-heading"
           eyebrow="Capabilities"
           title="Welding, machining, drill pipe & fabrication — built under one roof"
-          description="Welding, CNC and manual machining, laser and forming work, finishes, assembly, and practical engineering support—delivered from our shop in Grants, New Mexico for the Four Corners region and Texas."
+          description="Welding, CNC and manual machining, laser and forming work, finishes, assembly, and practical engineering support—delivered from our shop in Grants, NM for the Four Corners region and Texas."
           align="center"
           className="mb-14 lg:mb-16"
         />
