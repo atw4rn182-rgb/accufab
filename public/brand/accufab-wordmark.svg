@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 280" role="img" aria-labelledby="title">
+  <title id="title">Accu-Fab LLC</title>
+  <defs>
+    <linearGradient id="silver" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f9fbff" />
+      <stop offset="0.16" stop-color="#cbd3dd" />
+      <stop offset="0.46" stop-color="#8c9299" />
+      <stop offset="0.58" stop-color="#eff3f7" />
+      <stop offset="0.82" stop-color="#6f757b" />
+      <stop offset="1" stop-color="#d9dee5" />
+    </linearGradient>
+    <linearGradient id="blueBevel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#4e78b7" />
+      <stop offset="0.42" stop-color="#102849" />
+      <stop offset="0.75" stop-color="#7ba6dc" />
+      <stop offset="1" stop-color="#18355e" />
+    </linearGradient>
+    <linearGradient id="shine" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.45" />
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    <filter id="softShadow" x="-8%" y="-18%" width="116%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="7" flood-color="#02060b" flood-opacity="0.72" />
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#6f8fc2" flood-opacity="0.45" />
+    </filter>
+    <style>
+      .word {
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: 168px;
+        font-style: italic;
+        font-weight: 900;
+        letter-spacing: -9px;
+      }
+      .llc {
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: 46px;
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
+    </style>
+  </defs>
+  <g filter="url(#softShadow)" transform="translate(16 24)">
+    <text class="word" x="23" y="178" transform="scale(1.72 1)" fill="none" stroke="#050b14" stroke-linejoin="round" stroke-width="34">
+      ACCU-FAB
+    </text>
+    <text class="word" x="23" y="178" transform="scale(1.72 1)" fill="none" stroke="url(#blueBevel)" stroke-linejoin="round" stroke-width="24">
+      ACCU-FAB
+    </text>
+    <text class="word" x="23" y="178" transform="scale(1.72 1)" fill="url(#silver)" stroke="#dce5ef" stroke-linejoin="round" stroke-width="3">
+      ACCU-FAB
+    </text>
+    <text class="word" x="23" y="178" transform="scale(1.72 1)" fill="url(#shine)" opacity="0.42">
+      ACCU-FAB
+    </text>
+    <text class="llc" x="1045" y="225" fill="#f3f6f9" stroke="#101923" stroke-linejoin="round" stroke-width="5">
+      LLC
+    </text>
+  </g>
+</svg>

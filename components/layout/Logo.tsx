@@ -10,6 +10,15 @@ interface LogoProps {
 }
 
 export function Logo({ className, variant = "default", priority = false }: LogoProps) {
+  const logoSizeClass =
+    variant === "light"
+      ? "h-14 w-[225px] drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)] sm:h-16 sm:w-[280px] lg:h-[4.75rem] lg:w-[330px]"
+      : "h-14 w-[230px] drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] min-[390px]:h-16 min-[390px]:w-[280px] sm:h-20 sm:w-[360px] lg:h-24 lg:w-[430px]";
+  const imageSizes =
+    variant === "light"
+      ? "(max-width: 640px) 225px, (max-width: 1024px) 280px, 330px"
+      : "(max-width: 389px) 230px, (max-width: 640px) 280px, (max-width: 1024px) 360px, 430px";
+
   return (
     <Link
       href="/"
@@ -18,16 +27,16 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
     >
       <span
         className={cn(
-          "relative block h-12 w-[190px] transition duration-200 group-hover:brightness-110 sm:h-14 sm:w-[230px] lg:h-16 lg:w-[270px]",
-          variant === "light" ? "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]" : "drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+          "relative block transition duration-200 group-hover:brightness-110",
+          logoSizeClass
         )}
       >
         <Image
-          src="/brand/accufab-wordmark.png"
+          src="/brand/accufab-wordmark.svg"
           alt="Accu-Fab LLC"
           fill
           priority={priority}
-          sizes="(max-width: 640px) 190px, (max-width: 1024px) 230px, 270px"
+          sizes={imageSizes}
           className="object-contain object-left"
         />
       </span>
