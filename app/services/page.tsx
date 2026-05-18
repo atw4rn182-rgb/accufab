@@ -18,13 +18,13 @@ export default function ServicesPage() {
     <div className="min-h-[68vh] bg-charcoal-950/10 px-4 pb-28 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
       <section className="container-narrow mx-auto">
         <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-blue-light">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
             Explore Services
           </p>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-steel-100 sm:text-5xl">
+          <h1 className="mt-4 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:text-5xl">
             Services
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-steel-300">
+          <p className="mx-auto mt-6 max-w-3xl text-lg font-medium leading-relaxed text-steel-200">
             {missionStatement}
           </p>
         </div>

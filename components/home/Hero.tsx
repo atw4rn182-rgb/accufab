@@ -53,29 +53,29 @@ export function Hero() {
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-sm border border-brand-blue-light/20 bg-charcoal-950/62 px-5 py-6 text-center shadow-2xl shadow-black/45 sm:max-w-3xl sm:border-brand-blue-light/15 sm:bg-charcoal-950/22 sm:px-8 sm:py-8 sm:shadow-black/25 sm:backdrop-blur-[1px] lg:max-w-[40rem]"
         >
-          <p className="mb-4 inline-flex max-w-full flex-wrap justify-center gap-x-2 rounded-sm border border-brand-blue-light/45 bg-brand-blue-dark/35 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-brand-blue-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mb-6 sm:border-brand-blue-light/35 sm:bg-brand-blue-dark/25 sm:text-xs sm:tracking-[0.16em] sm:drop-shadow-none">
+          <p className="mb-4 inline-flex max-w-full flex-wrap justify-center gap-x-2 rounded-sm border border-brand-blue-light/55 bg-brand-blue-dark/45 px-3 py-2 text-[10px] font-black uppercase tracking-[0.1em] text-brand-blue-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:mb-6 sm:border-brand-blue-light/45 sm:bg-brand-blue-dark/30 sm:text-xs sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-blue-light animate-pulse" aria-hidden />
             <span className="min-w-0 max-w-[17rem] whitespace-normal leading-relaxed sm:max-w-none">
               {COMPANY.shortTagline}
             </span>
           </p>
 
-          <h1 className="mx-auto max-w-[18rem] text-3xl font-bold leading-[1.08] tracking-tight text-steel-100 drop-shadow-[0_3px_12px_rgba(0,0,0,0.9)] sm:max-w-none sm:text-5xl sm:drop-shadow-none lg:text-[3.35rem]">
+          <h1 className="mx-auto max-w-[18rem] text-3xl font-black leading-[1.08] tracking-tight text-steel-100 drop-shadow-[0_4px_14px_rgba(0,0,0,0.96)] sm:max-w-none sm:text-5xl lg:text-[3.35rem]">
             Precision <span className="text-gradient-accent">CNC</span>{" "}
             <span className="text-brand-blue-light">and</span>
             <br className="sm:hidden" />{" "}
             <span className="text-gradient-accent">Manual Machining</span>
           </h1>
 
-          <p className="mx-auto mt-4 max-w-[19rem] text-[11px] font-semibold uppercase leading-relaxed tracking-[0.03em] text-brand-blue-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mt-6 sm:max-w-2xl sm:text-base sm:tracking-[0.12em] sm:drop-shadow-none">
-            Hydraulic Cylinder Repair <span className="text-steel-500">•</span> Custom Fabrication{" "}
-            <span className="text-steel-500">•</span> CNC &amp; Manual Machining{" "}
-            <span className="text-steel-500">•</span> Heavy Duty Equipment Repair{" "}
-            <span className="text-steel-500">•</span> Mining <span className="text-steel-500">&amp;</span>{" "}
+          <p className="mx-auto mt-4 max-w-[19rem] text-[11px] font-black uppercase leading-relaxed tracking-[0.03em] text-brand-blue-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:mt-6 sm:max-w-2xl sm:text-base sm:tracking-[0.12em]">
+            Hydraulic Cylinder Repair <span className="text-steel-300">•</span> Custom Fabrication{" "}
+            <span className="text-steel-300">•</span> CNC &amp; Manual Machining{" "}
+            <span className="text-steel-300">•</span> Heavy Duty Equipment Repair{" "}
+            <span className="text-steel-300">•</span> Mining <span className="text-steel-300">&amp;</span>{" "}
             Drill Pipe
           </p>
 
-          <p className="mx-auto mt-5 max-w-[18rem] text-sm leading-relaxed text-steel-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mt-8 sm:max-w-2xl sm:text-xl sm:text-steel-300 sm:drop-shadow-none">
+          <p className="mx-auto mt-5 max-w-[18rem] text-sm font-semibold leading-relaxed text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:mt-8 sm:max-w-2xl sm:text-xl">
             {COMPANY.tagline}
           </p>
 
@@ -89,12 +89,12 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 text-sm font-medium text-steel-300 sm:flex-row sm:gap-6">
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 text-sm font-bold text-steel-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)] sm:flex-row sm:gap-6">
             <a href={COMPANY.phoneHref} className="transition-colors hover:text-accent">
-              <span className="text-steel-500">Phone:</span> {COMPANY.phone}
+              <span className="text-steel-300">Phone:</span> {COMPANY.phone}
             </a>
             <a href={COMPANY.emailHref} className="transition-colors hover:text-accent">
-              <span className="text-steel-500">Email:</span> {COMPANY.email}
+              <span className="text-steel-300">Email:</span> {COMPANY.email}
             </a>
           </div>
         </motion.div>

@@ -36,11 +36,11 @@ export function WhyChooseSection() {
           {WHY_STATS.map((stat, i) => (
             <AnimateIn key={stat.label} delay={i * 0.06}>
               <div className="flex h-full flex-col rounded-sm border border-brand-blue-light/30 bg-gradient-to-br from-brand-blue-light/[0.08] to-transparent px-5 py-6">
-                <p className="text-3xl font-bold tracking-tight text-steel-100">{stat.value}</p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-brand-blue-light">
+                <p className="text-3xl font-black tracking-tight text-steel-100">{stat.value}</p>
+                <p className="mt-2 text-xs font-black uppercase tracking-wider text-brand-blue-light">
                   {stat.label}
                 </p>
-                <p className="mt-3 text-sm leading-snug text-steel-400">{stat.hint}</p>
+                <p className="mt-3 text-sm font-medium leading-snug text-steel-300">{stat.hint}</p>
               </div>
             </AnimateIn>
           ))}
@@ -56,7 +56,7 @@ export function WhyChooseSection() {
                     <Icon className="h-6 w-6" aria-hidden />
                   </div>
                   <h3 className="text-lg font-semibold text-steel-100">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-steel-400">{item.description}</p>
+                  <p className="mt-2 text-sm font-medium leading-relaxed text-steel-300">{item.description}</p>
                 </article>
               </AnimateIn>
             );
@@ -65,7 +65,7 @@ export function WhyChooseSection() {
 
         <AnimateIn delay={0.12}>
           <div className="mt-16 rounded-sm border border-brand-blue-light/10 bg-charcoal-900/40 px-6 py-10 lg:px-10">
-            <h3 className="text-center text-sm font-semibold uppercase tracking-[0.22em] text-brand-blue-light">
+            <h3 className="text-center text-sm font-black uppercase tracking-[0.22em] text-brand-blue-light">
               Values in motion
             </h3>
             <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
@@ -78,7 +78,7 @@ export function WhyChooseSection() {
                   />
                   <div>
                     <p className="font-semibold text-steel-100">{v.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-steel-400">{v.description}</p>
+                    <p className="mt-1 text-sm font-medium leading-relaxed text-steel-300">{v.description}</p>
                   </div>
                 </li>
               ))}

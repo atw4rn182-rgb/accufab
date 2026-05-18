@@ -19,11 +19,11 @@ export function HomeCta() {
           transition={{ duration: 0.5 }}
           className="mx-auto flex max-w-3xl flex-col items-center rounded-sm border border-brand-blue-light/15 bg-charcoal-900/55 px-8 py-12 text-center sm:px-12 sm:py-14"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-light">Contact</p>
-          <h2 id="home-cta-heading" className="mt-4 text-3xl font-bold tracking-tight text-steel-100 sm:text-4xl">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-brand-blue-light">Contact</p>
+          <h2 id="home-cta-heading" className="mt-4 text-3xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:text-4xl">
             Ready to start your project?
           </h2>
-          <p className="mt-6 max-w-xl text-steel-400">
+          <p className="mt-6 max-w-xl font-medium text-steel-300">
             Send prints, sketches, or a short description—we will confirm feasibility and outline next steps.
           </p>
           <div className="mt-10 flex w-full flex-col gap-4 sm:flex-row sm:justify-center">
@@ -35,7 +35,7 @@ export function HomeCta() {
               Browse capabilities
             </Button>
           </div>
-          <p className="mt-8 text-sm text-steel-500">
+          <p className="mt-8 text-sm font-medium text-steel-400">
             Prefer to call first? Reach us via the{" "}
             <Link href="/quote" className="font-medium text-accent underline-offset-4 hover:underline">
               contact page

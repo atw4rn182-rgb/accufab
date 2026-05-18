@@ -27,10 +27,10 @@ export function HomeStatsStrip() {
         >
           {HIGHLIGHTS.map((row) => (
             <div key={row.label} className="min-w-0 text-left">
-              <p className="text-lg font-semibold uppercase tracking-[0.12em] text-brand-blue-light sm:text-xl">
+              <p className="text-lg font-black uppercase tracking-[0.12em] text-brand-blue-light sm:text-xl">
                 {row.value}
               </p>
-              <p className="mt-2 text-sm leading-snug text-steel-400">{row.label}</p>
+              <p className="mt-2 text-sm font-medium leading-snug text-steel-300">{row.label}</p>
             </div>
           ))}
         </motion.div>

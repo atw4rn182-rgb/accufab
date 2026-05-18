@@ -14,13 +14,13 @@ export default function PoliciesPage() {
       <div className="container-narrow mx-auto max-w-2xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-8">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-steel-400 transition-colors hover:text-accent"
+          className="inline-flex items-center gap-2 text-sm font-bold text-steel-300 transition-colors hover:text-accent"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back to home
         </Link>
-        <h1 className="mt-8 text-4xl font-bold tracking-tight text-steel-100">Policies</h1>
-        <p className="mt-4 text-lg text-steel-400">
+        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">Policies</h1>
+        <p className="mt-4 text-lg font-medium text-steel-300">
           Official policy documents will be published here. For contractual or compliance questions,
           contact your Accu-Fab program owner or{" "}
           <Link href="/quote" className="font-semibold text-accent hover:underline">

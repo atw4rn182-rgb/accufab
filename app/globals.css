@@ -6,13 +6,13 @@
   --color-charcoal-800: #101b2b;
   --color-charcoal-700: #172538;
   --color-charcoal-600: #203149;
-  --color-steel-500: #7b8492;
-  --color-steel-400: #aeb6c2;
-  --color-steel-300: #d3d6dc;
-  --color-steel-200: #e7e9ed;
-  --color-steel-100: #f2f3f5;
-  --color-brand-blue: #2f5f9d;
-  --color-brand-blue-light: #82a6d6;
+  --color-steel-500: #a6afbc;
+  --color-steel-400: #c5ccd6;
+  --color-steel-300: #e2e6ec;
+  --color-steel-200: #f0f2f5;
+  --color-steel-100: #fbfcfd;
+  --color-brand-blue: #3f72b5;
+  --color-brand-blue-light: #b4d4ff;
   --color-brand-blue-dark: #142d50;
   /* Logo gold — primary CTAs & warm highlights */
   --color-accent: #ffc247;
@@ -31,6 +31,9 @@
 
   body {
     @apply overflow-x-hidden bg-charcoal-950 text-steel-100 antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
@@ -40,11 +43,11 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-steel-100 via-steel-300 to-steel-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white via-steel-200 to-steel-300 bg-clip-text text-transparent;
   }
 
   .text-gradient-accent {
-    @apply bg-gradient-to-r from-brand-blue-light via-steel-200 to-brand-blue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-blue-light via-steel-100 to-brand-blue bg-clip-text text-transparent;
   }
 
   .section-padding {

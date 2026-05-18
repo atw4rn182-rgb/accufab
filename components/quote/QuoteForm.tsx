@@ -4,9 +4,9 @@ import { useState } from "react";
 import { COMPANY } from "@/lib/constants";
 
 const inputClass =
-  "mt-2 w-full rounded-sm border border-brand-blue-light/15 bg-charcoal-950/70 px-4 py-3 text-base text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/20";
+  "mt-2 w-full rounded-sm border border-brand-blue-light/25 bg-charcoal-950/82 px-4 py-3 text-base font-medium text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/25";
 
-const labelClass = "block text-sm font-semibold uppercase tracking-[0.12em] text-steel-300";
+const labelClass = "block text-sm font-black uppercase tracking-[0.12em] text-steel-200";
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
@@ -168,7 +168,7 @@ export function QuoteForm() {
       </div>
 
       {showConfirmationOption ? (
-        <label className="flex items-start gap-3 rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base leading-relaxed text-steel-300">
+        <label className="flex items-start gap-3 rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base font-medium leading-relaxed text-steel-200">
           <input
             type="checkbox"
             checked={sendConfirmation}
@@ -179,7 +179,7 @@ export function QuoteForm() {
         </label>
       ) : null}
 
-      <p className="rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base leading-relaxed text-steel-300">
+      <p className="rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base font-medium leading-relaxed text-steel-200">
         Please fill out this questionnaire as completely as possible. The more details you give us,
         the better we can help you.
       </p>
@@ -208,7 +208,7 @@ export function QuoteForm() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-light">
           Texting is preferred
         </p>
-        <p className="mt-4 text-base text-steel-300">
+        <p className="mt-4 text-base font-medium text-steel-200">
           Phone:{" "}
           <a
             href={COMPANY.phoneHref}
@@ -217,7 +217,7 @@ export function QuoteForm() {
             {COMPANY.phone}
           </a>
         </p>
-        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-steel-300">
+        <p className="mx-auto mt-4 max-w-xl text-base font-medium leading-relaxed text-steel-200">
           Please fill out the questionnaire above as completely as possible before texting us.
         </p>
       </div>

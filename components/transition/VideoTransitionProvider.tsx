@@ -107,6 +107,8 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
         if (!video) return;
 
         video.currentTime = 0;
+        video.muted = false;
+        video.volume = 1;
         setIsVisible(true);
         video.play().catch(() => {
           completeTransition();
@@ -148,7 +150,6 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
             ref={videoRef}
             src={VIDEO_SRC}
             className="relative h-full w-full object-contain"
-            muted
             playsInline
             preload="auto"
             onEnded={completeTransition}

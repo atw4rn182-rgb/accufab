@@ -46,7 +46,7 @@ export function ProjectsTeaser() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08]"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
-                    <div className="absolute left-4 top-4 rounded-sm bg-charcoal-950/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-brand-blue-light backdrop-blur-sm">
+                    <div className="absolute left-4 top-4 rounded-sm bg-charcoal-950/85 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-brand-blue-light backdrop-blur-sm">
                       Featured
                     </div>
                     <div
@@ -64,10 +64,10 @@ export function ProjectsTeaser() {
                     <p className="text-xs font-medium uppercase tracking-wider text-brand-blue-light">
                       {project.client}
                     </p>
-                    <h3 className="mt-2 text-lg font-semibold text-steel-100 transition-colors group-hover:text-brand-blue-light">
+                    <h3 className="mt-2 text-lg font-black text-steel-100 transition-colors group-hover:text-brand-blue-light">
                       {project.title}
                     </h3>
-                    <p className="mt-2 line-clamp-2 text-sm text-steel-400">{project.description}</p>
+                    <p className="mt-2 line-clamp-2 text-sm font-medium text-steel-300">{project.description}</p>
                     <ul className="mt-3 flex flex-wrap gap-2" aria-label="Project tags">
                       {project.tags.map((tag) => (
                         <li key={tag}>

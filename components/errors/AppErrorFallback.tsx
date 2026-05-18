@@ -18,17 +18,17 @@ export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
       >
         <AlertTriangle className="h-7 w-7" strokeWidth={1.75} />
       </div>
-      <h1 className="mt-8 text-2xl font-bold tracking-tight text-steel-100 sm:text-3xl">
+      <h1 className="mt-8 text-2xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:text-3xl">
         We hit a snag loading this page
       </h1>
-      <p className="mt-4 text-base leading-relaxed text-steel-400">
+      <p className="mt-4 text-base font-medium leading-relaxed text-steel-300">
         Something went wrong on our side or while loading an asset. Your work is safe—try refreshing, or
         return home and continue from there.
       </p>
       <p className="mt-5 text-xs leading-relaxed text-steel-500">
         Developing locally? If logs mention missing files under{" "}
-        <span className="font-mono text-steel-400">.next</span>, stop the dev server and run{" "}
-        <span className="font-mono text-steel-400">npm run dev:clean</span> to reset the cache, then reload.
+        <span className="font-mono text-steel-300">.next</span>, stop the dev server and run{" "}
+        <span className="font-mono text-steel-300">npm run dev:clean</span> to reset the cache, then reload.
       </p>
       {error?.digest ? (
         <p className="mt-4 text-xs text-steel-500">

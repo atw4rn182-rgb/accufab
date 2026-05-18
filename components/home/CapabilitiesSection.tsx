@@ -62,7 +62,7 @@ export function CapabilitiesSection() {
                       <Icon className="h-5 w-5 shrink-0" strokeWidth={1.75} aria-hidden />
                     </div>
                     <h3 className="text-base font-semibold leading-snug text-steel-100">{cap.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-steel-400">
+                    <p className="mt-2 flex-1 text-sm font-medium leading-relaxed text-steel-300">
                       {cap.description}
                     </p>
                   </div>

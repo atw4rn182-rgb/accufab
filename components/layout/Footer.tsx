@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { COMPANY, FOOTER_LINKS } from "@/lib/constants";
 
-const footerLinkClass = "text-sm text-steel-400 transition-colors hover:text-steel-100";
+const footerLinkClass = "text-sm font-medium text-steel-300 transition-colors hover:text-steel-100";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -19,7 +19,7 @@ export function Footer() {
             <p className="mt-5 max-w-sm text-sm font-medium leading-relaxed text-brand-blue-light">
               {COMPANY.shortTagline}
             </p>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-steel-400">{COMPANY.tagline}</p>
+            <p className="mt-4 max-w-md text-sm font-medium leading-relaxed text-steel-300">{COMPANY.tagline}</p>
             <ul className="mt-8 space-y-3 text-sm" aria-label="Contact information">
               <li>
                 <a href={COMPANY.phoneHref} className="flex items-center gap-2 text-steel-300 hover:text-accent">
@@ -42,7 +42,7 @@ export function Footer() {
 
           <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:justify-end">
             <div>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-blue-light">Navigate</h3>
+              <h3 className="text-[11px] font-black uppercase tracking-[0.22em] text-brand-blue-light">Navigate</h3>
               <ul className="mt-5 space-y-3" role="list">
                 {FOOTER_LINKS.navigate.map((link) => (
                   <li key={link.href}>
@@ -54,7 +54,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-blue-light">
+              <h3 className="text-[11px] font-black uppercase tracking-[0.22em] text-brand-blue-light">
                 More
               </h3>
               <ul className="mt-5 space-y-3" role="list">
@@ -71,10 +71,10 @@ export function Footer() {
         </div>
 
         <div className="container-narrow mx-auto mt-14 flex flex-col items-center justify-between gap-4 border-t border-brand-blue-light/10 pt-8 sm:flex-row">
-          <p className="text-center text-xs text-steel-500 sm:text-left">
+          <p className="text-center text-xs font-medium text-steel-400 sm:text-left">
             © {year} {COMPANY.name}. All rights reserved.
           </p>
-          <p className="text-center text-xs text-steel-500 sm:text-right">
+          <p className="text-center text-xs font-medium text-steel-400 sm:text-right">
             Locally owned · Precision welding · CNC and manual machining · Milan, New Mexico
           </p>
         </div>

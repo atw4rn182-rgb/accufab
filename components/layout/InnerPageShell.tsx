@@ -15,17 +15,17 @@ export function InnerPageShell({ title, eyebrow, children }: InnerPageShellProps
       <div className="container-narrow mx-auto max-w-2xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-8">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-steel-400 transition-colors hover:text-accent"
+          className="inline-flex items-center gap-2 text-sm font-bold text-steel-300 transition-colors hover:text-accent"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Home
         </Link>
 
         {eyebrow ? (
-          <p className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-brand-blue-light">{eyebrow}</p>
+          <p className="mt-10 text-xs font-black uppercase tracking-[0.2em] text-brand-blue-light">{eyebrow}</p>
         ) : null}
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-steel-100">{title}</h1>
-        <div className="mt-6 space-y-4 text-lg leading-relaxed text-steel-400">{children}</div>
+        <h1 className="mt-4 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">{title}</h1>
+        <div className="mt-6 space-y-4 text-lg font-medium leading-relaxed text-steel-300">{children}</div>
       </div>
     </div>
   );
