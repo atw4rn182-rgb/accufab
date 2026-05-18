@@ -15,10 +15,10 @@
   --color-brand-blue-light: #82a6d6;
   --color-brand-blue-dark: #142d50;
   /* Logo gold — primary CTAs & warm highlights */
-  --color-accent: #d5a245;
-  --color-accent-light: #f0c86a;
-  --color-accent-hover: #b9852f;
-  --color-accent-muted: #d5a24533;
+  --color-accent: #ffc247;
+  --color-accent-light: #ffe08a;
+  --color-accent-hover: #f5a400;
+  --color-accent-muted: #ffc24733;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -63,7 +63,9 @@
   }
 
   .glow-accent {
-    box-shadow: 0 0 60px -12px rgba(213, 162, 69, 0.48);
+    box-shadow:
+      0 0 38px -8px rgba(255, 224, 138, 0.72),
+      0 0 90px -20px rgba(255, 194, 71, 0.72);
   }
 
   /* Offset anchor jumps below sticky navbar */

@@ -18,7 +18,7 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
     >
       <span
         className={cn(
-          "relative block h-10 w-[150px] transition duration-200 group-hover:brightness-110 sm:h-11 sm:w-[170px] lg:w-[185px]",
+          "relative block h-12 w-[190px] transition duration-200 group-hover:brightness-110 sm:h-14 sm:w-[230px] lg:h-16 lg:w-[270px]",
           variant === "light" ? "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]" : "drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
         )}
       >
@@ -27,7 +27,7 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
           alt="Accu-Fab LLC"
           fill
           priority={priority}
-          sizes="(max-width: 640px) 150px, (max-width: 1024px) 170px, 185px"
+          sizes="(max-width: 640px) 190px, (max-width: 1024px) 230px, 270px"
           className="object-contain object-left"
         />
       </span>
