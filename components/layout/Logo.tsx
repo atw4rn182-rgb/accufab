@@ -23,17 +23,18 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
     >
       <span
         className={cn(
-          "relative block h-12 w-[clamp(10rem,52vw,13.5rem)] max-w-[calc(100vw-6rem)] transition duration-200 group-hover:brightness-110 sm:h-14 sm:w-64 lg:h-16 lg:w-80",
+          "relative block h-10 w-[min(13.25rem,calc(100vw-5.5rem))] transition duration-200 group-hover:brightness-110 sm:h-12 sm:w-60 lg:h-14 lg:w-72",
           shadowClass
         )}
       >
         <Image
-          src="/brand/accufab-wordmark.svg"
+          src="/brand/accufab-wordmark.png"
           alt="Accu-Fab LLC"
-          fill
+          width={1600}
+          height={321}
           priority={priority}
-          sizes="(max-width: 640px) 52vw, (max-width: 1024px) 256px, 320px"
-          className="object-contain object-left pr-1"
+          sizes="(max-width: 640px) min(212px, calc(100vw - 5.5rem)), (max-width: 1024px) 240px, 288px"
+          className="h-full w-full object-contain object-left"
         />
       </span>
     </Link>
