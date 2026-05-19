@@ -13,12 +13,12 @@ export function CapabilitiesGallery() {
             Shop & field capability
           </h2>
           <p className="mt-4 text-base font-medium leading-relaxed text-steel-200 sm:text-lg">
-            From our Milan, New Mexico facility to job sites across the Four Corners and Texas, Accu-Fab
-            supports heavy fabrication, machining, welding, and repair where you need it.
+            Our mobile field service fleet supports on-site work across the Four Corners and Texas when
+            downtime and logistics demand repair at your location.
           </p>
         </div>
 
-        <ul className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10" role="list">
+        <ul className="mt-10 mx-auto max-w-4xl grid grid-cols-1 gap-8" role="list">
           {CAPABILITIES_PHOTOS.map((photo) => (
             <li key={photo.src}>
               <article className="overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25">

@@ -7,12 +7,12 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "Capabilities",
-  "Explore Accu-Fab capabilities: precision welding, CNC and manual machining, drill pipe work, hydraulic repair, and custom fabrication for tough jobs.",
+  "Accu-Fab capabilities: precision welding, on-site repairs, custom fabrication, CNC machining, laser cutting, forming, assembly, and mobile field service from Milan, New Mexico.",
   "/capabilities"
 );
 
 const intro =
-  "Accu-Fab delivers precision welding, CNC and manual machining, hydraulic repair, drill pipe work, and custom fabrication from our shop in Milan, New Mexico — and in the field when your equipment cannot come to us.";
+  "Accu-Fab is a full-service metal fabrication and repair shop in Milan, New Mexico, serving the Four Corners region and Texas. In-house, we deliver precision MIG and TIG welding, custom metal fabrication, CNC and manual machining, laser cutting, brake forming, and mechanical assembly — along with hydraulic cylinder repair and drill pipe work for industrial and heavy-duty applications. When equipment cannot travel, our mobile field service trucks bring on-site welding, fabrication, and repair to your job site with the same disciplined quality we apply in the shop.";
 
 export default function CapabilitiesPage() {
   return (
@@ -37,8 +37,8 @@ export default function CapabilitiesPage() {
             {intro}
           </p>
           <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-steel-300">
-            Serving the Four Corners region and Texas — {COMPANY.name} brings the same attention to
-            detail on every project, in the shop or on site.
+            {COMPANY.name} — one team, one standard of work, whether your project stays in-house or
+            meets us in the field.
           </p>
         </div>
 

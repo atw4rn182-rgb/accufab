@@ -1,17 +1,10 @@
 export const CAPABILITIES_PHOTOS = [
   {
-    src: "/capabilities/cap-photo-landscape.jpg",
-    alt: "Accu-Fab mobile service truck performing on-site heavy equipment repair in the field",
-    title: "Mobile field service",
+    src: "/capabilities/cap-mobile-field-service.jpg",
+    alt: "Accu-Fab mobile service truck equipped for on-site welding, fabrication, and heavy equipment repair",
+    title: "Mobile field service & on-site welding repair",
     caption:
-      "We bring welding, fabrication, and repair capability to your equipment — on site when the job cannot come to the shop.",
-  },
-  {
-    src: "/capabilities/cap-field-landscape.jpg",
-    alt: "Technician welding and servicing heavy equipment from a field service truck",
-    title: "On-site welding & repair",
-    caption:
-      "Fully equipped service trucks support field repairs, hydraulic work, and fabrication for industrial and heavy-duty equipment.",
+      "Fully equipped service trucks bring welding, fabrication, and repair to your equipment when the job cannot come to our Milan shop.",
   },
 ] as const;
 
