@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
+import { ShopFeature } from "@/components/home/ShopFeature";
 
 const missionStatement =
   "At Accu-Fab, we deliver precision welding, CNC and manual machining, hydraulic repair, and custom fabrication with pride and accuracy. From Milan, New Mexico, we support the Four Corners region and Texas with the same attention to detail on every project.";
@@ -16,7 +17,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <section id="explore-services" className="px-4 pb-28 pt-16 sm:px-6 lg:px-8">
+      <ShopFeature />
+      <section id="explore-services" className="px-4 pb-28 pt-10 sm:px-6 sm:pt-12 lg:px-8">
         <div className="container-narrow mx-auto">
           <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
