@@ -1,8 +1,6 @@
 import sharp from "sharp";
 
-const src = process.argv[2] ?? "public/brand/accufab-wordmark.png";
-const out = "public/brand/accufab-wordmark.png";
-
+const path = "public/brand/accufab-wordmark.png";
 const idx = (x, y, w) => y * w + x;
 
 function morph(mask, w, h, r, mode) {
@@ -73,55 +71,38 @@ function removeSmallIslands(mask, w, h, minArea) {
   return out;
 }
 
-function isForeground(r, g, b) {
-  const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  const spread = Math.max(r, g, b) - Math.min(r, g, b);
-  const blue = b > r + 8 && b >= g - 6 && spread > 12;
-  const metal = lum > 68 && spread < 100;
-  return blue || metal;
-}
-
-const { data, info } = await sharp(src).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
-const { width, height, channels } = info;
+const { data, info } = await sharp(path).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+const { width, height } = info;
 
 let alpha = new Uint8Array(width * height);
-for (let y = 0; y < height; y++) {
-  for (let x = 0; x < width; x++) {
-    const si = (y * width + x) * channels;
-    const r = data[si];
-    const g = data[si + 1];
-    const b = data[si + 2];
-    alpha[idx(x, y, width)] = isForeground(r, g, b) ? 255 : 0;
-  }
+for (let i = 0; i < width * height; i++) {
+  alpha[i] = data[i * 4 + 3];
 }
 
 alpha = morph(alpha, width, height, 1, "erode");
 alpha = morph(alpha, width, height, 1, "dilate");
-alpha = removeSmallIslands(alpha, width, height, 24);
+alpha = removeSmallIslands(alpha, width, height, 18);
 
-const alphaBuf = Buffer.from(alpha);
-const smoothAlpha = await sharp(alphaBuf, { raw: { width, height, channels: 1 } })
-  .blur(0.35)
+const smoothAlpha = await sharp(Buffer.from(alpha), { raw: { width, height, channels: 1 } })
+  .blur(0.4)
   .raw()
   .toBuffer();
 
 const rgba = Buffer.alloc(width * height * 4);
-for (let y = 0; y < height; y++) {
-  for (let x = 0; x < width; x++) {
-    const si = (y * width + x) * channels;
-    const oi = (y * width + x) * 4;
-    const a = smoothAlpha[idx(x, y, width)];
-    rgba[oi] = data[si];
-    rgba[oi + 1] = data[si + 1];
-    rgba[oi + 2] = data[si + 2];
-    rgba[oi + 3] = a < 20 ? 0 : a;
-  }
+for (let i = 0; i < width * height; i++) {
+  const oi = i * 4;
+  rgba[oi] = data[oi];
+  rgba[oi + 1] = data[oi + 1];
+  rgba[oi + 2] = data[oi + 2];
+  const a = smoothAlpha[i];
+  rgba[oi + 3] = a < 24 ? 0 : a;
 }
 
-await sharp(rgba, { raw: { width, height, channels: 4 } })
-  .trim({ threshold: 12 })
+const trimmed = await sharp(rgba, { raw: { width, height, channels: 4 } })
+  .trim({ threshold: 10 })
   .png()
-  .toFile(out);
+  .toBuffer();
 
-const meta = await sharp(out).metadata();
-console.log(out, `${meta.width}x${meta.height}`, "alpha:", meta.hasAlpha);
+await sharp(trimmed).toFile(path);
+const meta = await sharp(path).metadata();
+console.log(path, `${meta.width}x${meta.height}`);
