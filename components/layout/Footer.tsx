@@ -15,7 +15,7 @@ export function Footer() {
       <div className="px-4 pb-12 pt-16 sm:px-6 lg:px-8">
         <div className="container-narrow mx-auto grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <Logo variant="light" />
+            <Logo variant="light" placement="footer" />
             <p className="mt-5 max-w-sm text-sm font-medium leading-relaxed text-brand-blue-light">
               {COMPANY.shortTagline}
             </p>

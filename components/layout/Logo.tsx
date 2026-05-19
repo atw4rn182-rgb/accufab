@@ -9,15 +9,28 @@ const LOGO_HEIGHT = 611;
 interface LogoProps {
   className?: string;
   variant?: "default" | "light";
+  /** Header: large on mobile, normal on desktop. Footer: compact. */
+  placement?: "header" | "footer";
   /** When true, loads with high fetch priority — use only once per route (typically in the Navbar). */
   priority?: boolean;
 }
 
-export function Logo({ className, variant = "default", priority = false }: LogoProps) {
+export function Logo({
+  className,
+  variant = "default",
+  placement = "header",
+  priority = false,
+}: LogoProps) {
+  const isHeader = placement === "header";
+
   return (
     <Link
       href="/"
-      className={cn("inline-flex min-w-0 shrink-0 items-center", className)}
+      className={cn(
+        "inline-flex items-center",
+        isHeader && "min-w-0 flex-1 lg:flex-none",
+        className
+      )}
       aria-label="Accu-Fab LLC — Welding · Machining · Fabrication"
     >
       <Image
@@ -26,11 +39,18 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
         priority={priority}
-        sizes="(max-width: 640px) min(17rem, calc(100vw - 5.5rem)), 288px"
+        sizes={
+          isHeader
+            ? "(max-width: 1023px) min(22rem, calc(100vw - 5.25rem)), 240px"
+            : "208px"
+        }
         className={cn(
-          "h-auto w-auto max-w-[min(17rem,calc(100vw-5.5rem))] object-contain object-left",
-          "max-h-11 sm:max-h-12 lg:max-h-14",
-          "sm:max-w-[15rem] lg:max-w-[18rem]",
+          "h-auto w-auto object-contain object-left",
+          isHeader && [
+            "max-h-16 max-w-[min(calc(100vw-5.25rem),22rem)]",
+            "lg:max-h-14 lg:max-w-60",
+          ],
+          !isHeader && "max-h-12 max-w-52",
           variant === "light" && "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
         )}
       />

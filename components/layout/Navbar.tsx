@@ -52,7 +52,7 @@ export function Navbar() {
       role="banner"
     >
       <nav
-        className="container-narrow flex min-h-[4.25rem] items-center justify-between gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 lg:min-h-[4.5rem] lg:px-8"
+        className="container-narrow flex min-h-[4.5rem] items-center justify-between gap-2 px-4 py-2 sm:gap-4 sm:px-6 sm:py-2.5 lg:min-h-[4.5rem] lg:gap-6 lg:px-8"
         aria-label="Main navigation"
       >
         <Logo priority />
