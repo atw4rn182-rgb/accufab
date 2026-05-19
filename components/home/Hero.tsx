@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +16,8 @@ const secondaryLinkClass = cn(
 );
 
 export function Hero() {
+  const { openMenu } = useNavigationMenu();
+
   return (
     <section
       className="relative flex min-h-[calc(100vh-4rem)] items-start overflow-hidden pb-12 pt-24 sm:min-h-[calc(100vh-5rem)] sm:items-center sm:pb-24 sm:pt-40 lg:min-h-[min(90vh,52rem)] lg:pb-24 lg:pt-48"
@@ -84,9 +86,9 @@ export function Hero() {
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
             </Button>
-            <Link href="#explore-services" className={secondaryLinkClass}>
+            <button type="button" onClick={openMenu} className={secondaryLinkClass}>
               Explore services
-            </Link>
+            </button>
           </div>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 text-sm font-bold text-steel-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)] sm:flex-row sm:gap-6">

@@ -23,6 +23,14 @@ export const NAV_LINKS = [
   { href: "/quote", label: "Contact / Quote" },
 ] as const;
 
+/** Links shown in the Explore Services / mobile navigation menu */
+export const EXPLORE_SERVICE_LINKS = [
+  { href: "/capabilities", label: "Capabilities" },
+  { href: "/services", label: "Services" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" },
+] as const;
+
 export const VALUES = [
   {
     title: "Integrity",

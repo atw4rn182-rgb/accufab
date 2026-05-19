@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { NavigationMenuProvider } from "@/components/layout/NavigationMenuContext";
 import { VideoTransitionProvider } from "@/components/transition/VideoTransitionProvider";
 import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
@@ -14,7 +15,6 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = baseMetadata;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,9 +44,11 @@ export default function RootLayout({
         </div>
         <div className="relative z-10">
           <VideoTransitionProvider>
-            <Navbar />
-            <main id="main-content">{children}</main>
-            <Footer />
+            <NavigationMenuProvider>
+              <Navbar />
+              <main id="main-content">{children}</main>
+              <Footer />
+            </NavigationMenuProvider>
           </VideoTransitionProvider>
         </div>
       </body>
