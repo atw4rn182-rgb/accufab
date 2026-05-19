@@ -10,21 +10,16 @@ interface LogoProps {
 }
 
 export function Logo({ className, variant = "default", priority = false }: LogoProps) {
-  const shadowClass =
-    variant === "light"
-      ? "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
-      : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]";
-
   return (
     <Link
       href="/"
-      className={cn("group relative inline-flex shrink-0 items-center", className)}
+      className={cn("relative inline-flex max-w-[calc(100vw-6rem)] shrink-0 items-center sm:max-w-none", className)}
       aria-label="Accu-Fab LLC — Welding · Machining · Fabrication"
     >
       <span
         className={cn(
-          "relative block h-10 w-[min(12.75rem,calc(100vw-5.75rem))] sm:h-12 sm:w-[min(15rem,calc(100vw-6rem))] lg:h-14 lg:w-72",
-          shadowClass
+          "relative block h-10 w-[min(12rem,calc(100vw-6rem))] sm:h-11 sm:w-52 md:h-12 md:w-60 lg:h-14 lg:w-72",
+          variant === "light" && "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
         )}
       >
         <Image
@@ -33,7 +28,7 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
           width={895}
           height={185}
           priority={priority}
-          sizes="(max-width: 640px) min(204px, calc(100vw - 5.75rem)), (max-width: 1024px) 240px, 288px"
+          sizes="(max-width: 640px) min(192px, calc(100vw - 6rem)), (max-width: 1024px) 240px, 288px"
           className="h-full w-full object-contain object-left"
         />
       </span>
