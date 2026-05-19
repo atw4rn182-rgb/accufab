@@ -1,14 +1,20 @@
 import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
-import { ShopFeature } from "@/components/home/ShopFeature";
 
 const missionStatement =
   "At Accu-Fab, we deliver precision welding, CNC and manual machining, hydraulic repair, and custom fabrication with pride and accuracy. From Milan, New Mexico, we support the Four Corners region and Texas with the same attention to detail on every project.";
 
-const servicePhotos = Array.from(
-  { length: 11 },
-  (_, index) => `/images/service-${String(index + 1).padStart(2, "0")}.png`
-);
+const servicePhotos = [
+  { src: "/images/service-01.png", alt: "" },
+  {
+    src: "/images/shop-floor.png",
+    alt: "Accu-Fab fabrication shop in Milan, New Mexico with machining equipment, forklifts, and an American flag",
+  },
+  ...Array.from({ length: 10 }, (_, index) => ({
+    src: `/images/service-${String(index + 2).padStart(2, "0")}.png`,
+    alt: "",
+  })),
+];
 
 /**
  * Minimal homepage with a focused services photo grid.
@@ -17,7 +23,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ShopFeature />
       <section id="explore-services" className="px-4 pb-28 pt-10 sm:px-6 sm:pt-12 lg:px-8">
         <div className="container-narrow mx-auto">
           <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
@@ -33,14 +38,14 @@ export default function HomePage() {
           </div>
 
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-8">
-            {servicePhotos.map((src, index) => (
+            {servicePhotos.map((photo, index) => (
               <article
-                key={src}
+                key={photo.src}
                 className="group relative aspect-[4/3] overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-light/55 hover:shadow-2xl hover:shadow-brand-blue-light/15"
               >
                 <Image
-                  src={src}
-                  alt=""
+                  src={photo.src}
+                  alt={photo.alt}
                   fill
                   unoptimized
                   priority={index < 3}
