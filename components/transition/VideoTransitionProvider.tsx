@@ -9,12 +9,14 @@ import {
   useRef,
   useState,
 } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const VIDEO_SRC = "/brand/accufab-video.mp4";
-const FALLBACK_NAVIGATION_MS = 120000;
-const FADE_OUT_MS = 750;
-const ROUTE_SETTLE_MS = 300;
+const TRANSITION_MS = 3000;
+const FADE_IN_MS = 350;
+const FADE_OUT_MS = 550;
+const NAVIGATE_AT_MS = TRANSITION_MS - FADE_OUT_MS;
+const PLAYBACK_END_S = 3;
 
 type TransitionContextValue = {
   navigateWithTransition: (href: string) => void;
@@ -24,56 +26,47 @@ const TransitionContext = createContext<TransitionContextValue | null>(null);
 
 export function VideoTransitionProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const pathname = usePathname();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isFading, setIsFading] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
   const targetHref = useRef<string | null>(null);
-  const targetPathname = useRef<string | null>(null);
-  const fallbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const completeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadeInTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navigateTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const endTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const isCompleting = useRef(false);
+  const hasNavigated = useRef(false);
 
   const clearTimers = useCallback(() => {
-    if (fallbackTimer.current) clearTimeout(fallbackTimer.current);
-    if (completeTimer.current) clearTimeout(completeTimer.current);
-    fallbackTimer.current = null;
-    completeTimer.current = null;
+    if (fadeInTimer.current) clearTimeout(fadeInTimer.current);
+    if (navigateTimer.current) clearTimeout(navigateTimer.current);
+    if (endTimer.current) clearTimeout(endTimer.current);
+    fadeInTimer.current = null;
+    navigateTimer.current = null;
+    endTimer.current = null;
   }, []);
 
-  const finishTransition = useCallback(() => {
-    if (completeTimer.current) clearTimeout(completeTimer.current);
-
-    setIsFading(true);
-    completeTimer.current = setTimeout(() => {
-      setIsPlaying(false);
-      setIsVisible(false);
-      setIsFading(false);
-      isCompleting.current = false;
-      targetHref.current = null;
-      targetPathname.current = null;
-    }, FADE_OUT_MS);
-  }, []);
-
-  const completeTransition = useCallback(() => {
-    const href = targetHref.current;
-    if (!href || isCompleting.current) return;
-
-    isCompleting.current = true;
+  const resetTransition = useCallback(() => {
     clearTimers();
-    videoRef.current?.pause();
-    targetPathname.current = new URL(href, window.location.origin).pathname;
-    router.push(href);
-  }, [clearTimers, router]);
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+    setIsPlaying(false);
+    setIsVisible(false);
+    setIsFading(false);
+    setVideoVisible(false);
+    targetHref.current = null;
+    hasNavigated.current = false;
+  }, [clearTimers]);
 
-  useEffect(() => {
-    if (!isPlaying || !isCompleting.current) return;
-    if (targetPathname.current && pathname !== targetPathname.current) return;
-
-    const settleTimer = setTimeout(finishTransition, ROUTE_SETTLE_MS);
-    return () => clearTimeout(settleTimer);
-  }, [finishTransition, isPlaying, pathname]);
+  const handleTimeUpdate = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || video.currentTime < PLAYBACK_END_S) return;
+    video.pause();
+    video.currentTime = PLAYBACK_END_S;
+  }, []);
 
   const navigateWithTransition = useCallback(
     (href: string) => {
@@ -91,30 +84,45 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
       router.prefetch(href);
       clearTimers();
       targetHref.current = href;
-      targetPathname.current = null;
-      isCompleting.current = false;
-      setIsVisible(false);
+      hasNavigated.current = false;
       setIsFading(false);
+      setVideoVisible(false);
+      setIsVisible(false);
       setIsPlaying(true);
 
-      fallbackTimer.current = setTimeout(() => {
-        completeTransition();
-      }, FALLBACK_NAVIGATION_MS);
+      fadeInTimer.current = setTimeout(() => {
+        setIsVisible(true);
+        setVideoVisible(true);
 
-      setTimeout(() => {
         const video = videoRef.current;
-        if (!video) return;
+        if (!video) {
+          router.push(href);
+          resetTransition();
+          return;
+        }
 
         video.currentTime = 0;
         video.muted = false;
         video.volume = 1;
-        setIsVisible(true);
         video.play().catch(() => {
-          completeTransition();
+          router.push(href);
+          resetTransition();
         });
-      }, 0);
+      }, 16);
+
+      navigateTimer.current = setTimeout(() => {
+        if (!targetHref.current || hasNavigated.current) return;
+        hasNavigated.current = true;
+        setIsFading(true);
+        setVideoVisible(false);
+        router.push(targetHref.current);
+      }, NAVIGATE_AT_MS);
+
+      endTimer.current = setTimeout(() => {
+        resetTransition();
+      }, TRANSITION_MS);
     },
-    [clearTimers, completeTransition, router]
+    [clearTimers, resetTransition, router]
   );
 
   useEffect(() => {
@@ -132,14 +140,17 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
 
   const value = useMemo(() => ({ navigateWithTransition }), [navigateWithTransition]);
 
+  const overlayOpacity = isFading ? "opacity-0" : isVisible ? "opacity-100" : "opacity-0";
+  const videoOpacity = videoVisible && !isFading ? "opacity-100" : "opacity-0";
+  const fadeDurationMs = isFading ? FADE_OUT_MS : FADE_IN_MS;
+
   return (
     <TransitionContext.Provider value={value}>
       {children}
       {isPlaying ? (
         <div
-          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity duration-700 ${
-            isFading || !isVisible ? "opacity-0" : "opacity-100"
-          }`}
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity ease-in-out ${overlayOpacity}`}
+          style={{ transitionDuration: `${fadeDurationMs}ms` }}
           aria-live="polite"
           aria-label="Loading next page"
           role="status"
@@ -148,14 +159,17 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
           <video
             ref={videoRef}
             src={VIDEO_SRC}
-            className="relative h-full w-full object-contain"
+            className={`relative h-full w-full object-contain transition-opacity ease-in-out ${videoOpacity}`}
+            style={{ transitionDuration: `${fadeDurationMs}ms` }}
             playsInline
             preload="auto"
-            onEnded={completeTransition}
-            onError={completeTransition}
+            onTimeUpdate={handleTimeUpdate}
+            onError={() => {
+              if (targetHref.current) router.push(targetHref.current);
+              resetTransition();
+            }}
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/10 to-black/20" />
-          <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-accent/20" />
         </div>
       ) : null}
     </TransitionContext.Provider>

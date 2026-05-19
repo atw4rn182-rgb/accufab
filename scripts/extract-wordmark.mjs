@@ -109,7 +109,6 @@ const { width, height, channels } = info;
 const [wallR, wallG, wallB] = sampleWall(data, width, height, channels);
 
 let mask = new Uint8Array(width * height);
-const alpha = new Uint8Array(width * height);
 
 for (let y = 0; y < height; y++) {
   for (let x = 0; x < width; x++) {
@@ -126,10 +125,7 @@ for (let y = 0; y < height; y++) {
     const edgeMetal = lum > 72 && wallDist > 28 && spread > 6;
 
     if (wallDist < 22 && lum < 78 && !blue) continue;
-    if (blue || metal || edgeMetal) {
-      mask[idx(x, y, width)] = 255;
-      alpha[idx(x, y, width)] = blue ? 255 : lum > 130 ? 255 : 210;
-    }
+    if (blue || metal || edgeMetal) mask[idx(x, y, width)] = 255;
   }
 }
 
@@ -137,10 +133,6 @@ mask = morph(mask, width, height, 2, "dilate");
 mask = largest(mask, width, height, 800);
 mask = morph(mask, width, height, 3, "dilate");
 mask = morph(mask, width, height, 2, "erode");
-
-for (let i = 0; i < alpha.length; i++) {
-  if (!mask[i]) alpha[i] = 0;
-}
 
 const rowFill = new Float32Array(height);
 for (let y = 0; y < height; y++) {
@@ -191,23 +183,24 @@ for (let y = 0; y < oh; y++) {
     const r = data[si];
     const g = data[si + 1];
     const b = data[si + 2];
-    let a = alpha[idx(sx, sy, width)];
     const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
     const wallDist = Math.hypot(r - wallR, g - wallG, b - wallB);
-    if (a < 28 || (wallDist < 24 && lum < 70)) a = 0;
-    else if (a < 200 && wallDist < 32 && lum < 88) a = Math.round(a * 0.35);
+    const on = mask[idx(sx, sy, width)] > 0;
     rgba[oi] = r;
     rgba[oi + 1] = g;
     rgba[oi + 2] = b;
-    rgba[oi + 3] = a;
+    rgba[oi + 3] = on && !(wallDist < 24 && lum < 70) ? 255 : 0;
   }
 }
 
-await sharp(rgba, { raw: { width: ow, height: oh, channels: 4 } })
-  .trim({ threshold: 12 })
-  .resize({ width: 1600, withoutEnlargement: false })
-  .png()
-  .toFile(out);
+let pipeline = sharp(rgba, { raw: { width: ow, height: oh, channels: 4 } }).trim({ threshold: 8 });
+
+const trimmedMeta = await pipeline.clone().metadata();
+if ((trimmedMeta.width ?? ow) > 1600) {
+  pipeline = pipeline.resize({ width: 1600, withoutEnlargement: true });
+}
+
+await pipeline.png({ compressionLevel: 6, effort: 7 }).toFile(out);
 
 const meta = await sharp(out).metadata();
 console.log(out, `${meta.width}x${meta.height}`);
