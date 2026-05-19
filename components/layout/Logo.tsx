@@ -10,14 +10,10 @@ interface LogoProps {
 }
 
 export function Logo({ className, variant = "default", priority = false }: LogoProps) {
-  const logoSizeClass =
+  const shadowClass =
     variant === "light"
-      ? "h-14 w-[225px] drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)] sm:h-16 sm:w-[280px] lg:h-[4.75rem] lg:w-[330px]"
-      : "h-11 w-[min(188px,calc(100vw-6.5rem))] drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] min-[390px]:h-12 min-[390px]:w-[min(222px,calc(100vw-6.75rem))] sm:h-16 sm:w-[290px] lg:h-[4.25rem] lg:w-[350px]";
-  const imageSizes =
-    variant === "light"
-      ? "(max-width: 640px) 225px, (max-width: 1024px) 280px, 330px"
-      : "(max-width: 389px) 188px, (max-width: 640px) 222px, (max-width: 1024px) 290px, 350px";
+      ? "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
+      : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]";
 
   return (
     <Link
@@ -27,8 +23,8 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
     >
       <span
         className={cn(
-          "relative block transition duration-200 group-hover:brightness-110",
-          logoSizeClass
+          "relative block h-12 w-[clamp(10rem,52vw,13.5rem)] max-w-[calc(100vw-6rem)] transition duration-200 group-hover:brightness-110 sm:h-14 sm:w-64 lg:h-16 lg:w-80",
+          shadowClass
         )}
       >
         <Image
@@ -36,7 +32,7 @@ export function Logo({ className, variant = "default", priority = false }: LogoP
           alt="Accu-Fab LLC"
           fill
           priority={priority}
-          sizes={imageSizes}
+          sizes="(max-width: 640px) 52vw, (max-width: 1024px) 256px, 320px"
           className="object-contain object-left pr-1"
         />
       </span>
