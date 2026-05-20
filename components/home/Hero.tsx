@@ -20,7 +20,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative flex min-h-[calc(100vh-4rem)] items-start overflow-hidden pb-12 pt-24 sm:min-h-[calc(100vh-5rem)] sm:items-center sm:pb-24 sm:pt-40 lg:min-h-[min(90vh,52rem)] lg:pb-24 lg:pt-48"
+      className="relative flex min-h-[calc(100vh-10rem)] items-start overflow-hidden pb-12 pt-32 sm:min-h-[calc(100vh-11rem)] sm:items-center sm:pb-24 sm:pt-44 lg:min-h-[min(90vh,52rem)] lg:pb-24 lg:pt-52"
       aria-label="Hero"
     >
       <div className="absolute inset-0" aria-hidden>

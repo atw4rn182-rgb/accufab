@@ -26,7 +26,7 @@
   html {
     scroll-behavior: smooth;
     /* Clears fixed navbar when jumping to #sections */
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 11rem;
   }
 
   body {
