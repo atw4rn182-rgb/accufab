@@ -30,7 +30,7 @@ export function QuoteForm() {
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (submitLock.current || status === "success") {
+    if (submitLock.current || status === "sending" || status === "success") {
       return;
     }
 
