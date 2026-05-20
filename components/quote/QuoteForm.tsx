@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { COMPANY } from "@/lib/constants";
+import { WEB3FORMS } from "@/lib/web3forms";
 
 const inputClass =
   "mt-2 w-full rounded-sm border border-brand-blue-light/25 bg-charcoal-950/82 px-4 py-3 text-base font-medium text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/25";
@@ -10,59 +11,55 @@ const labelClass = "block text-sm font-black uppercase tracking-[0.12em] text-st
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
-function getString(formData: FormData, key: string) {
-  const value = formData.get(key);
-  return typeof value === "string" ? value : "";
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export function QuoteForm() {
-  const [showConfirmationOption, setShowConfirmationOption] = useState(false);
   const [sendConfirmation, setSendConfirmation] = useState(true);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const email = String(formData.get("email") ?? "").trim();
 
-    if (!showConfirmationOption) {
-      setShowConfirmationOption(true);
-      setStatus("idle");
-      setMessage("Choose whether you want a confirmation email, then submit again.");
+    if (!email) {
+      setStatus("error");
+      setMessage("Please enter your email address.");
       return;
     }
 
-    const formData = new FormData(event.currentTarget);
-    const payload = {
-      projectType: getString(formData, "project-type"),
-      materials: getString(formData, "materials"),
-      specifications: getString(formData, "specifications"),
-      quantity: getString(formData, "quantity"),
-      timeline: getString(formData, "timeline"),
-      details: getString(formData, "details"),
-      email: getString(formData, "email"),
-      sendConfirmation,
-    };
+    if (!isValidEmail(email)) {
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
+      return;
+    }
 
     setStatus("sending");
     setMessage("");
 
     try {
-      const response = await fetch("/api/quote", {
+      const response = await fetch(WEB3FORMS.endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formData,
       });
-      const result = (await response.json()) as { message?: string };
+      const result = (await response.json()) as { success?: boolean; message?: string };
 
-      if (!response.ok) {
+      if (!response.ok || !result.success) {
         throw new Error(result.message || "Unable to submit the quote request.");
       }
 
-      event.currentTarget.reset();
+      form.reset();
       setSendConfirmation(true);
-      setShowConfirmationOption(false);
       setStatus("success");
-      setMessage(result.message || "Your quote request was sent.");
+      setMessage(
+        sendConfirmation
+          ? "Your quote request was sent. We will follow up using the email you provided."
+          : "Your quote request was sent."
+      );
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Unable to submit the quote request.");
@@ -71,16 +68,23 @@ export function QuoteForm() {
 
   return (
     <form
+      action={WEB3FORMS.endpoint}
+      method="POST"
       onSubmit={onSubmit}
       className="mt-8 space-y-6 rounded-sm border border-brand-blue-light/15 bg-charcoal-900/45 p-5 shadow-2xl shadow-black/20 sm:p-6"
     >
+      <input type="hidden" name="access_key" value={WEB3FORMS.accessKey} />
+      <input type="hidden" name="subject" value={WEB3FORMS.subject} />
+      <input type="hidden" name="from_name" value="Accu-Fab Website Quote Form" />
+      <input type="hidden" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+
       <div>
-        <label htmlFor="project-type" className={labelClass}>
+        <label htmlFor="project_type" className={labelClass}>
           What kind of project are you working on?
         </label>
         <textarea
-          id="project-type"
-          name="project-type"
+          id="project_type"
+          name="project_type"
           rows={4}
           className={inputClass}
           placeholder="Briefly describe the job, repair, part, assembly, or fabrication need."
@@ -156,32 +160,38 @@ export function QuoteForm() {
 
       <div>
         <label htmlFor="email" className={labelClass}>
-          Email (optional)
+          Email <span className="text-accent">*</span>
         </label>
         <input
           id="email"
           name="email"
           type="email"
+          required
+          autoComplete="email"
           className={inputClass}
           placeholder="name@example.com"
         />
       </div>
 
-      {showConfirmationOption ? (
-        <label className="flex items-start gap-3 rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base font-medium leading-relaxed text-steel-200">
-          <input
-            type="checkbox"
-            checked={sendConfirmation}
-            onChange={(event) => setSendConfirmation(event.currentTarget.checked)}
-            className="mt-1 h-4 w-4 rounded border-brand-blue-light/25 bg-charcoal-950 text-accent accent-[#ffc247]"
-          />
-          <span>Also send me a confirmation email</span>
-        </label>
-      ) : null}
+      <label className="flex items-start gap-3 rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base font-medium leading-relaxed text-steel-200">
+        <input
+          type="checkbox"
+          name="confirmation_requested"
+          value="yes"
+          checked={sendConfirmation}
+          onChange={(event) => setSendConfirmation(event.currentTarget.checked)}
+          className="mt-1 h-4 w-4 rounded border-brand-blue-light/25 bg-charcoal-950 text-accent accent-[#ffc247]"
+        />
+        <span>Also send me a confirmation email (if available)</span>
+      </label>
 
       <p className="rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base font-medium leading-relaxed text-steel-200">
         Please fill out this questionnaire as completely as possible. The more details you give us,
-        the better we can help you.
+        the better we can help you. Submissions are delivered to{" "}
+        <a href={COMPANY.emailHref} className="text-accent hover:underline">
+          {COMPANY.email}
+        </a>
+        .
       </p>
 
       <button
