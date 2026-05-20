@@ -4,8 +4,8 @@ import { QuoteForm } from "@/components/quote/QuoteForm";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
-  "Get A Quote",
-  "Request a quote from Accu-Fab for welding, CNC and manual machining, hydraulic repair, drill pipe, or custom fabrication projects in Milan, New Mexico today.",
+  "Get a Quote",
+  "Request a quote for welding, machining, fabrication, or repair work. Tell us about your project and Accu-Fab will follow up from Milan, New Mexico.",
   "/quote"
 );
 

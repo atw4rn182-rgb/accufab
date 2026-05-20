@@ -4,8 +4,8 @@ import { COMPANY } from "@/lib/constants";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
-  "About Accu-Fab",
-  "Learn about Accu-Fab, a Milan, New Mexico shop delivering precision welding, CNC and manual machining, hydraulic repair, and custom fabrication with care.",
+  "About",
+  "Meet Accu-Fab — a locally owned Milan, New Mexico shop built for precision welding, machining, hydraulic repair, and custom fabrication across the Four Corners and Texas.",
   "/about"
 );
 

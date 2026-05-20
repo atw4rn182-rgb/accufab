@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "News",
-  "Read Accu-Fab news about precision welding, CNC and manual machining, fabrication, hydraulic repair, and service across Four Corners and Texas work.",
+  "Accu-Fab news and updates from our Milan, New Mexico shop — welding, machining, fabrication, and field service across the Four Corners and Texas.",
   "/news"
 );
 

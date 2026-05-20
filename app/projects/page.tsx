@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "Projects",
-  "See Accu-Fab project examples for welded repairs, CNC and manual machining, drill pipe work, and custom fabrication built with precision and pride.",
+  "See real Accu-Fab project work — welded repairs, machined parts, drill pipe, and custom fabrication completed for customers across the Four Corners and Texas.",
   "/projects"
 );
 

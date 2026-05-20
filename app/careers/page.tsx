@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata(
   "Careers",
-  "Explore Accu-Fab careers in precision welding, CNC and manual machining, hydraulic repair, and fabrication at our locally owned Milan, New Mexico shop team.",
+  "Join the Accu-Fab team in Milan, New Mexico. Careers in welding, machining, fabrication, and shop support for skilled tradespeople who take pride in their work.",
   "/careers"
 );
 

@@ -1,59 +1,92 @@
 import type { Metadata } from "next";
 import { COMPANY } from "./constants";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://accufabnm.com";
+/** Primary domain for SEO — accufabnm.com is the canonical site. */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://accufabnm.com"
+).replace(/\/$/, "");
+
 const googleSiteVerification = "Cit3l9CILL9Bwp0P-u_RsBbKGg7";
-const homeDescription =
-  "Accu-Fab provides precision welding, CNC and manual machining, hydraulic repair, and custom fabrication for Milan, Four Corners, and Texas projects.";
+
+export const SITE_TITLE =
+  "Accu-Fab | Welding, Machining & Fabrication | Milan, NM";
+
+export const SITE_DESCRIPTION =
+  "Precision welding, CNC machining, custom metal fabrication, and hydraulic repair from Milan, New Mexico. Accu-Fab serves the Four Corners region and Texas.";
+
+/** Build an absolute canonical URL on accufabnm.com. */
+export function absoluteUrl(path = ""): string {
+  if (!path || path === "/") {
+    return `${SITE_URL}/`;
+  }
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${SITE_URL}${normalized}`;
+}
 
 export const baseMetadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(`${SITE_URL}/`),
   title: {
-    default: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
+    default: SITE_TITLE,
     template: `%s | ${COMPANY.name}`,
   },
-  description: homeDescription,
+  description: SITE_DESCRIPTION,
+  applicationName: COMPANY.name,
   keywords: [
+    "Accu-Fab",
+    "accufabnm.com",
     "precision welding",
-    "MIG welding",
-    "TIG welding",
+    "metal fabrication",
     "CNC machining",
-    "manual machining",
-    "drill pipe and fabrication",
-    "laser cutting",
-    "metal forming",
-    "USA fabrication",
-    "weldments",
-    "Made in USA",
-    "OEM metal fabrication",
+    "Milan New Mexico",
+    "Four Corners welding",
+    "hydraulic repair",
+    "mobile field service",
+    "custom fabrication",
   ],
-  authors: [{ name: COMPANY.name }],
+  authors: [{ name: COMPANY.name, url: SITE_URL }],
+  creator: COMPANY.name,
+  publisher: COMPANY.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   verification: {
     google: googleSiteVerification,
+  },
+  alternates: {
+    canonical: absoluteUrl("/"),
   },
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: absoluteUrl("/"),
     siteName: COMPANY.name,
-    title: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
-    description: homeDescription,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${COMPANY.name} — Precision welding & fabrication`,
+        alt: `${COMPANY.name} — precision welding and fabrication in Milan, New Mexico`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY.name} | Precision Welding, CNC and Manual Machining & Fabrication`,
-    description: homeDescription,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -62,20 +95,28 @@ export function pageMetadata(
   description: string,
   path = ""
 ): Metadata {
+  const url = absoluteUrl(path);
+  const pageTitle = `${title} | ${COMPANY.name}`;
+
   return {
     title,
     description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: `${title} | ${COMPANY.name}`,
+      type: "website",
+      locale: "en_US",
+      url,
+      siteName: COMPANY.name,
+      title: pageTitle,
       description,
-      url: `${siteUrl}${path}`,
+      images: baseMetadata.openGraph?.images,
     },
     twitter: {
-      title: `${title} | ${COMPANY.name}`,
+      card: "summary_large_image",
+      title: pageTitle,
       description,
-    },
-    alternates: {
-      canonical: `${siteUrl}${path}`,
     },
   };
 }

@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "Services",
-  "View Accu-Fab services with real shop photos: CNC and manual machining, precision welding, hydraulic cylinder repair, and fabrication for tough work.",
+  "Explore Accu-Fab services: CNC and manual machining, precision welding, hydraulic repair, drill pipe work, and custom fabrication from our Milan, NM shop.",
   "/services"
 );
 
