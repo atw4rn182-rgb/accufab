@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
 import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
 import {
+  CANONICAL_HOME_URL,
   HOME_DESCRIPTION,
   HOME_TITLE,
-  absoluteUrl,
   baseMetadata,
 } from "@/lib/metadata";
 
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   },
   description: HOME_DESCRIPTION,
   alternates: {
-    canonical: absoluteUrl("/"),
+    canonical: CANONICAL_HOME_URL,
   },
   openGraph: {
     ...baseMetadata.openGraph,
-    url: absoluteUrl("/"),
+    url: CANONICAL_HOME_URL,
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
   },

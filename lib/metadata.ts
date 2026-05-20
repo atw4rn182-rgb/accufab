@@ -8,12 +8,15 @@ export const SITE_URL = (
 
 const googleSiteVerification = "Cit3l9CILL9Bwp0P-u_RsBbKGg7";
 
-/** Homepage — optimized for local search (Milan, NM & Four Corners). */
+/** Canonical homepage URL — primary site version for Google. */
+export const CANONICAL_HOME_URL = "https://accufabnm.com/";
+
+/** Homepage title and description. */
 export const HOME_TITLE =
-  "Welding & Metal Fabrication Shop in Milan, NM | Accu-Fab";
+  "Accu-Fab | Precision Welding & Metal Fabrication | Milan, New Mexico";
 
 export const HOME_DESCRIPTION =
-  "Accu-Fab is a welding and fabrication shop in Milan, New Mexico. MIG/TIG welding, CNC machining, custom metal fabrication, hydraulic repair, and mobile field service for the Four Corners and Texas.";
+  "Accu-Fab delivers precision welding, CNC machining, and custom metal fabrication from Milan, New Mexico. Serving the Four Corners region and Texas with quality work on every project.";
 
 /** Sitewide defaults (layout fallback). */
 export const SITE_TITLE = HOME_TITLE;
@@ -59,12 +62,12 @@ export const baseMetadata: Metadata = {
     google: googleSiteVerification,
   },
   alternates: {
-    canonical: absoluteUrl("/"),
+    canonical: CANONICAL_HOME_URL,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: absoluteUrl("/"),
+    url: CANONICAL_HOME_URL,
     siteName: COMPANY.name,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
