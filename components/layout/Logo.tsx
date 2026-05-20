@@ -3,8 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /** Source file dimensions — must match public/brand/accufab-wordmark.png exactly. */
-const LOGO_WIDTH = 888;
-const LOGO_HEIGHT = 153;
+const LOGO_WIDTH = 1024;
+const LOGO_HEIGHT = 611;
 
 interface LogoProps {
   className?: string;
@@ -38,11 +38,12 @@ export function Logo({
         alt="Accu-Fab LLC"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
+        unoptimized
         priority={priority}
-        sizes={isHeader ? "(max-width: 1023px) 92vw, 320px" : "208px"}
+        sizes={isHeader ? "(max-width: 1023px) 96vw, 416px" : "208px"}
         className={cn(
           "h-auto w-full object-contain object-center",
-          isHeader && "max-h-[4.75rem] sm:max-h-20 lg:max-h-[4.5rem]",
+          isHeader && "max-h-[5.5rem] sm:max-h-24 lg:max-h-[5.75rem]",
           !isHeader && "max-h-12 max-w-52",
           variant === "light" && "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
         )}
