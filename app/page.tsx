@@ -1,5 +1,34 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
+import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
+import {
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  absoluteUrl,
+  baseMetadata,
+} from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: HOME_TITLE,
+  },
+  description: HOME_DESCRIPTION,
+  alternates: {
+    canonical: absoluteUrl("/"),
+  },
+  openGraph: {
+    ...baseMetadata.openGraph,
+    url: absoluteUrl("/"),
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+  },
+  twitter: {
+    ...baseMetadata.twitter,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+  },
+};
 
 const missionStatement =
   "At Accu-Fab, we deliver precision welding, CNC and manual machining, hydraulic repair, and custom fabrication with pride and accuracy. From Milan, New Mexico, we support the Four Corners region and Texas with the same attention to detail on every project.";
@@ -16,12 +45,10 @@ const servicePhotos = [
   })),
 ];
 
-/**
- * Minimal homepage with a focused services photo grid.
- */
 export default function HomePage() {
   return (
     <>
+      <LocalBusinessJsonLd />
       <Hero />
       <section id="explore-services" className="px-4 pb-28 pt-10 sm:px-6 sm:pt-12 lg:px-8">
         <div className="container-narrow mx-auto">
