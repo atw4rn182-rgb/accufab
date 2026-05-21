@@ -13,10 +13,13 @@ export const CANONICAL_HOME_URL = `${SITE_URL}/`;
 
 /** Homepage title and description. */
 export const HOME_TITLE =
-  "Accu-Fab | Precision Welding & Metal Fabrication | Milan, New Mexico";
+  "Accu-Fab NM | Precision Metal Fabrication & Welding in Milan, NM";
 
 export const HOME_DESCRIPTION =
-  "Accu-Fab delivers precision welding, CNC machining, and custom metal fabrication from Milan, New Mexico. Serving the Four Corners region and Texas with quality work on every project.";
+  "Accu-Fab NM offers precision metal fabrication, welding, CNC machining, hydraulic repair, and custom metalwork in Milan, New Mexico. Fast quotes, quality work serving the Four Corners area.";
+
+export const HOME_KEYWORDS =
+  "metal fabrication Milan NM, welding shop New Mexico, CNC machining Milan, hydraulic repair, custom metalwork, Four Corners fabrication";
 
 /** Sitewide defaults (layout fallback). */
 export const SITE_TITLE = HOME_TITLE;

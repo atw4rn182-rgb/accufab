@@ -5,6 +5,7 @@ import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
 import {
   CANONICAL_HOME_URL,
   HOME_DESCRIPTION,
+  HOME_KEYWORDS,
   HOME_TITLE,
   baseMetadata,
 } from "@/lib/metadata";
@@ -14,17 +15,25 @@ export const metadata: Metadata = {
     absolute: HOME_TITLE,
   },
   description: HOME_DESCRIPTION,
+  keywords: HOME_KEYWORDS,
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: CANONICAL_HOME_URL,
   },
   openGraph: {
     ...baseMetadata.openGraph,
+    type: "website",
+    locale: "en_US",
     url: CANONICAL_HOME_URL,
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
   },
   twitter: {
     ...baseMetadata.twitter,
+    card: "summary_large_image",
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
   },
