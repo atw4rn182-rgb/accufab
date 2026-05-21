@@ -29,7 +29,7 @@ export function Logo({
       className={cn(
         "inline-flex items-center justify-center",
         isHeader &&
-          "mx-auto h-full w-full max-h-full max-w-full sm:h-auto sm:max-w-[min(100%,22rem)] lg:max-w-[20rem]",
+          "mx-auto flex h-full w-full min-h-0 max-h-full max-w-full sm:h-24 lg:h-[5.75rem]",
         className
       )}
       aria-label="Accu-Fab LLC — Welding · Machining · Fabrication"
@@ -41,10 +41,10 @@ export function Logo({
         height={LOGO_HEIGHT}
         unoptimized
         priority={priority}
-        sizes={isHeader ? "(max-width: 1023px) 96vw, 416px" : "208px"}
+        sizes={isHeader ? "(max-width: 1023px) 100vw, 1280px" : "208px"}
         className={cn(
-          "h-full w-full object-contain object-center sm:h-auto",
-          isHeader && "sm:max-h-24 lg:max-h-[5.75rem]",
+          "h-full w-full min-h-0 object-contain object-center",
+          isHeader && "sm:h-24 lg:h-[5.75rem]",
           !isHeader && "max-h-12 max-w-52",
           variant === "light" && "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
         )}
