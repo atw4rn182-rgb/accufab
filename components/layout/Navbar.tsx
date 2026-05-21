@@ -77,10 +77,10 @@ export function Navbar() {
       role="banner"
     >
       <nav
-        className="container-narrow flex w-full items-center justify-center px-2 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-5"
+        className="container-narrow flex h-[6.25rem] w-full items-center justify-center px-4 sm:h-auto sm:py-3 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Logo priority className="flex w-full justify-center" />
+        <Logo priority className="flex h-full w-full justify-center sm:h-auto" />
       </nav>
 
       <AnimatePresence>
