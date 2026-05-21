@@ -62,23 +62,13 @@ export function Hero() {
             </span>
           </p>
 
-          <h1 className="mx-auto max-w-[18rem] text-3xl font-black leading-[1.08] tracking-tight text-steel-100 drop-shadow-[0_4px_14px_rgba(0,0,0,0.96)] sm:max-w-none sm:text-5xl lg:text-[3.35rem]">
-            Precision <span className="text-gradient-accent">CNC</span>{" "}
-            <span className="text-brand-blue-light">and</span>
-            <br className="sm:hidden" />{" "}
-            <span className="text-gradient-accent">Manual Machining</span>
+          <h1 className="mx-auto text-center text-4xl font-black leading-[1.08] tracking-tight text-steel-100 drop-shadow-[0_4px_14px_rgba(0,0,0,0.96)] md:text-5xl">
+            Precision Metal Fabrication &amp; Welding in Milan, NM
           </h1>
 
-          <p className="mx-auto mt-4 max-w-[19rem] text-[11px] font-black uppercase leading-relaxed tracking-[0.03em] text-brand-blue-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:mt-6 sm:max-w-2xl sm:text-base sm:tracking-[0.12em]">
-            Hydraulic Cylinder Repair <span className="text-steel-300">•</span> Custom Fabrication{" "}
-            <span className="text-steel-300">•</span> CNC &amp; Manual Machining{" "}
-            <span className="text-steel-300">•</span> Heavy Duty Equipment Repair{" "}
-            <span className="text-steel-300">•</span> Mining <span className="text-steel-300">&amp;</span>{" "}
-            Drill Pipe
-          </p>
-
-          <p className="mx-auto mt-5 max-w-[18rem] text-sm font-semibold leading-relaxed text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:mt-8 sm:max-w-2xl sm:text-xl">
-            {COMPANY.tagline}
+          <p className="mx-auto mt-4 max-w-3xl text-center text-lg font-medium leading-relaxed text-steel-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:text-xl">
+            Local experts in custom metalwork, CNC machining, hydraulic repair, and heavy equipment
+            fabrication. Serving Milan, Grants, Gallup, and the entire Four Corners region.
           </p>
 
           <div className="mx-auto mt-7 flex max-w-md flex-col gap-3 sm:mt-12 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">

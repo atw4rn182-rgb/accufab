@@ -63,10 +63,10 @@ export default function HomePage() {
         <div className="container-narrow mx-auto">
           <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
-              Explore Services
+              Advanced Metal Fabrication Capabilities
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:text-5xl">
-              Shop Work & Fabrication
+              Metal Fabrication &amp; Welding Services in New Mexico
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg font-medium leading-relaxed text-steel-200">
               {missionStatement}
