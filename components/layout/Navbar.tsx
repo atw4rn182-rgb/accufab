@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Logo } from "./Logo";
 import { Button } from "@/components/ui/Button";
 import { useNavigationMenu } from "./NavigationMenuContext";
 import { EXPLORE_SERVICE_LINKS } from "@/lib/constants";
@@ -80,7 +80,16 @@ export function Navbar() {
         className="container-narrow flex items-center justify-center px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Logo priority />
+        <div className="flex justify-center">
+          <Image
+            src="/logo.png"
+            alt="Accu-Fab NM - Precision Metal Fabrication"
+            width={320}
+            height={110}
+            className="h-14 md:h-16 w-auto max-w-[280px] object-contain"
+            priority
+          />
+        </div>
       </nav>
 
       <AnimatePresence>
