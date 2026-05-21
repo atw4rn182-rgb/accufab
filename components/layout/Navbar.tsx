@@ -81,14 +81,16 @@ export function Navbar() {
         aria-label="Main navigation"
       >
         <div className="flex justify-center">
-          <Image
-            src="/logo.png"
-            alt="Accu-Fab NM - Precision Metal Fabrication"
-            width={320}
-            height={110}
-            className="h-14 md:h-16 w-auto max-w-[280px] object-contain"
-            priority
-          />
+          <Link href="/" className="flex justify-center">
+            <Image
+              src="/logo.png"
+              alt="Accu-Fab NM - Precision Metal Fabrication"
+              width={380}
+              height={130}
+              className="h-16 md:h-20 w-auto max-w-[300px] object-contain hover:scale-105 transition-transform duration-200"
+              priority
+            />
+          </Link>
         </div>
       </nav>
 
