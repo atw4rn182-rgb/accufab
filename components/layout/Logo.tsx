@@ -44,7 +44,7 @@ export function Logo({
         className={cn(
           "h-auto w-full object-contain object-center",
           isHeader &&
-            "max-h-[min(38vw,12rem)] sm:max-h-[min(30vw,14rem)] md:max-h-[15rem] lg:max-h-[17rem] xl:max-h-[18rem]",
+            "max-h-[min(76vw,24rem)] sm:max-h-[min(60vw,28rem)] md:max-h-[30rem] lg:max-h-[34rem] xl:max-h-[36rem]",
           !isHeader && "max-h-12 max-w-52",
           variant === "light" && "drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)]"
         )}
