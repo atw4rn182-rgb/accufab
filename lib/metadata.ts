@@ -8,8 +8,8 @@ export const SITE_URL = (
 
 const googleSiteVerification = "Cit3l9CILL9Bwp0P-u_RsBbKGg7";
 
-/** Canonical homepage URL — primary site version for Google. */
-export const CANONICAL_HOME_URL = "https://accufabnm.com/";
+/** Canonical homepage — always https://accufabnm.com (non-www). */
+export const CANONICAL_HOME_URL = `${SITE_URL}/`;
 
 /** Homepage title and description. */
 export const HOME_TITLE =
