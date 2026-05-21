@@ -80,14 +80,14 @@ export function Navbar() {
         className="container-narrow flex items-center justify-center px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <div className="flex justify-center py-3">
+        <div className="flex justify-center py-2">
           <Link href="/" className="flex justify-center">
             <Image
               src="/logo.png"
               alt="Accu-Fab NM - Precision Metal Fabrication"
-              width={600}
-              height={200}
-              className="h-[110px] md:h-[130px] w-auto max-w-[420px] object-contain hover:scale-105 transition-transform"
+              width={520}
+              height={140}
+              className="h-16 md:h-20 w-auto max-w-[380px] object-contain hover:scale-105 transition-transform"
               priority
             />
           </Link>
