@@ -16,13 +16,15 @@ export const WEB3FORMS = {
 } as const;
 
 export type QuoteFormFields = {
+  contact_email: string;
+  phone: string;
+  contactPref: string;
   project_type: string;
   materials: string;
   specifications: string;
   quantity: string;
   timeline: string;
   details: string;
-  contact_email: string;
 };
 
 export function buildWeb3FormsPayload(fields: QuoteFormFields) {
@@ -34,6 +36,8 @@ export function buildWeb3FormsPayload(fields: QuoteFormFields) {
   body.append("from_name", "Accu-Fab Website Quote Form");
   body.append("replyto", contactEmail);
   body.append("contact_email", contactEmail);
+  body.append("phone", fields.phone);
+  body.append("contactPref", fields.contactPref);
   body.append("notification_recipient", WEB3FORMS.recipientEmail);
   body.append("project_type", fields.project_type);
   body.append("materials", fields.materials);
