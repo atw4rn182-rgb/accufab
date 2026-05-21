@@ -77,7 +77,7 @@ export function Navbar() {
       role="banner"
     >
       <nav
-        className="container-narrow flex w-full items-center justify-center px-3 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6"
+        className="container-narrow flex w-full items-center justify-center px-2 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-5"
         aria-label="Main navigation"
       >
         <Logo priority className="flex w-full justify-center" />
