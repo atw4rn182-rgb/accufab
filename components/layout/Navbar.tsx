@@ -85,9 +85,9 @@ export function Navbar() {
             <Image
               src="/logo.png"
               alt="Accu-Fab NM - Precision Metal Fabrication"
-              width={500}
-              height={160}
-              className="h-[78px] md:h-[92px] w-auto max-w-[340px] object-contain hover:scale-105 transition-transform"
+              width={600}
+              height={200}
+              className="h-[110px] md:h-[130px] w-auto max-w-[420px] object-contain hover:scale-105 transition-transform"
               priority
             />
           </Link>
