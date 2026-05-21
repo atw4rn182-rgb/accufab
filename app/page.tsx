@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/home/Hero";
-import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
 import {
   CANONICAL_HOME_URL,
   HOME_DESCRIPTION,
@@ -57,7 +56,6 @@ const servicePhotos = [
 export default function HomePage() {
   return (
     <>
-      <LocalBusinessJsonLd />
       <Hero />
       <section id="explore-services" className="px-4 pb-28 pt-10 sm:px-6 sm:pt-12 lg:px-8">
         <div className="container-narrow mx-auto">

@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { pageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import { pageSeoMetadata } from "@/lib/metadata";
 
-export const metadata = pageMetadata(
-  "Policies",
-  "Accu-Fab website policies — privacy, terms of use, and supplier guidelines for customers and partners working with our Milan, New Mexico shop.",
-  "/policies"
-);
+export const metadata: Metadata = pageSeoMetadata({
+  title: "Policies | Accu-Fab NM — Milan, New Mexico Fabrication Shop",
+  description:
+    "Accu-Fab NM website policies — privacy, terms of use, and supplier guidelines for customers and partners working with our Milan, New Mexico metal fabrication shop.",
+  path: "/policies",
+  absoluteTitle: true,
+});
 
 export default function PoliciesPage() {
   return (
@@ -19,7 +22,9 @@ export default function PoliciesPage() {
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back to home
         </Link>
-        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">Policies</h1>
+        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
+          Accu-Fab NM Website Policies
+        </h1>
         <p className="mt-4 text-lg font-medium text-steel-300">
           Official policy documents will be published here. For contractual or compliance questions,
           contact your Accu-Fab program owner or{" "}

@@ -42,17 +42,7 @@ export const baseMetadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: COMPANY.name,
-  keywords: [
-    "Accu-Fab",
-    "welding shop Milan NM",
-    "metal fabrication Milan New Mexico",
-    "welding shop near me Four Corners",
-    "CNC machining Milan NM",
-    "custom fabrication New Mexico",
-    "hydraulic repair Milan NM",
-    "mobile welding repair New Mexico",
-    "accufabnm.com",
-  ],
+  keywords: HOME_KEYWORDS,
   authors: [{ name: COMPANY.name, url: SITE_URL }],
   creator: COMPANY.name,
   publisher: COMPANY.name,
@@ -105,27 +95,46 @@ export function pageMetadata(
   description: string,
   path = ""
 ): Metadata {
+  return pageSeoMetadata({ title, description, path });
+}
+
+/** Page-level SEO with canonical URL, robots, and Open Graph. */
+export function pageSeoMetadata({
+  title,
+  description,
+  path,
+  absoluteTitle = false,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  absoluteTitle?: boolean;
+}): Metadata {
   const url = absoluteUrl(path);
-  const pageTitle = `${title} | ${COMPANY.name}`;
+  const socialTitle = absoluteTitle ? title : `${title} | ${COMPANY.name}`;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: url,
     },
     openGraph: {
+      ...baseMetadata.openGraph,
       type: "website",
       locale: "en_US",
       url,
-      siteName: COMPANY.name,
-      title: pageTitle,
+      title: socialTitle,
       description,
-      images: baseMetadata.openGraph?.images,
     },
     twitter: {
+      ...baseMetadata.twitter,
       card: "summary_large_image",
-      title: pageTitle,
+      title: socialTitle,
       description,
     },
   };

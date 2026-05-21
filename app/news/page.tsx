@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { pageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import { pageSeoMetadata } from "@/lib/metadata";
 
-export const metadata = pageMetadata(
-  "News",
-  "Accu-Fab news and updates from our Milan, New Mexico shop — welding, machining, fabrication, and field service across the Four Corners and Texas.",
-  "/news"
-);
+export const metadata: Metadata = pageSeoMetadata({
+  title: "News & Updates | Accu-Fab NM Metal Fabrication Milan, New Mexico",
+  description:
+    "News and updates from Accu-Fab NM — welding, CNC machining, metal fabrication, and field service from our Milan, New Mexico shop in the Four Corners region.",
+  path: "/news",
+  absoluteTitle: true,
+});
 
 export default function NewsPage() {
   return (
@@ -19,9 +22,11 @@ export default function NewsPage() {
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back to home
         </Link>
-        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">News</h1>
+        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
+          Accu-Fab NM News &amp; Shop Updates
+        </h1>
         <p className="mt-4 text-lg font-medium text-steel-300">
-          Stories and announcements will appear here soon.
+          Stories and announcements from our Milan, New Mexico fabrication shop will appear here soon.
         </p>
       </div>
     </div>

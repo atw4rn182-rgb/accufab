@@ -29,10 +29,10 @@ export function getLocalBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": `${SITE_URL}/#localbusiness`,
-    name: `${COMPANY.name} LLC`,
-    alternateName: COMPANY.name,
+    name: "Accu-Fab NM",
+    alternateName: [`${COMPANY.name} LLC`, COMPANY.name],
     description:
-      "Welding and metal fabrication shop in Milan, New Mexico providing precision welding, CNC machining, custom fabrication, hydraulic repair, and mobile field service across the Four Corners and Texas.",
+      "Precision metal fabrication, welding, and machining shop in Milan, New Mexico. Metal fabrication, welding, CNC machining, and hydraulic repair serving the Four Corners region.",
     url: SITE_URL,
     telephone: COMPANY.phoneHref.replace("tel:", ""),
     email: COMPANY.email,

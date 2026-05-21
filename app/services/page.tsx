@@ -1,15 +1,17 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/metadata";
+import { pageSeoMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = pageMetadata(
-  "Services",
-  "Explore Accu-Fab services: CNC and manual machining, precision welding, hydraulic repair, drill pipe work, and custom fabrication from our Milan, NM shop.",
-  "/services"
-);
+export const metadata: Metadata = pageSeoMetadata({
+  title: "Metal Fabrication Services & Capabilities | Accu-Fab NM Milan",
+  description:
+    "Expert metal fabrication, welding, CNC machining, hydraulic repair, and custom metalwork in Milan, New Mexico. Serving the Four Corners region.",
+  path: "/services",
+  absoluteTitle: true,
+});
 
 const missionStatement =
-  "At Accu-Fab, we are committed to delivering high-quality welding, machining, and fabrication work with pride and precision. No job is too small. Every project receives the same attention to detail.";
+  "At Accu-Fab NM, we deliver high-quality welding, CNC machining, hydraulic repair, and custom metal fabrication from our Milan, New Mexico shop. No job is too small — every project gets the same precision and pride.";
 
 const servicePhotos = Array.from({ length: 11 }, (_, index) => `/images/service-${String(index + 1).padStart(2, "0")}.png`);
 
@@ -19,10 +21,10 @@ export default function ServicesPage() {
       <section className="container-narrow mx-auto">
         <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
-            Explore Services
+            Milan, NM Welding Shop
           </p>
           <h1 className="mt-4 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:text-5xl">
-            Services
+            Metal Fabrication &amp; Welding Services in New Mexico
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg font-medium leading-relaxed text-steel-200">
             {missionStatement}

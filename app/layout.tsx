@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { NavigationMenuProvider } from "@/components/layout/NavigationMenuContext";
 import { VideoTransitionProvider } from "@/components/transition/VideoTransitionProvider";
+import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
 import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="bg-charcoal-950 font-sans">
+        <LocalBusinessJsonLd />
         <div className="fixed inset-0 z-0 overflow-hidden" aria-hidden>
           <Image
             src="/brand/accufab-logo.jpg"

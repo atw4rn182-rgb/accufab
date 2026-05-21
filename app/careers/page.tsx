@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { pageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import { pageSeoMetadata } from "@/lib/metadata";
 
-export const metadata = pageMetadata(
-  "Careers",
-  "Join the Accu-Fab team in Milan, New Mexico. Careers in welding, machining, fabrication, and shop support for skilled tradespeople who take pride in their work.",
-  "/careers"
-);
+export const metadata: Metadata = pageSeoMetadata({
+  title: "Careers at Accu-Fab NM | Welding & Fabrication Jobs in Milan, New Mexico",
+  description:
+    "Join the Accu-Fab NM team in Milan, New Mexico. Careers in welding, CNC machining, metal fabrication, and shop support across the Four Corners region.",
+  path: "/careers",
+  absoluteTitle: true,
+});
 
 export default function CareersPage() {
   return (
@@ -19,7 +22,9 @@ export default function CareersPage() {
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back to home
         </Link>
-        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">Careers</h1>
+        <h1 className="mt-8 text-4xl font-black tracking-tight text-steel-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
+          Welding &amp; Fabrication Careers in Milan, NM
+        </h1>
         <p className="mt-4 text-lg font-medium text-steel-300">
           Career listings will appear here. To inquire today, reach out via{" "}
           <Link href="/quote" className="font-semibold text-accent hover:underline">

@@ -10,7 +10,7 @@ export function CapabilitiesGallery() {
             id="capabilities-photos-heading"
             className="text-2xl font-black tracking-tight text-steel-100 sm:text-3xl"
           >
-            Shop & field capability
+            Shop &amp; Field Metal Fabrication Capability
           </h2>
           <p className="mt-4 text-base font-medium leading-relaxed text-steel-200 sm:text-lg">
             Our mobile field service fleet supports on-site work across the Four Corners and Texas when
