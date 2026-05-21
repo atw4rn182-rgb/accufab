@@ -54,7 +54,7 @@ export function Logo({
         unoptimized
         priority={priority}
         sizes="100vw"
-        className="h-20 w-full object-contain sm:h-24"
+        className="h-[4.75rem] w-full object-contain sm:h-24 lg:h-[5.75rem]"
       />
     </Link>
   );
