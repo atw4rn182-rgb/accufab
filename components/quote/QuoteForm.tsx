@@ -9,6 +9,12 @@ const inputClass =
 
 const labelClass = "block text-sm font-black uppercase tracking-[0.12em] text-steel-200";
 
+const QUOTE_SUCCESS_MESSAGE = `Thank you! We've received your quote request.
+
+Your information has been sent to our team. We will review your project and send you a formal quote through Zoho Invoice shortly. You will receive an email from Zoho Invoice with a link to review and pay for your quote.
+
+We typically respond within 24 hours.`;
+
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
 function getString(formData: FormData, key: string) {
@@ -79,7 +85,7 @@ export function QuoteForm() {
 
       form.reset();
       setStatus("success");
-      setMessage("Your quote request was sent. We will follow up using your preferred contact method.");
+      setMessage(QUOTE_SUCCESS_MESSAGE);
     } catch (error) {
       submitLock.current = false;
       setStatus("error");
@@ -287,7 +293,7 @@ export function QuoteForm() {
           className={
             status === "error"
               ? "rounded-sm border border-red-400/30 bg-red-500/10 p-4 text-base leading-relaxed text-red-100"
-              : "rounded-sm border border-accent/30 bg-accent/10 p-4 text-base leading-relaxed text-steel-200"
+              : "rounded-sm border border-accent/30 bg-accent/10 p-4 text-base leading-relaxed text-steel-200 whitespace-pre-line"
           }
           role="status"
           aria-live="polite"
