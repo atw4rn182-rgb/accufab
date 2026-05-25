@@ -71,7 +71,15 @@ export function QuoteForm() {
           details: getString(raw, "details"),
         }),
       });
-      const result = (await response.json()) as { success?: boolean; message?: string };
+
+      const contentType = response.headers.get("content-type") ?? "";
+      let result: { success?: boolean; message?: string };
+
+      if (contentType.includes("application/json")) {
+        result = (await response.json()) as { success?: boolean; message?: string };
+      } else {
+        throw new Error("Unable to submit the quote request. Please try again.");
+      }
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Unable to submit the quote request.");

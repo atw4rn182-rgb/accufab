@@ -38,7 +38,6 @@ function parseQuoteFields(body: Record<string, unknown>): QuoteFormFields | null
   };
 }
 
-/** Fallback when SMTP is not configured — buttons appear as plain links only. */
 async function submitToWeb3Forms(fields: QuoteFormFields) {
   const response = await fetch(WEB3FORMS.endpoint, {
     method: "POST",
@@ -50,6 +49,19 @@ async function submitToWeb3Forms(fields: QuoteFormFields) {
   if (!response.ok || !result.success) {
     throw new Error(result.message || "Unable to submit the quote request.");
   }
+}
+
+async function deliverTeamNotification(fields: QuoteFormFields) {
+  if (isQuoteMailConfigured()) {
+    try {
+      await sendQuoteNotificationEmail(fields);
+      return;
+    } catch {
+      // Fall back to Web3Forms if SMTP delivery fails.
+    }
+  }
+
+  await submitToWeb3Forms(fields);
 }
 
 export async function POST(request: Request) {
@@ -71,11 +83,14 @@ export async function POST(request: Request) {
   }
 
   try {
+    await deliverTeamNotification(fields);
+
     if (isQuoteMailConfigured()) {
-      await sendQuoteNotificationEmail(fields);
-      await sendQuoteConfirmationEmail(fields.contact_email);
-    } else {
-      await submitToWeb3Forms(fields);
+      try {
+        await sendQuoteConfirmationEmail(fields.contact_email);
+      } catch {
+        // Team notification succeeded; do not block the customer if confirmation fails.
+      }
     }
 
     return NextResponse.json({ success: true });

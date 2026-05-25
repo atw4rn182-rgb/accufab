@@ -15,15 +15,15 @@ export const QUICKBOOKS_CREATE_QUOTE_URL = "https://qbo.intuit.com/app/invoices"
 export const GOOGLE_CALENDAR_SCHEDULE_URL =
   "https://calendar.google.com/calendar/u/0/r/eventedit";
 
-/** Simple email-safe action button (single table, Outlook + Gmail). */
+/** Email-safe action button with blue background and large padding. */
 function actionButton(label: string, href: string) {
-  return `<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0 0 12px;">
+  return `<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0 0 14px;">
   <tr>
-    <td align="center">
+    <td align="center" bgcolor="#1e40af" style="border-radius:8px; background-color:#1e40af;">
       <a href="${href}"
          target="_blank"
          rel="noopener noreferrer"
-         style="display:inline-block; background-color:#1e40af; color:#ffffff; padding:14px 28px; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:700; text-decoration:none; border-radius:6px;">
+         style="display:inline-block; background-color:#1e40af; color:#ffffff; padding:18px 32px; font-family:Arial, Helvetica, sans-serif; font-size:17px; font-weight:700; text-decoration:none; border-radius:8px; line-height:1.3;">
         ${escapeHtml(label)}
       </a>
     </td>
@@ -81,9 +81,9 @@ export function buildQuoteNotificationEmailHtml(fields: QuoteFormFields) {
 <body style="margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.5; color:#1f2937; background-color:#f9fafb;">
   <div style="max-width:680px; margin:0 auto; padding:24px;">
     <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:8px; padding:24px;">
-      <p style="margin:0 0 16px; font-size:18px; font-weight:700; color:#111827;">Hello,</p>
+      <p style="margin:0 0 8px; font-size:18px; font-weight:700; color:#111827;">Hello,</p>
+      <p style="margin:0 0 20px; font-size:15px; font-weight:600; color:#374151;">New Quote Request</p>
       ${QUOTE_EMAIL_ACTION_BUTTONS_HTML}
-      <p style="margin:0 0 20px; font-size:15px; color:#4b5563;">New quote request from the Accu-Fab NM website.</p>
       <h2 style="margin:0 0 12px; font-size:16px; font-weight:700; color:#111827;">Customer Information</h2>
       <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse; border:1px solid #e5e7eb; border-radius:6px; overflow:hidden; font-size:15px;">
         ${rows}
@@ -99,13 +99,13 @@ export function buildQuoteNotificationEmailText(fields: QuoteFormFields) {
   return [
     "Hello,",
     "",
+    "New Quote Request",
+    "",
     "Create Quote in QuickBooks:",
     QUICKBOOKS_CREATE_QUOTE_URL,
     "",
     "Schedule Job in Google Calendar:",
     GOOGLE_CALENDAR_SCHEDULE_URL,
-    "",
-    "New quote request from the Accu-Fab NM website.",
     "",
     "CUSTOMER INFORMATION",
     `Email: ${displayValue(fields.contact_email)}`,
