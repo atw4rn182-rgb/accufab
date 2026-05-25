@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { COMPANY } from "@/lib/constants";
 import { QUOTE_SUCCESS_MESSAGE } from "@/lib/quote-confirmation";
-import { WEB3FORMS, buildWeb3FormsRequest } from "@/lib/web3forms";
+import { WEB3FORMS } from "@/lib/web3forms";
 
 const inputClass =
   "mt-2 w-full rounded-sm border border-brand-blue-light/25 bg-charcoal-950/82 px-4 py-3 text-base font-medium text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/25";
@@ -71,13 +71,10 @@ export function QuoteForm() {
         project_description: getString(raw, "project_description"),
       };
 
-      const response = await fetch(WEB3FORMS.endpoint, {
+      const response = await fetch("/api/quote", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(buildWeb3FormsRequest(fields)),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
       });
 
       const responseText = await response.text();
