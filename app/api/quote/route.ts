@@ -38,13 +38,23 @@ function parseQuoteFields(body: Record<string, unknown>): QuoteFormFields | null
   };
 }
 
+async function parseJsonResponse(response: Response) {
+  const text = await response.text();
+
+  try {
+    return JSON.parse(text) as { success?: boolean; message?: string };
+  } catch {
+    throw new Error("Unable to submit the quote request. Please try again.");
+  }
+}
+
 async function submitToWeb3Forms(fields: QuoteFormFields) {
   const response = await fetch(WEB3FORMS.endpoint, {
     method: "POST",
     body: buildWeb3FormsPayload(fields),
   });
 
-  const result = (await response.json()) as { success?: boolean; message?: string };
+  const result = await parseJsonResponse(response);
 
   if (!response.ok || !result.success) {
     throw new Error(result.message || "Unable to submit the quote request.");

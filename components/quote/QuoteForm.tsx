@@ -72,12 +72,12 @@ export function QuoteForm() {
         }),
       });
 
-      const contentType = response.headers.get("content-type") ?? "";
+      const responseText = await response.text();
       let result: { success?: boolean; message?: string };
 
-      if (contentType.includes("application/json")) {
-        result = (await response.json()) as { success?: boolean; message?: string };
-      } else {
+      try {
+        result = JSON.parse(responseText) as { success?: boolean; message?: string };
+      } catch {
         throw new Error("Unable to submit the quote request. Please try again.");
       }
 
