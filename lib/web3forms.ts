@@ -24,6 +24,11 @@ export type QuoteFormFields = {
   project_description: string;
 };
 
+export const QUICKBOOKS_CREATE_QUOTE_URL = "https://qbo.intuit.com/app/invoices";
+
+export const GOOGLE_CALENDAR_SCHEDULE_URL =
+  "https://calendar.google.com/calendar/u/0/r/eventedit";
+
 const CONTACT_PREF_LABELS: Record<string, string> = {
   call: "Phone Call",
   text: "Text Message",
@@ -42,7 +47,17 @@ function formatContactPref(value: string) {
 
 export function buildQuoteNotificationMessage(fields: QuoteFormFields) {
   return [
-    "New Accu-Fab Quote Request",
+    "Hello,",
+    "",
+    "New Quote Request",
+    "",
+    "Create Quote in QuickBooks:",
+    QUICKBOOKS_CREATE_QUOTE_URL,
+    "",
+    "Schedule Job in Google Calendar:",
+    GOOGLE_CALENDAR_SCHEDULE_URL,
+    "",
+    "---",
     "",
     `Name: ${displayValue(fields.name)}`,
     `Email: ${displayValue(fields.contact_email)}`,
