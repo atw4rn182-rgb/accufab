@@ -1,11 +1,14 @@
 /** Customer-facing copy for quote confirmation (email + on-site success message). */
 
 export const QUOTE_SUCCESS_MESSAGE = `Thank you! Your quote request has been received.
-We will review your project and send you a formal quote shortly through QuickBooks.`;
+
+Our team will review your project details and follow up shortly. You will receive a formal quote through QuickBooks once your request has been reviewed.
+
+We appreciate your business.`;
 
 export const QUOTE_CONFIRMATION_BODY = `Thank you for your quote request!
 
-We've received your information and will review your project shortly. You will receive a formal quote from us through QuickBooks soon.
+We've received your information and our team will review your project shortly. You will receive a formal quote through QuickBooks once your request has been reviewed.
 
 Thank you,
 Accu-Fab NM`;
