@@ -1,3 +1,5 @@
+import { buildQuoteEmailIntroHtml } from "./quote-email";
+
 /**
  * Web3Forms delivers notifications to the email address linked to `accessKey`
  * in the Web3Forms dashboard. That address must be ONLY:
@@ -34,6 +36,7 @@ export function buildWeb3FormsPayload(fields: QuoteFormFields) {
   body.append("access_key", WEB3FORMS.accessKey);
   body.append("subject", WEB3FORMS.subject);
   body.append("from_name", "Accu-Fab Website Quote Form");
+  body.append("message", buildQuoteEmailIntroHtml());
   body.append("replyto", contactEmail);
   body.append("contact_email", contactEmail);
   body.append("phone", fields.phone);
