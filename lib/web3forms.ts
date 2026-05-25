@@ -10,6 +10,7 @@ export const ACCUFAB_NOTIFICATION_EMAIL = "accufab.weld@gmail.com" as const;
 export const WEB3FORMS = {
   endpoint: "https://api.web3forms.com/submit",
   accessKey:
+    process.env.WEB3FORMS_ACCESS_KEY ??
     process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ??
     "6ef57f89-35aa-4ac1-a0d7-e13bcaffd077",
   subject: "New Accu-Fab quote request",

@@ -2,18 +2,13 @@
 
 import { useRef, useState } from "react";
 import { COMPANY } from "@/lib/constants";
-import { WEB3FORMS, buildWeb3FormsPayload } from "@/lib/web3forms";
+import { QUOTE_SUCCESS_MESSAGE } from "@/lib/quote-confirmation";
+import { WEB3FORMS } from "@/lib/web3forms";
 
 const inputClass =
   "mt-2 w-full rounded-sm border border-brand-blue-light/25 bg-charcoal-950/82 px-4 py-3 text-base font-medium text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/25";
 
 const labelClass = "block text-sm font-black uppercase tracking-[0.12em] text-steel-200";
-
-const QUOTE_SUCCESS_MESSAGE = `Thank you! We've received your quote request.
-
-Your information has been sent to our team. We will review your project and send you a formal quote through Zoho Invoice shortly. You will receive an email from Zoho Invoice with a link to review and pay for your quote.
-
-We typically respond within 24 hours.`;
 
 type SubmitStatus = "idle" | "sending" | "success" | "error";
 
@@ -61,21 +56,20 @@ export function QuoteForm() {
     setMessage("");
 
     try {
-      const payload = buildWeb3FormsPayload({
-        contact_email: contactEmail,
-        phone: getString(raw, "phone"),
-        contactPref: getString(raw, "contactPref") || "text",
-        project_type: getString(raw, "project_type"),
-        materials: getString(raw, "materials"),
-        specifications: getString(raw, "specifications"),
-        quantity: getString(raw, "quantity"),
-        timeline: getString(raw, "timeline"),
-        details: getString(raw, "details"),
-      });
-
-      const response = await fetch(WEB3FORMS.endpoint, {
+      const response = await fetch("/api/quote", {
         method: "POST",
-        body: payload,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contact_email: contactEmail,
+          phone: getString(raw, "phone"),
+          contactPref: getString(raw, "contactPref") || "text",
+          project_type: getString(raw, "project_type"),
+          materials: getString(raw, "materials"),
+          specifications: getString(raw, "specifications"),
+          quantity: getString(raw, "quantity"),
+          timeline: getString(raw, "timeline"),
+          details: getString(raw, "details"),
+        }),
       });
       const result = (await response.json()) as { success?: boolean; message?: string };
 
