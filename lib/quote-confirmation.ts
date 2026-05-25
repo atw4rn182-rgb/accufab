@@ -1,15 +1,14 @@
 /** Customer-facing copy for quote confirmation (email + on-site success message). */
 
+export const QUOTE_SUCCESS_MESSAGE = `Thank you! Your quote request has been received.
+We will review your project and send you a formal quote shortly through QuickBooks.`;
+
 export const QUOTE_CONFIRMATION_BODY = `Thank you for your quote request!
 
-We've received your information and will review your project shortly. You will receive a formal quote from us via Zoho Invoice within 24 hours. The quote email will come from Zoho Invoice with a link where you can review and pay.
+We've received your information and will review your project shortly. You will receive a formal quote from us through QuickBooks soon.
 
 Thank you,
 Accu-Fab NM`;
-
-export const QUOTE_SUCCESS_MESSAGE = `${QUOTE_CONFIRMATION_BODY}
-
-A confirmation email has been sent to the address you provided.`;
 
 export function buildQuoteConfirmationEmailHtml() {
   const paragraphs = QUOTE_CONFIRMATION_BODY.split("\n\n").map(

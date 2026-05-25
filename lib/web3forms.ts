@@ -1,4 +1,4 @@
-import { buildQuoteEmailIntroHtml } from "./quote-email";
+import { buildQuoteNotificationEmailHtml } from "./quote-email";
 
 /**
  * Web3Forms delivers notifications to the email address linked to `accessKey`
@@ -37,18 +37,8 @@ export function buildWeb3FormsPayload(fields: QuoteFormFields) {
   body.append("access_key", WEB3FORMS.accessKey);
   body.append("subject", WEB3FORMS.subject);
   body.append("from_name", "Accu-Fab Website Quote Form");
-  body.append("message", buildQuoteEmailIntroHtml());
+  body.append("message", buildQuoteNotificationEmailHtml(fields));
   body.append("replyto", contactEmail);
-  body.append("contact_email", contactEmail);
-  body.append("phone", fields.phone);
-  body.append("contactPref", fields.contactPref);
-  body.append("notification_recipient", WEB3FORMS.recipientEmail);
-  body.append("project_type", fields.project_type);
-  body.append("materials", fields.materials);
-  body.append("specifications", fields.specifications);
-  body.append("quantity", fields.quantity);
-  body.append("timeline", fields.timeline);
-  body.append("details", fields.details);
 
   return body;
 }
