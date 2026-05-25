@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server";
 import {
-  isQuoteMailConfigured,
-  sendQuoteConfirmationEmail,
-  sendQuoteNotificationEmail,
-} from "@/lib/quote-mailer";
-import {
   WEB3FORMS,
   buildWeb3FormsPayload,
   type QuoteFormFields,
@@ -19,33 +14,24 @@ function isValidEmail(email: string) {
 }
 
 function parseQuoteFields(body: Record<string, unknown>): QuoteFormFields | null {
+  const name = clean(body.name);
   const contact_email = clean(body.contact_email);
+
+  if (!name) {
+    return null;
+  }
 
   if (!contact_email || !isValidEmail(contact_email)) {
     return null;
   }
 
   return {
+    name,
     contact_email,
     phone: clean(body.phone),
     contactPref: clean(body.contactPref) || "text",
-    project_type: clean(body.project_type),
-    materials: clean(body.materials),
-    specifications: clean(body.specifications),
-    quantity: clean(body.quantity),
-    timeline: clean(body.timeline),
-    details: clean(body.details),
+    project_description: clean(body.project_description),
   };
-}
-
-async function parseJsonResponse(response: Response) {
-  const text = await response.text();
-
-  try {
-    return JSON.parse(text) as { success?: boolean; message?: string };
-  } catch {
-    throw new Error("Unable to submit the quote request. Please try again.");
-  }
 }
 
 async function submitToWeb3Forms(fields: QuoteFormFields) {
@@ -54,24 +40,19 @@ async function submitToWeb3Forms(fields: QuoteFormFields) {
     body: buildWeb3FormsPayload(fields),
   });
 
-  const result = await parseJsonResponse(response);
+  const text = await response.text();
+
+  let result: { success?: boolean; message?: string };
+
+  try {
+    result = JSON.parse(text) as { success?: boolean; message?: string };
+  } catch {
+    throw new Error("Unable to submit the quote request. Please try again.");
+  }
 
   if (!response.ok || !result.success) {
     throw new Error(result.message || "Unable to submit the quote request.");
   }
-}
-
-async function deliverTeamNotification(fields: QuoteFormFields) {
-  if (isQuoteMailConfigured()) {
-    try {
-      await sendQuoteNotificationEmail(fields);
-      return;
-    } catch {
-      // Fall back to Web3Forms if SMTP delivery fails.
-    }
-  }
-
-  await submitToWeb3Forms(fields);
 }
 
 export async function POST(request: Request) {
@@ -87,22 +68,13 @@ export async function POST(request: Request) {
 
   if (!fields) {
     return NextResponse.json(
-      { message: "Please enter a valid email address." },
+      { message: "Please enter your name and a valid email address." },
       { status: 400 }
     );
   }
 
   try {
-    await deliverTeamNotification(fields);
-
-    if (isQuoteMailConfigured()) {
-      try {
-        await sendQuoteConfirmationEmail(fields.contact_email);
-      } catch {
-        // Team notification succeeded; do not block the customer if confirmation fails.
-      }
-    }
-
+    await submitToWeb3Forms(fields);
     return NextResponse.json({ success: true });
   } catch (error) {
     const message =

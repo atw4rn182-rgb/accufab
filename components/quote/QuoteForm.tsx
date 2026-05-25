@@ -37,7 +37,14 @@ export function QuoteForm() {
 
     const form = event.currentTarget;
     const raw = new FormData(form);
+    const name = getString(raw, "name");
     const contactEmail = getString(raw, "contact_email");
+
+    if (!name) {
+      setStatus("error");
+      setMessage("Please enter your name.");
+      return;
+    }
 
     if (!contactEmail) {
       setStatus("error");
@@ -60,15 +67,11 @@ export function QuoteForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name,
           contact_email: contactEmail,
           phone: getString(raw, "phone"),
           contactPref: getString(raw, "contactPref") || "text",
-          project_type: getString(raw, "project_type"),
-          materials: getString(raw, "materials"),
-          specifications: getString(raw, "specifications"),
-          quantity: getString(raw, "quantity"),
-          timeline: getString(raw, "timeline"),
-          details: getString(raw, "details"),
+          project_description: getString(raw, "project_description"),
         }),
       });
 
@@ -97,15 +100,26 @@ export function QuoteForm() {
 
   return (
     <form
-      action={WEB3FORMS.endpoint}
-      method="POST"
       onSubmit={onSubmit}
       className="mt-8 space-y-6 rounded-sm border border-brand-blue-light/15 bg-charcoal-900/45 p-5 shadow-2xl shadow-black/20 sm:p-6"
       aria-busy={status === "sending"}
     >
-      <input type="hidden" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
-
       <fieldset disabled={formLocked} className="space-y-6 disabled:opacity-80">
+        <div>
+          <label htmlFor="name" className={labelClass}>
+            Name <span className="text-accent">*</span>
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            className={inputClass}
+            placeholder="Your name"
+          />
+        </div>
+
         <div>
           <label htmlFor="contact_email" className={labelClass}>
             Email <span className="text-accent">*</span>
@@ -189,88 +203,20 @@ export function QuoteForm() {
         </p>
 
         <div>
-          <label htmlFor="project_type" className={labelClass}>
-            What kind of project are you working on?
+          <label htmlFor="project_description" className={labelClass}>
+            Project Description
           </label>
           <textarea
-            id="project_type"
-            name="project_type"
-            rows={4}
+            id="project_description"
+            name="project_description"
+            rows={6}
             className={inputClass}
-            placeholder="Briefly describe the job, repair, part, assembly, or fabrication need."
-          />
-        </div>
-
-        <div>
-          <label htmlFor="materials" className={labelClass}>
-            What materials will be needed?
-          </label>
-          <textarea
-            id="materials"
-            name="materials"
-            rows={3}
-            className={inputClass}
-            placeholder="Steel, aluminum, stainless, drill pipe, customer-supplied material, etc."
-          />
-        </div>
-
-        <div>
-          <label htmlFor="specifications" className={labelClass}>
-            Project dimensions or specifications
-          </label>
-          <textarea
-            id="specifications"
-            name="specifications"
-            rows={3}
-            className={inputClass}
-            placeholder="Measurements, drawings, tolerances, weld details, machining notes, or fit-up requirements."
-          />
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div>
-            <label htmlFor="quantity" className={labelClass}>
-              Quantity needed
-            </label>
-            <input
-              id="quantity"
-              name="quantity"
-              type="text"
-              className={inputClass}
-              placeholder="Example: 1 repair, 12 parts, 50 assemblies"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="timeline" className={labelClass}>
-              Desired timeline / deadline
-            </label>
-            <input
-              id="timeline"
-              name="timeline"
-              type="text"
-              className={inputClass}
-              placeholder="Example: ASAP, two weeks, by a specific date"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="details" className={labelClass}>
-            Any special requirements or additional details?
-          </label>
-          <textarea
-            id="details"
-            name="details"
-            rows={4}
-            className={inputClass}
-            placeholder="Finishing, pickup/delivery, field use, installation constraints, photos available, or anything else we should know."
+            placeholder="Describe your project, materials, timeline, and any other details we should know."
           />
         </div>
 
         <p className="rounded-sm border border-brand-blue-light/15 bg-white/[0.04] p-4 text-base font-medium leading-relaxed text-steel-200">
-          Please fill out this questionnaire as completely as possible. The more details you give us,
-          the better we can help you. Submissions are delivered only to{" "}
+          Submissions are delivered only to{" "}
           <a href={COMPANY.emailHref} className="text-accent hover:underline">
             {WEB3FORMS.recipientEmail}
           </a>
@@ -318,7 +264,7 @@ export function QuoteForm() {
           </a>
         </p>
         <p className="mx-auto mt-4 max-w-xl text-base font-medium leading-relaxed text-steel-200">
-          Please fill out the questionnaire above as completely as possible before texting us.
+          Please fill out the form above as completely as possible before texting us.
         </p>
       </div>
     </form>

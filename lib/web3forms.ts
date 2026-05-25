@@ -1,5 +1,3 @@
-import { buildQuoteNotificationEmailText } from "./quote-email";
-
 /**
  * Web3Forms delivers notifications to the email address linked to `accessKey`
  * in the Web3Forms dashboard. That address must be ONLY:
@@ -19,16 +17,42 @@ export const WEB3FORMS = {
 } as const;
 
 export type QuoteFormFields = {
+  name: string;
   contact_email: string;
   phone: string;
   contactPref: string;
-  project_type: string;
-  materials: string;
-  specifications: string;
-  quantity: string;
-  timeline: string;
-  details: string;
+  project_description: string;
 };
+
+const CONTACT_PREF_LABELS: Record<string, string> = {
+  call: "Phone Call",
+  text: "Text Message",
+  either: "Either Call or Text",
+  email: "Email Only",
+};
+
+function displayValue(value: string, fallback = "Not provided") {
+  const trimmed = value.trim();
+  return trimmed || fallback;
+}
+
+function formatContactPref(value: string) {
+  return CONTACT_PREF_LABELS[value] ?? displayValue(value);
+}
+
+export function buildQuoteNotificationMessage(fields: QuoteFormFields) {
+  return [
+    "New Accu-Fab Quote Request",
+    "",
+    `Name: ${displayValue(fields.name)}`,
+    `Email: ${displayValue(fields.contact_email)}`,
+    `Phone: ${displayValue(fields.phone, "Not provided")}`,
+    `Preferred Contact: ${formatContactPref(fields.contactPref)}`,
+    "",
+    "Project Description:",
+    displayValue(fields.project_description),
+  ].join("\n");
+}
 
 export function buildWeb3FormsPayload(fields: QuoteFormFields) {
   const contactEmail = fields.contact_email.trim();
@@ -37,7 +61,7 @@ export function buildWeb3FormsPayload(fields: QuoteFormFields) {
   body.append("access_key", WEB3FORMS.accessKey);
   body.append("subject", WEB3FORMS.subject);
   body.append("from_name", "Accu-Fab Website Quote Form");
-  body.append("message", buildQuoteNotificationEmailText(fields));
+  body.append("message", buildQuoteNotificationMessage(fields));
   body.append("replyto", contactEmail);
 
   return body;
