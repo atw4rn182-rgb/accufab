@@ -15,19 +15,23 @@ export const QUICKBOOKS_CREATE_QUOTE_URL = "https://qbo.intuit.com/app/invoices"
 export const GOOGLE_CALENDAR_SCHEDULE_URL =
   "https://calendar.google.com/calendar/u/0/r/eventedit";
 
-const ACTION_BUTTON_STYLE =
-  "background-color:#1e40af; color:#ffffff !important; padding:18px 36px; text-decoration:none; border-radius:8px; font-weight:700; font-size:18px; display:inline-block; line-height:1.3; font-family:Arial, Helvetica, sans-serif; mso-padding-alt:0; text-align:center;";
-
-function actionButton(label: string, href: string, marginBottom = "14px") {
-  return `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0" style="margin:0 0 ${marginBottom};">
+/** Bulletproof email button pattern (Outlook + Gmail compatible). */
+function actionButton(label: string, href: string) {
+  return `<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0 0 16px;">
   <tr>
-    <td align="center" bgcolor="#1e40af" style="border-radius:8px; background-color:#1e40af;">
-      <a href="${href}"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="${ACTION_BUTTON_STYLE}">
-        ${escapeHtml(label)}
-      </a>
+    <td align="center" style="padding:0;">
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center" bgcolor="#1e40af" style="border-radius:8px; background-color:#1e40af;">
+            <a href="${href}"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="display:inline-block; padding:18px 36px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:700; color:#ffffff; text-decoration:none; border-radius:8px; line-height:1.25; mso-padding-alt:0;">
+              ${escapeHtml(label)}
+            </a>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
 </table>`;
@@ -36,7 +40,7 @@ function actionButton(label: string, href: string, marginBottom = "14px") {
 export const QUOTE_EMAIL_ACTION_BUTTONS_HTML = `${actionButton(
   "Create Quote in QuickBooks",
   QUICKBOOKS_CREATE_QUOTE_URL
-)}${actionButton("Schedule Job in Google Calendar", GOOGLE_CALENDAR_SCHEDULE_URL, "24px")}`;
+)}${actionButton("Schedule Job in Google Calendar", GOOGLE_CALENDAR_SCHEDULE_URL)}`;
 
 const CONTACT_PREF_LABELS: Record<string, string> = {
   call: "Phone Call",
@@ -83,7 +87,7 @@ export function buildQuoteNotificationEmailHtml(fields: QuoteFormFields) {
 <body style="margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.5; color:#1f2937; background-color:#f9fafb;">
   <div style="max-width:680px; margin:0 auto; padding:24px;">
     <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:8px; padding:24px;">
-      <p style="margin:0 0 12px; font-size:18px; font-weight:700; color:#111827;">Hello,</p>
+      <p style="margin:0 0 16px; font-size:18px; font-weight:700; color:#111827;">Hello,</p>
       ${QUOTE_EMAIL_ACTION_BUTTONS_HTML}
       <p style="margin:0 0 20px; font-size:15px; color:#4b5563;">New quote request from the Accu-Fab NM website.</p>
       <h2 style="margin:0 0 12px; font-size:16px; font-weight:700; color:#111827;">Customer Information</h2>
@@ -99,10 +103,15 @@ export function buildQuoteNotificationEmailHtml(fields: QuoteFormFields) {
 /** Plain-text fallback for the team notification email. */
 export function buildQuoteNotificationEmailText(fields: QuoteFormFields) {
   return [
-    "New quote request from the Accu-Fab NM website",
+    "Hello,",
     "",
-    `Create quote in QuickBooks: ${QUICKBOOKS_CREATE_QUOTE_URL}`,
-    `Schedule job in Google Calendar: ${GOOGLE_CALENDAR_SCHEDULE_URL}`,
+    "ACTION LINKS:",
+    `Create Quote in QuickBooks: ${QUICKBOOKS_CREATE_QUOTE_URL}`,
+    `Schedule Job in Google Calendar: ${GOOGLE_CALENDAR_SCHEDULE_URL}`,
+    "",
+    "New quote request from the Accu-Fab NM website.",
+    "",
+    "CUSTOMER INFORMATION",
     `Email: ${displayValue(fields.contact_email)}`,
     `Phone: ${displayValue(fields.phone, "Not provided")}`,
     `Preferred Contact: ${formatContactPref(fields.contactPref)}`,

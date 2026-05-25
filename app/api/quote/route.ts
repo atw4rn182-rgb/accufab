@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { sendQuoteConfirmationEmail } from "@/lib/quote-mailer";
+import {
+  isQuoteMailConfigured,
+  sendQuoteConfirmationEmail,
+  sendQuoteNotificationEmail,
+} from "@/lib/quote-mailer";
 import {
   WEB3FORMS,
   buildWeb3FormsPayload,
@@ -34,6 +38,7 @@ function parseQuoteFields(body: Record<string, unknown>): QuoteFormFields | null
   };
 }
 
+/** Fallback when SMTP is not configured — buttons appear as plain links only. */
 async function submitToWeb3Forms(fields: QuoteFormFields) {
   const response = await fetch(WEB3FORMS.endpoint, {
     method: "POST",
@@ -66,8 +71,12 @@ export async function POST(request: Request) {
   }
 
   try {
-    await submitToWeb3Forms(fields);
-    await sendQuoteConfirmationEmail(fields.contact_email);
+    if (isQuoteMailConfigured()) {
+      await sendQuoteNotificationEmail(fields);
+      await sendQuoteConfirmationEmail(fields.contact_email);
+    } else {
+      await submitToWeb3Forms(fields);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
