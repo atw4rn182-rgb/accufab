@@ -51,6 +51,9 @@ const servicePhotos = [
     src: `/images/service-${String(index + 2).padStart(2, "0")}.png`,
     alt: "",
   })),
+  { src: "/images/service-12.png", alt: "" },
+  { src: "/images/service-13.png", alt: "" },
+  { src: "/images/service-14.png", alt: "" },
 ];
 
 export default function HomePage() {
