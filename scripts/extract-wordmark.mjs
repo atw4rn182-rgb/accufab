@@ -1,4 +1,4 @@
-import sharp from "sharp";
+﻿import sharp from "sharp";
 
 const src = process.argv[2];
 const out = "public/brand/accufab-wordmark.png";
