@@ -21,7 +21,7 @@ export function CapabilitiesGallery() {
         <ul className="mt-10 mx-auto max-w-4xl grid grid-cols-1 gap-8" role="list">
           {CAPABILITIES_PHOTOS.map((photo) => (
             <li key={photo.src}>
-              <article className="overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25">
+              <article className="surface-media">
                 <figure className="relative aspect-video w-full overflow-hidden bg-charcoal-900">
                   <Image
                     src={photo.src}
@@ -67,7 +67,7 @@ export function CapabilitiesGallery() {
         >
           {CAPABILITIES_VIDEOS.map((video) => (
             <li key={video.src}>
-              <article className="overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25">
+              <article className="surface-media">
                 <div className="relative aspect-video w-full bg-black">
                   <video
                     src={video.src}

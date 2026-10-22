@@ -20,7 +20,7 @@ export function ProjectsGallery() {
         <ul className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3" role="list">
           {PROJECTS_PHOTOS.map((photo) => (
             <li key={photo.src}>
-              <article className="flex h-full flex-col overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25">
+              <article className="surface-media flex h-full flex-col">
                 <figure className="relative aspect-[3/4] w-full overflow-hidden bg-charcoal-900 sm:aspect-[4/5]">
                   <Image
                     src={photo.src}
@@ -65,7 +65,7 @@ export function ProjectsGallery() {
         >
           {PROJECTS_VIDEOS.map((video) => (
             <li key={video.src}>
-              <article className="flex h-full flex-col overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25">
+              <article className="surface-media flex h-full flex-col">
                 <div className="relative aspect-video w-full bg-black">
                   <video
                     src={video.src}

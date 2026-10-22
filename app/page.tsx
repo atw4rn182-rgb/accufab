@@ -65,7 +65,7 @@ export default function HomePage() {
         className="relative z-10 bg-charcoal-950 px-4 pb-28 pt-10 shadow-[0_-28px_48px_rgba(0,0,0,0.45)] sm:px-6 sm:pt-12 lg:px-8"
       >
         <div className="container-narrow mx-auto">
-          <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
+          <div className="surface-panel mx-auto max-w-4xl p-8 text-center sm:p-12 lg:p-14">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
               Advanced Metal Fabrication Capabilities
             </p>
@@ -77,11 +77,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+          <div className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-8">
             {servicePhotos.map((photo, index) => (
               <article
                 key={photo.src}
-                className="group relative aspect-[4/3] overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-light/55 hover:shadow-2xl hover:shadow-brand-blue-light/15"
+                className="surface-media group relative aspect-[4/3]"
               >
                 <Image
                   src={photo.src}

@@ -107,7 +107,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="relative z-20 overflow-hidden border-b border-brand-blue-light/10 bg-charcoal-950/95 backdrop-blur-xl"
+            className="relative z-20 overflow-hidden border-b border-brand-blue-light/15 bg-charcoal-950/96 shadow-[0_22px_48px_-28px_rgba(0,0,0,0.9)] backdrop-blur-xl"
           >
             {menuPanel}
           </motion.div>

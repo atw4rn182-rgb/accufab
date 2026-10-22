@@ -24,7 +24,7 @@ export function Footer() {
     >
       <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-blue-light/70 to-transparent" aria-hidden />
 
-      <div className="px-4 pb-12 pt-16 sm:px-6 lg:px-8">
+      <div className="px-4 pb-14 pt-20 sm:px-6 lg:px-8 lg:pt-24">
         <div className="container-narrow mx-auto grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <Logo variant="light" placement="footer" />

@@ -5,8 +5,7 @@ import { COMPANY } from "@/lib/constants";
 import { QUOTE_SUCCESS_MESSAGE } from "@/lib/quote-confirmation";
 import { WEB3FORMS } from "@/lib/web3forms";
 
-const inputClass =
-  "mt-2 w-full rounded-sm border border-brand-blue-light/25 bg-charcoal-950/82 px-4 py-3 text-base font-medium text-steel-100 outline-none transition-colors placeholder:text-steel-500 focus:border-brand-blue-light focus:ring-2 focus:ring-brand-blue-light/25";
+const inputClass = "field-input";
 
 const labelClass = "block text-sm font-black uppercase tracking-[0.12em] text-steel-200";
 
@@ -103,7 +102,7 @@ export function QuoteForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="mt-8 space-y-6 rounded-sm border border-brand-blue-light/15 bg-charcoal-900/45 p-5 shadow-2xl shadow-black/20 sm:p-6"
+      className="mt-10 space-y-6 rounded-xl border border-white/10 bg-black/25 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),inset_0_12px_24px_rgba(0,0,0,0.28)] sm:p-8"
       aria-busy={status === "sending"}
     >
       <fieldset disabled={formLocked} className="space-y-6 disabled:opacity-80">
@@ -157,7 +156,7 @@ export function QuoteForm() {
 
           <div>
             <span className={labelClass}>Preferred Contact Method</span>
-            <div className="mt-2 space-y-2 rounded-sm border border-brand-blue-light/15 bg-charcoal-950/50 p-4">
+            <div className="mt-2 space-y-2 rounded-lg border border-brand-blue-light/20 bg-charcoal-950/70 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
               <label className="flex cursor-pointer items-center gap-2 text-sm font-medium text-steel-200">
                 <input
                   type="radio"

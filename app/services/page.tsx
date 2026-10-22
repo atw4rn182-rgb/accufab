@@ -17,9 +17,9 @@ const servicePhotos = Array.from({ length: 11 }, (_, index) => `/images/service-
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-[68vh] bg-charcoal-950/10 px-4 pb-28 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
+    <div className="min-h-[68vh] bg-charcoal-950 px-4 pb-32 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
       <section className="container-narrow mx-auto">
-        <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
+        <div className="surface-panel mx-auto max-w-4xl p-8 text-center sm:p-12 lg:p-14">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
             Milan, NM Welding Shop
           </p>
@@ -31,11 +31,11 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+        <div className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:mt-20 lg:grid-cols-3 xl:gap-8">
           {servicePhotos.map((src, index) => (
             <article
               key={src}
-              className="group relative aspect-[4/3] overflow-hidden rounded-sm border border-brand-blue-light/15 bg-charcoal-950/40 shadow-xl shadow-black/25 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-light/55 hover:shadow-2xl hover:shadow-brand-blue-light/15"
+              className="surface-media group relative aspect-[4/3]"
             >
               <Image
                 src={src}

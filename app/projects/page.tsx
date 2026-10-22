@@ -17,7 +17,7 @@ const intro =
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-[68vh] bg-charcoal-950/10 px-4 pb-28 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
+    <div className="min-h-[68vh] bg-charcoal-950 px-4 pb-32 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
       <section className="container-narrow mx-auto">
         <Link
           href="/"
@@ -27,7 +27,7 @@ export default function ProjectsPage() {
           Home
         </Link>
 
-        <div className="mx-auto mt-10 max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
+        <div className="surface-panel mx-auto mt-12 max-w-4xl p-8 text-center sm:p-12 lg:p-14">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
             Custom Metalwork Portfolio
           </p>

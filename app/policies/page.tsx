@@ -13,8 +13,8 @@ export const metadata: Metadata = pageSeoMetadata({
 
 export default function PoliciesPage() {
   return (
-    <div className="min-h-[70vh] bg-charcoal-950/10 px-4 pb-24 pt-28 sm:px-6 lg:px-8 lg:pt-32">
-      <div className="container-narrow mx-auto max-w-2xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-8">
+    <div className="min-h-[70vh] bg-charcoal-950 px-4 pb-32 pt-28 sm:px-6 lg:px-8 lg:pt-36">
+      <div className="surface-panel container-narrow mx-auto max-w-3xl p-8 sm:p-12">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm font-bold text-steel-300 transition-colors hover:text-accent"
