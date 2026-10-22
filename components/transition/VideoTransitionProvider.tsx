@@ -16,6 +16,7 @@ const FADE_IN_MS = 350;
 const FADE_OUT_MS = 550;
 const LOAD_TIMEOUT_MS = 8000;
 const FALLBACK_PLAYBACK_MS = 8042;
+const HERO_PLAYBACK_RATE = 1.25;
 
 type TransitionContextValue = {
   navigateWithTransition: (href: string) => void;
@@ -27,9 +28,22 @@ function isVideoReady(video: HTMLVideoElement | null) {
   return Boolean(video && video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA);
 }
 
+function applyPlaybackRate(video: HTMLVideoElement) {
+  if (video.defaultPlaybackRate !== HERO_PLAYBACK_RATE) {
+    video.defaultPlaybackRate = HERO_PLAYBACK_RATE;
+  }
+  if (video.playbackRate !== HERO_PLAYBACK_RATE) {
+    video.playbackRate = HERO_PLAYBACK_RATE;
+  }
+}
+
 function playbackDurationMs(video: HTMLVideoElement) {
-  if (!Number.isFinite(video.duration) || video.duration <= 0) return FALLBACK_PLAYBACK_MS;
-  return Math.round(video.duration * 1000);
+  const mediaMs =
+    !Number.isFinite(video.duration) || video.duration <= 0
+      ? FALLBACK_PLAYBACK_MS
+      : Math.round(video.duration * 1000);
+  const rate = video.playbackRate > 0 ? video.playbackRate : HERO_PLAYBACK_RATE;
+  return Math.round(mediaMs / rate);
 }
 
 export function VideoTransitionProvider({ children }: { children: React.ReactNode }) {
@@ -118,6 +132,7 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
       video.preload = "auto";
       video.src = src;
     }
+    applyPlaybackRate(video);
     return video;
   }, []);
 
@@ -125,8 +140,6 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
     if (!targetHref.current || hasNavigated.current) return;
     hasNavigated.current = true;
     setIsFading(true);
-    const video = videoRef.current;
-    if (video) video.pause();
     router.push(targetHref.current);
   }, [router]);
 
@@ -162,6 +175,7 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
     }
 
     video.currentTime = 0;
+    applyPlaybackRate(video);
     video.muted = false;
     video.volume = 1;
     alignOverlayToStill();
@@ -169,6 +183,7 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
     video
       .play()
       .then(() => {
+        applyPlaybackRate(video);
         alignOverlayToStill();
         setIsVisible(true);
         scheduleNavigation(playbackDurationMs(video));
