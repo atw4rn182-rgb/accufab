@@ -20,9 +20,8 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="pointer-events-none relative h-svh w-full" aria-label="Hero">
-      <div className="pointer-events-auto fixed inset-x-0 top-0 z-0 h-svh w-full overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-black" aria-hidden>
+    <>
+      <div className="pointer-events-none fixed inset-0 z-0 h-svh w-full overflow-hidden bg-black" aria-hidden>
         <picture>
           <source media="(min-width: 768px)" srcSet={HERO_STILL.wideWebp} type="image/webp" />
           <source media="(min-width: 768px)" srcSet={HERO_STILL.wide} type="image/jpeg" />
@@ -38,16 +37,19 @@ export function Hero() {
             className={HERO_MEDIA_CLASS}
           />
         </picture>
-        </div>
+      </div>
 
-        <div className="relative z-10 flex h-full w-full md:items-center md:justify-center md:px-8 max-md:mx-auto max-md:max-w-7xl max-md:items-start max-md:px-4 max-md:pb-8 max-md:pt-[5.25rem] sm:max-md:px-6 sm:max-md:pt-28">
+      <section
+        className="relative z-10 flex h-svh w-full items-center justify-center px-4 pb-8 pt-28 sm:px-6 md:px-8 md:py-0"
+        aria-label="Hero"
+      >
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={
             reduceMotion ? { duration: 0 } : { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
           }
-          className="w-full max-w-lg bg-transparent px-4 py-4 text-left shadow-none sm:px-6 sm:py-5 md:text-center"
+          className="w-full max-w-lg bg-transparent px-4 py-4 text-center shadow-none sm:px-6 sm:py-5"
         >
           <p className="mb-3 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:mb-5 sm:text-xs sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
@@ -65,7 +67,7 @@ export function Hero() {
             fabrication. Serving Milan, Grants, Gallup, and the entire Four Corners region.
           </p>
 
-          <div className="mt-4 flex max-w-md flex-col gap-3 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4 md:mx-auto md:justify-center">
+          <div className="mx-auto mt-4 flex w-full max-w-md flex-col items-center gap-3 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
@@ -75,7 +77,7 @@ export function Hero() {
             </button>
           </div>
 
-          <div className="mt-4 flex flex-col gap-1.5 text-sm font-semibold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] sm:mt-6 sm:flex-row sm:gap-6 md:items-center md:justify-center">
+          <div className="mt-4 flex flex-col items-center gap-1.5 text-center text-sm font-semibold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] sm:mt-6 sm:flex-row sm:justify-center sm:gap-6">
             <a href={COMPANY.phoneHref} className="transition-colors hover:text-accent">
               <span className="text-steel-300">Phone:</span> {COMPANY.phone}
             </a>
@@ -84,8 +86,7 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
