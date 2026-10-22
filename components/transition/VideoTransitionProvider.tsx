@@ -279,7 +279,18 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
       if (!isVideoReady(current)) current.load();
     };
 
-    const idleId = window.requestIdleCallback(() => prime(), { timeout: 1800 });
+    // Safari and iOS WebKit still ship without requestIdleCallback. Calling it
+    // threw during mount and the root error boundary replaced the page.
+    let cancelPrime = () => {};
+    if (typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(() => prime(), { timeout: 1800 });
+      cancelPrime = () => {
+        if (typeof window.cancelIdleCallback === "function") window.cancelIdleCallback(idleId);
+      };
+    } else {
+      const timeoutId = window.setTimeout(prime, 1800);
+      cancelPrime = () => window.clearTimeout(timeoutId);
+    }
 
     const onChange = () => {
       if (lockedRef.current) return;
@@ -290,7 +301,7 @@ export function VideoTransitionProvider({ children }: { children: React.ReactNod
 
     return () => {
       desktop.removeEventListener("change", onChange);
-      window.cancelIdleCallback(idleId);
+      cancelPrime();
     };
   }, [ensureVideoSource]);
 
