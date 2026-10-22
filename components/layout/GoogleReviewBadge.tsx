@@ -31,22 +31,24 @@ export function GoogleReviewBadge() {
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
       className={cn(
-        "review-badge-float fixed right-4 top-[6.75rem] z-30 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[7.5rem] sm:w-32 md:top-[8.5rem] md:w-36 lg:top-[9.5rem]",
+        "review-badge-float fixed right-4 top-[6.75rem] z-30 block w-[5.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[7.5rem] sm:w-[6.8rem] md:top-[8.5rem] md:w-[7.65rem] lg:top-[9.5rem]",
         isOpen && "invisible"
       )}
     >
-      <video
-        ref={videoRef}
-        src="/brand/google-review-badge.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        disablePictureInPicture
-        aria-hidden
-        className="pointer-events-none block h-auto w-full"
-      />
+      <span className="block overflow-hidden rounded-[20%] [clip-path:inset(0_round_20%)]">
+        <video
+          ref={videoRef}
+          src="/brand/google-review-badge.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          aria-hidden
+          className="pointer-events-none block h-auto w-full"
+        />
+      </span>
     </a>
   );
 }
