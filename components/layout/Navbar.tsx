@@ -71,7 +71,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 overflow-visible transition-all duration-300",
-        scrolled
+        scrolled && pathname !== "/"
           ? "border-b border-brand-blue-light/10 bg-charcoal-950/94 shadow-md shadow-black/25 backdrop-blur-xl"
           : "bg-transparent"
       )}
