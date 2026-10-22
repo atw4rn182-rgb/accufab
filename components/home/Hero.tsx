@@ -20,8 +20,9 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative h-svh w-full overflow-hidden bg-black" aria-label="Hero">
-      <div className="absolute inset-0 bg-black" aria-hidden>
+    <section className="pointer-events-none relative h-svh w-full" aria-label="Hero">
+      <div className="pointer-events-auto fixed inset-x-0 top-0 z-0 h-svh w-full overflow-hidden bg-black">
+        <div className="absolute inset-0 bg-black" aria-hidden>
         <picture>
           <source media="(min-width: 768px)" srcSet={HERO_STILL.wideWebp} type="image/webp" />
           <source media="(min-width: 768px)" srcSet={HERO_STILL.wide} type="image/jpeg" />
@@ -37,9 +38,9 @@ export function Hero() {
             className={HERO_MEDIA_CLASS}
           />
         </picture>
-      </div>
+        </div>
 
-      <div className="relative z-10 flex h-full w-full md:items-center md:justify-center md:px-8 max-md:mx-auto max-md:max-w-7xl max-md:items-start max-md:px-4 max-md:pb-8 max-md:pt-[5.25rem] sm:max-md:px-6 sm:max-md:pt-28">
+        <div className="relative z-10 flex h-full w-full md:items-center md:justify-center md:px-8 max-md:mx-auto max-md:max-w-7xl max-md:items-start max-md:px-4 max-md:pb-8 max-md:pt-[5.25rem] sm:max-md:px-6 sm:max-md:pt-28">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,6 +84,7 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

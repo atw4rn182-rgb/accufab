@@ -33,6 +33,8 @@
 
   body {
     @apply overflow-x-hidden bg-charcoal-950 text-steel-100 antialiased;
+    /* clip avoids a scroll container, so position:fixed stays viewport-fixed on mobile */
+    overflow-x: clip;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

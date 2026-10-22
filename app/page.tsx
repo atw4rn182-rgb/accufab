@@ -60,7 +60,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <section id="explore-services" className="px-4 pb-28 pt-10 sm:px-6 sm:pt-12 lg:px-8">
+      <section
+        id="explore-services"
+        className="relative z-10 bg-charcoal-950 px-4 pb-28 pt-10 shadow-[0_-28px_48px_rgba(0,0,0,0.45)] sm:px-6 sm:pt-12 lg:px-8"
+      >
         <div className="container-narrow mx-auto">
           <div className="mx-auto max-w-4xl rounded-sm border border-brand-blue-light/15 bg-charcoal-950/42 p-6 text-center shadow-2xl shadow-black/25 backdrop-blur-[2px] sm:p-10">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
