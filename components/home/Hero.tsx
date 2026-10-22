@@ -47,9 +47,9 @@ export function Hero() {
           transition={
             reduceMotion ? { duration: 0 } : { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
           }
-          className="w-full max-w-lg rounded-md border border-white/20 bg-black/40 px-4 py-4 text-left shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-sm sm:px-6 sm:py-5 md:bg-black/30 md:text-center"
+          className="w-full max-w-lg bg-transparent px-4 py-4 text-left shadow-none sm:px-6 sm:py-5 md:text-center"
         >
-          <p className="mb-3 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 rounded-sm border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:mb-5 sm:text-xs sm:tracking-[0.16em]">
+          <p className="mb-3 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:mb-5 sm:text-xs sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
             <span className="min-w-0 max-w-[17rem] whitespace-normal leading-relaxed sm:max-w-none">
               {COMPANY.shortTagline}
