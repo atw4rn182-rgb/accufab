@@ -39,14 +39,14 @@ export function Hero() {
         </picture>
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-start px-4 pb-8 pt-[5.25rem] sm:px-6 sm:pt-28 md:px-10 md:pt-32 lg:px-14 lg:pt-36">
+      <div className="relative z-10 flex h-full w-full md:items-center md:justify-center md:px-8 max-md:mx-auto max-md:max-w-7xl max-md:items-start max-md:px-4 max-md:pb-8 max-md:pt-[5.25rem] sm:max-md:px-6 sm:max-md:pt-28">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={
             reduceMotion ? { duration: 0 } : { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
           }
-          className="w-full max-w-lg rounded-md border border-white/20 bg-black/40 px-4 py-4 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-sm sm:px-6 sm:py-5 md:bg-black/30"
+          className="w-full max-w-lg rounded-md border border-white/20 bg-black/40 px-4 py-4 text-left shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-sm sm:px-6 sm:py-5 md:bg-black/30 md:text-center"
         >
           <p className="mb-3 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 rounded-sm border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:mb-5 sm:text-xs sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
@@ -64,7 +64,7 @@ export function Hero() {
             fabrication. Serving Milan, Grants, Gallup, and the entire Four Corners region.
           </p>
 
-          <div className="mt-4 flex max-w-md flex-col gap-3 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4">
+          <div className="mt-4 flex max-w-md flex-col gap-3 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:gap-4 md:mx-auto md:justify-center">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
@@ -74,7 +74,7 @@ export function Hero() {
             </button>
           </div>
 
-          <div className="mt-4 flex flex-col gap-1.5 text-sm font-semibold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] sm:mt-6 sm:flex-row sm:gap-6">
+          <div className="mt-4 flex flex-col gap-1.5 text-sm font-semibold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] sm:mt-6 sm:flex-row sm:gap-6 md:items-center md:justify-center">
             <a href={COMPANY.phoneHref} className="transition-colors hover:text-accent">
               <span className="text-steel-300">Phone:</span> {COMPANY.phone}
             </a>
