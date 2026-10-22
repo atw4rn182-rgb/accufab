@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
 import { cn } from "@/lib/utils";
 
@@ -8,6 +9,20 @@ const GOOGLE_REVIEW_URL = "https://g.page/r/CWx7-sAOmhQBECE/review";
 
 export function GoogleReviewBadge() {
   const { isOpen } = useNavigationMenu();
+  const reduceMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    if (reduceMotion) {
+      video.pause();
+      return;
+    }
+    void video.play().catch(() => {});
+  }, [reduceMotion]);
 
   return (
     <a
@@ -16,18 +31,21 @@ export function GoogleReviewBadge() {
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
       className={cn(
-        "review-badge-float fixed right-4 top-[16rem] z-30 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[18rem] sm:w-32 md:top-[19rem] md:w-36 lg:top-[20rem]",
+        "review-badge-float fixed right-4 top-[15.5rem] z-30 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[7.5rem] sm:w-32 md:top-[8.5rem] md:w-36 lg:top-[9.5rem]",
         isOpen && "invisible"
       )}
     >
-      <Image
-        src="/brand/google-review-badge.png"
-        alt=""
-        width={655}
-        height={655}
-        quality={92}
-        sizes="(max-width: 639px) 96px, (max-width: 767px) 128px, 144px"
-        className="h-auto w-full drop-shadow-[0_12px_28px_rgba(0,0,0,0.5)]"
+      <video
+        ref={videoRef}
+        src="/brand/google-review-badge.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        aria-hidden
+        className="pointer-events-none block h-auto w-full"
       />
     </a>
   );
