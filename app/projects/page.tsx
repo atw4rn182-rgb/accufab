@@ -17,11 +17,11 @@ const intro =
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-[68vh] bg-charcoal-950 px-4 pb-32 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
+    <div className="min-h-[70vh] bg-transparent px-4 pb-32 pt-32 sm:px-6 sm:pt-36 lg:px-8 lg:pt-40">
       <section className="container-narrow mx-auto">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-bold text-steel-300 transition-colors hover:text-accent"
+          className="inline-flex items-center gap-2 text-sm font-bold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)] transition-colors hover:text-accent"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Home

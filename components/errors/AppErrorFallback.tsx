@@ -11,7 +11,7 @@ interface AppErrorFallbackProps {
 
 export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
   return (
-    <div className="mx-auto flex max-w-lg flex-col items-center text-center">
+    <div className="surface-panel mx-auto flex max-w-lg flex-col items-center px-8 py-10 text-center sm:px-12 sm:py-12">
       <div
         className="flex h-14 w-14 items-center justify-center rounded-full border border-brand-blue-light/40 bg-brand-blue-light/10 text-brand-blue-light"
         aria-hidden

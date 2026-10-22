@@ -5,7 +5,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
 import { GoogleReviewBadge } from "@/components/layout/GoogleReviewBadge";
-import { HERO_MEDIA_CLASS, HERO_STILL } from "@/lib/hero-media";
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -21,25 +20,6 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <>
-      <div className="pointer-events-none fixed inset-0 z-0 h-svh w-full overflow-hidden bg-black" aria-hidden>
-        <picture>
-          <source media="(min-width: 768px)" srcSet={HERO_STILL.wideWebp} type="image/webp" />
-          <source media="(min-width: 768px)" srcSet={HERO_STILL.wide} type="image/jpeg" />
-          <source srcSet={HERO_STILL.mobileWebp} type="image/webp" />
-          <img
-            src={HERO_STILL.mobile}
-            alt=""
-            width={1008}
-            height={1792}
-            data-hero-still=""
-            fetchPriority="high"
-            decoding="async"
-            className={HERO_MEDIA_CLASS}
-          />
-        </picture>
-      </div>
-
       <section
         className="relative z-10 flex min-h-svh w-full flex-col items-center bg-transparent px-4 pb-6 pt-28 shadow-none sm:px-6 sm:pb-8 md:pb-10 md:pt-40 lg:pt-44"
         aria-label="Hero"
@@ -89,6 +69,5 @@ export function Hero() {
           </div>
         </div>
       </section>
-    </>
   );
 }

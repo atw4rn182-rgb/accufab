@@ -62,7 +62,7 @@ export default function HomePage() {
       <Hero />
       <section
         id="explore-services"
-        className="relative z-10 bg-charcoal-950 px-4 pb-28 pt-10 shadow-[0_-28px_48px_rgba(0,0,0,0.45)] sm:px-6 sm:pt-12 lg:px-8"
+        className="relative z-10 bg-transparent px-4 pb-32 pt-20 sm:px-6 sm:pt-28 lg:px-8 lg:pt-32"
       >
         <div className="container-narrow mx-auto">
           <div className="surface-panel mx-auto max-w-4xl p-8 text-center sm:p-12 lg:p-14">
@@ -77,7 +77,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-8">
+          <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-28 lg:grid-cols-3 lg:gap-10">
             {servicePhotos.map((photo, index) => (
               <article
                 key={photo.src}

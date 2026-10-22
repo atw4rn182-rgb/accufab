@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import "./globals.css";
+import { CinematicBackground } from "@/components/layout/CinematicBackground";
 import { AppErrorFallback } from "@/components/errors/AppErrorFallback";
 
 export default function GlobalError({
@@ -17,8 +18,9 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body className="min-h-screen bg-charcoal-950 font-sans text-steel-100 antialiased">
-        <div className="flex min-h-screen flex-col items-center justify-center px-6 py-24">
+      <body className="min-h-screen bg-black font-sans text-steel-100 antialiased">
+        <CinematicBackground />
+        <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-24">
           <AppErrorFallback reset={reset} error={error} />
         </div>
       </body>

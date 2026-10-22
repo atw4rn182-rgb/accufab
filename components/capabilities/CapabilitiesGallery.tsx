@@ -5,7 +5,7 @@ export function CapabilitiesGallery() {
   return (
     <div className="mt-14 space-y-16 sm:space-y-20">
       <section aria-labelledby="capabilities-photos-heading">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="surface-panel mx-auto max-w-3xl px-6 py-8 text-center sm:px-10 sm:py-10">
           <h2
             id="capabilities-photos-heading"
             className="text-2xl font-black tracking-tight text-steel-100 sm:text-3xl"
@@ -48,7 +48,7 @@ export function CapabilitiesGallery() {
       </section>
 
       <section aria-labelledby="capabilities-videos-heading">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="surface-panel mx-auto max-w-3xl px-6 py-8 text-center sm:px-10 sm:py-10">
           <h2
             id="capabilities-videos-heading"
             className="text-2xl font-black tracking-tight text-steel-100 sm:text-3xl"

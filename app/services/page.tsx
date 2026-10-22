@@ -17,7 +17,7 @@ const servicePhotos = Array.from({ length: 11 }, (_, index) => `/images/service-
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-[68vh] bg-charcoal-950 px-4 pb-32 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
+    <div className="min-h-[70vh] bg-transparent px-4 pb-32 pt-32 sm:px-6 sm:pt-36 lg:px-8 lg:pt-40">
       <section className="container-narrow mx-auto">
         <div className="surface-panel mx-auto max-w-4xl p-8 text-center sm:p-12 lg:p-14">
           <p className="text-xs font-black uppercase tracking-[0.22em] text-brand-blue-light">
@@ -31,7 +31,7 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-7 md:grid-cols-2 lg:mt-20 lg:grid-cols-3 xl:gap-8">
+        <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-28 lg:grid-cols-3 xl:gap-10">
           {servicePhotos.map((src, index) => (
             <article
               key={src}

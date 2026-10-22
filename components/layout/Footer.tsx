@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { COMPANY, FOOTER_LINKS } from "@/lib/constants";
@@ -10,16 +7,10 @@ const footerLinkClass = "text-sm font-medium text-steel-300 transition-colors ho
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const pathname = usePathname();
-  const coversFixedHero = pathname === "/";
 
   return (
     <footer
-      className={
-        coversFixedHero
-          ? "relative z-10 border-t border-brand-blue-light/10 bg-charcoal-950"
-          : "relative border-t border-brand-blue-light/10 bg-charcoal-900/80 backdrop-blur-md"
-      }
+      className="relative z-10 border-t border-brand-blue-light/15 bg-charcoal-950/70 shadow-[0_-28px_48px_-32px_rgba(0,0,0,0.7)] backdrop-blur-md"
       role="contentinfo"
     >
       <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-blue-light/70 to-transparent" aria-hidden />
