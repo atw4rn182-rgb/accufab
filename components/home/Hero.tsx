@@ -40,8 +40,17 @@ export function Hero() {
           <h1 className="mx-auto bg-gradient-to-b from-white via-[#e7edf4] to-[#b7c3d2] bg-clip-text text-2xl font-black leading-[1.08] tracking-tight text-transparent drop-shadow-[0_2px_1px_rgba(0,0,0,0.9)] sm:text-3xl lg:text-4xl">
             Precision Metal Fabrication &amp; Welding in Milan, NM
           </h1>
+        </motion.div>
 
-          <p className="mx-auto mt-3 max-w-xl text-sm font-medium leading-relaxed text-steel-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:text-base">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={
+            reduceMotion ? { duration: 0 } : { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
+          }
+          className="hero-copy mt-auto w-full text-center sm:mt-3"
+        >
+          <p className="mx-auto max-w-xl text-sm font-medium leading-relaxed text-steel-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:text-base">
             Local experts in custom metalwork, CNC machining, hydraulic repair, and heavy equipment
             fabrication. Serving Milan, Grants, Gallup, and the entire Four Corners region.
           </p>
@@ -57,7 +66,7 @@ export function Hero() {
         </motion.div>
 
         <GoogleReviewBadge />
-        <div className="hero-copy mt-auto flex w-full justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-8">
+        <div className="hero-copy flex w-full justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-4 sm:mt-auto sm:pt-8">
           <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
               Request a quote

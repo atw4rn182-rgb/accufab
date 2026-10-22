@@ -16,7 +16,7 @@ export function GoogleReviewBadge() {
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
       className={cn(
-        "absolute right-4 top-[6.75rem] z-20 block w-[3.25rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:bottom-6 sm:right-6 sm:top-auto sm:w-32 md:w-36",
+        "review-badge-float fixed right-4 top-[16rem] z-30 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[18rem] sm:w-32 md:top-[19rem] md:w-36 lg:top-[20rem]",
         isOpen && "invisible"
       )}
     >
@@ -26,7 +26,7 @@ export function GoogleReviewBadge() {
         width={655}
         height={655}
         quality={92}
-        sizes="(max-width: 639px) 52px, (max-width: 767px) 128px, 144px"
+        sizes="(max-width: 639px) 96px, (max-width: 767px) 128px, 144px"
         className="h-auto w-full drop-shadow-[0_12px_28px_rgba(0,0,0,0.5)]"
       />
     </a>

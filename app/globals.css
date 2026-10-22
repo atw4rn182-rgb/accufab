@@ -165,3 +165,24 @@
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
+
+/* Side-to-side float for the homepage review badge. The gear artwork is not rotated here. */
+@keyframes review-badge-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-12px, 0, 0);
+  }
+}
+
+.review-badge-float {
+  animation: review-badge-float 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-badge-float {
+    animation: none;
+  }
+}
