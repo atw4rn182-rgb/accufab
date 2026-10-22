@@ -31,7 +31,7 @@ export function GoogleReviewBadge() {
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
       className={cn(
-        "review-badge-float fixed right-4 top-[15.5rem] z-30 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[7.5rem] sm:w-32 md:top-[8.5rem] md:w-36 lg:top-[9.5rem]",
+        "review-badge-float fixed right-4 top-[6.75rem] z-30 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[7.5rem] sm:w-32 md:top-[8.5rem] md:w-36 lg:top-[9.5rem]",
         isOpen && "invisible"
       )}
     >
