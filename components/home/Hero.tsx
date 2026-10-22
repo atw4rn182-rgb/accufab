@@ -40,44 +40,32 @@ export function Hero() {
       </div>
 
       <section
-        className="relative z-10 flex h-svh w-full items-center justify-center px-4 pb-8 pt-28 sm:px-6 md:px-8 md:py-0"
+        className="relative z-10 flex min-h-svh w-full flex-col bg-transparent px-4 pb-6 pt-28 shadow-none sm:px-6 sm:pb-8 md:px-10 md:pb-10 md:pt-40 lg:px-14 lg:pt-44"
         aria-label="Hero"
       >
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={
             reduceMotion ? { duration: 0 } : { duration: 0.75, ease: [0.22, 1, 0.36, 1] }
           }
-          className="w-full max-w-lg bg-transparent px-4 py-4 text-center shadow-none sm:px-6 sm:py-5"
+          className="hero-copy w-full max-w-sm text-left"
         >
-          <p className="mb-3 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:mb-5 sm:text-xs sm:tracking-[0.16em]">
+          <p className="mb-2 inline-flex max-w-full flex-wrap items-center gap-x-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:text-xs sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
-            <span className="min-w-0 max-w-[17rem] whitespace-normal leading-relaxed sm:max-w-none">
-              {COMPANY.shortTagline}
-            </span>
+            <span className="min-w-0 leading-relaxed">{COMPANY.shortTagline}</span>
           </p>
 
-          <h1 className="bg-gradient-to-b from-white via-[#e7edf4] to-[#b7c3d2] bg-clip-text text-[1.7rem] font-black leading-[1.08] tracking-tight text-transparent drop-shadow-[0_2px_1px_rgba(0,0,0,0.9)] sm:text-4xl md:text-[2.65rem] md:leading-[1.05]">
+          <h1 className="max-w-[16rem] bg-gradient-to-b from-white via-[#e7edf4] to-[#b7c3d2] bg-clip-text text-2xl font-black leading-[1.08] tracking-tight text-transparent drop-shadow-[0_2px_1px_rgba(0,0,0,0.9)] sm:max-w-xs sm:text-3xl lg:max-w-sm lg:text-4xl">
             Precision Metal Fabrication &amp; Welding in Milan, NM
           </h1>
 
-          <p className="mt-3 text-base font-medium leading-relaxed text-steel-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:mt-4 sm:text-lg md:text-xl">
+          <p className="mt-3 max-w-xs text-sm font-medium leading-relaxed text-steel-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] sm:text-base">
             Local experts in custom metalwork, CNC machining, hydraulic repair, and heavy equipment
             fabrication. Serving Milan, Grants, Gallup, and the entire Four Corners region.
           </p>
 
-          <div className="mx-auto mt-4 flex w-full max-w-md flex-col items-center gap-3 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
-            <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
-              Request a quote
-              <ArrowRight className="h-5 w-5" aria-hidden />
-            </Button>
-            <button type="button" onClick={openMenu} className={secondaryLinkClass}>
-              Explore services
-            </button>
-          </div>
-
-          <div className="mt-4 flex flex-col items-center gap-1.5 text-center text-sm font-semibold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)] sm:mt-6 sm:flex-row sm:justify-center sm:gap-6">
+          <div className="mt-3 flex flex-col gap-1 text-sm font-semibold text-steel-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
             <a href={COMPANY.phoneHref} className="transition-colors hover:text-accent">
               <span className="text-steel-300">Phone:</span> {COMPANY.phone}
             </a>
@@ -86,6 +74,18 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
+
+        <div className="hero-copy mt-auto flex w-full justify-center px-1 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-8">
+          <div className="flex w-full max-w-md flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+            <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
+              Request a quote
+              <ArrowRight className="h-5 w-5" aria-hidden />
+            </Button>
+            <button type="button" onClick={openMenu} className={secondaryLinkClass}>
+              Explore services
+            </button>
+          </div>
+        </div>
       </section>
     </>
   );
