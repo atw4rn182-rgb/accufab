@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { GoogleReviewBadge } from "@/components/layout/GoogleReviewBadge";
 import { NavigationMenuProvider } from "@/components/layout/NavigationMenuContext";
 import { VideoTransitionProvider } from "@/components/transition/VideoTransitionProvider";
 import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
@@ -50,6 +51,7 @@ export default function RootLayout({
               <Navbar />
               <main id="main-content">{children}</main>
               <Footer />
+              <GoogleReviewBadge />
             </NavigationMenuProvider>
           </VideoTransitionProvider>
         </div>
