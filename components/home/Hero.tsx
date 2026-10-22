@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
+import { GoogleReviewBadge } from "@/components/layout/GoogleReviewBadge";
 import { HERO_MEDIA_CLASS, HERO_STILL } from "@/lib/hero-media";
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -51,7 +52,7 @@ export function Hero() {
           }
           className="hero-copy w-full text-center"
         >
-          <p className="mb-2 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:text-xs sm:tracking-[0.16em]">
+          <p className="mb-2 inline-flex max-w-[14.5rem] flex-wrap items-center justify-center gap-x-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-steel-100 sm:max-w-none sm:text-xs sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
             <span className="min-w-0 leading-relaxed">{COMPANY.shortTagline}</span>
           </p>
@@ -75,6 +76,7 @@ export function Hero() {
           </div>
         </motion.div>
 
+        <GoogleReviewBadge />
         <div className="hero-copy mt-auto flex w-full justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-8">
           <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>

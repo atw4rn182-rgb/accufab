@@ -1,15 +1,24 @@
+"use client";
+
 import Image from "next/image";
+import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
+import { cn } from "@/lib/utils";
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/CWx7-sAOmhQBECE/review";
 
 export function GoogleReviewBadge() {
+  const { isOpen } = useNavigationMenu();
+
   return (
     <a
       href={GOOGLE_REVIEW_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
-      className="fixed bottom-4 right-4 z-40 block w-24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:bottom-6 sm:right-6 sm:w-32 md:w-36"
+      className={cn(
+        "absolute right-4 top-[6.75rem] z-20 block w-[3.25rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:bottom-6 sm:right-6 sm:top-auto sm:w-32 md:w-36",
+        isOpen && "invisible"
+      )}
     >
       <Image
         src="/brand/google-review-badge.png"
@@ -17,7 +26,7 @@ export function GoogleReviewBadge() {
         width={655}
         height={655}
         quality={92}
-        sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 144px"
+        sizes="(max-width: 639px) 52px, (max-width: 767px) 128px, 144px"
         className="h-auto w-full drop-shadow-[0_12px_28px_rgba(0,0,0,0.5)]"
       />
     </a>
