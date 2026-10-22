@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { useNavigationMenu } from "./NavigationMenuContext";
 import { EXPLORE_SERVICE_LINKS } from "@/lib/constants";
+import { HERO_HEADER_LOGO } from "@/lib/hero-media";
 import { cn } from "@/lib/utils";
 
 function navItemActive(pathname: string, href: string) {
@@ -81,14 +82,19 @@ export function Navbar() {
         aria-label="Main navigation"
       >
         <div className="flex justify-center py-2">
-          <Link href="/" className="flex justify-center">
+          <Link
+            href="/"
+            aria-label="Accu-Fab LLC — Home"
+            className="flex justify-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+          >
             <Image
-              src="/logo.png"
-              alt="Accu-Fab NM - Precision Metal Fabrication"
-              width={520}
-              height={140}
-              className="h-16 md:h-20 w-auto max-w-[380px] object-contain hover:scale-105 transition-transform"
+              src={HERO_HEADER_LOGO}
+              alt="Accu-Fab LLC"
+              width={1400}
+              height={292}
               priority
+              sizes="(max-width: 640px) 280px, (max-width: 1024px) 368px, 416px"
+              className="h-14 w-auto max-w-[17.5rem] object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.45)] transition-transform hover:scale-[1.03] sm:h-16 sm:max-w-[20rem] md:h-[4.75rem] md:max-w-[23rem] lg:h-[5.25rem] lg:max-w-[26rem]"
             />
           </Link>
         </div>

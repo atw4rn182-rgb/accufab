@@ -27,6 +27,8 @@
     scroll-behavior: smooth;
     /* Clears fixed navbar when jumping to #sections */
     scroll-padding-top: 5.5rem;
+    /* Keep the hero width stable when the transition locks page scroll */
+    scrollbar-gutter: stable;
   }
 
   body {
