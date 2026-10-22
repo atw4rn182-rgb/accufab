@@ -70,7 +70,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 overflow-visible transition-all duration-300",
         scrolled
           ? "border-b border-brand-blue-light/10 bg-charcoal-950/94 shadow-md shadow-black/25 backdrop-blur-xl"
           : "bg-transparent"
@@ -78,26 +78,25 @@ export function Navbar() {
       role="banner"
     >
       <nav
-        className="container-narrow flex items-center justify-center px-4 py-3 sm:px-6 lg:px-8"
+        className="container-narrow relative h-24 overflow-visible sm:h-[6.5rem] md:h-[7.25rem] lg:h-[7.75rem]"
         aria-label="Main navigation"
       >
-        <div className="flex justify-center py-2">
-          <Link
-            href="/"
-            aria-label="Accu-Fab LLC — Home"
-            className="flex justify-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-          >
-            <Image
-              src={HERO_HEADER_LOGO}
-              alt="Accu-Fab LLC"
-              width={1400}
-              height={292}
-              priority
-              sizes="(max-width: 640px) 280px, (max-width: 1024px) 368px, 416px"
-              className="h-14 w-auto max-w-[17.5rem] object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.45)] transition-transform hover:scale-[1.03] sm:h-16 sm:max-w-[20rem] md:h-[4.75rem] md:max-w-[23rem] lg:h-[5.25rem] lg:max-w-[26rem]"
-            />
-          </Link>
-        </div>
+        <Link
+          href="/"
+          aria-label="Accu-Fab LLC — Home"
+          className="absolute left-3 top-2.5 z-10 block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:left-6 sm:top-2 md:top-1 lg:left-8 lg:top-1"
+        >
+          <Image
+            src={HERO_HEADER_LOGO}
+            alt="Accu-Fab LLC"
+            width={1400}
+            height={292}
+            priority
+            quality={92}
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 544px, 624px"
+            className="h-auto w-[min(24.5rem,calc(100vw-1.25rem))] object-contain object-left drop-shadow-[0_10px_22px_rgba(0,0,0,0.5)] transition-transform hover:scale-[1.03] sm:w-[28.5rem] md:w-[34rem] lg:w-[39rem]"
+          />
+        </Link>
       </nav>
 
       <AnimatePresence>
@@ -108,7 +107,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-b border-brand-blue-light/10 bg-charcoal-950/95 backdrop-blur-xl"
+            className="relative z-20 overflow-hidden border-b border-brand-blue-light/10 bg-charcoal-950/95 backdrop-blur-xl"
           >
             {menuPanel}
           </motion.div>
