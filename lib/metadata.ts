@@ -34,8 +34,22 @@ export function absoluteUrl(path = ""): string {
   return `${SITE_URL}${normalized}`;
 }
 
+/** Busts aggressive browser favicon caches when the AF gear mark changes. */
+const FAVICON_VERSION = "afgear1";
+
 export const baseMetadata: Metadata = {
   metadataBase: new URL(`${SITE_URL}/`),
+  icons: {
+    icon: [
+      { url: `/favicon.ico?v=${FAVICON_VERSION}`, sizes: "48x48", type: "image/x-icon" },
+      { url: `/favicon-16x16.png?v=${FAVICON_VERSION}`, sizes: "16x16", type: "image/png" },
+      { url: `/favicon-32x32.png?v=${FAVICON_VERSION}`, sizes: "32x32", type: "image/png" },
+      { url: `/icon-192.png?v=${FAVICON_VERSION}`, sizes: "192x192", type: "image/png" },
+      { url: `/icon-512.png?v=${FAVICON_VERSION}`, sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: `/apple-touch-icon.png?v=${FAVICON_VERSION}`, sizes: "180x180", type: "image/png" }],
+    shortcut: [{ url: `/favicon.ico?v=${FAVICON_VERSION}`, type: "image/x-icon" }],
+  },
   title: {
     default: SITE_TITLE,
     template: `%s | ${COMPANY.name}`,
