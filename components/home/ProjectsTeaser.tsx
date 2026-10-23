@@ -2,7 +2,6 @@
 
 import { SafeRemoteImage } from "@/components/ui/SafeRemoteImage";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -28,11 +27,7 @@ export function ProjectsTeaser() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project, i) => (
             <AnimateIn key={project.title} delay={i * 0.06}>
-              <motion.article
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.22 }}
-                className="group relative overflow-hidden rounded-sm border border-brand-blue-light/10 bg-charcoal-950/82 ring-1 ring-transparent transition-[box-shadow,border-color] duration-300 hover:border-brand-blue-light/45 hover:shadow-2xl hover:shadow-brand-blue-light/10 hover:ring-brand-blue-light/25"
-              >
+              <article className="surface-card group relative overflow-hidden rounded-sm">
                 <Link
                   href="/quote"
                   className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
@@ -79,7 +74,7 @@ export function ProjectsTeaser() {
                     </ul>
                   </div>
                 </Link>
-              </motion.article>
+              </article>
             </AnimateIn>
           ))}
         </div>

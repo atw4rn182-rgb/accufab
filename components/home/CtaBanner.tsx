@@ -42,7 +42,7 @@ export function CtaBanner() {
                   <p className="mt-4 text-lg font-medium text-steel-300">{COMPANY.tagline}</p>
                 </div>
                 <div className="flex w-full flex-col gap-3 sm:flex-row sm:w-auto lg:flex-col xl:flex-row">
-                  <Button href="/quote" size="lg" className="glow-accent whitespace-nowrap" transition>
+                  <Button href="/quote" size="lg" className="whitespace-nowrap" transition>
                     Get a Quote
                     <ArrowRight className="h-5 w-5" aria-hidden />
                   </Button>

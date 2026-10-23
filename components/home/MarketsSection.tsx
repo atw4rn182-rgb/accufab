@@ -1,7 +1,6 @@
 "use client";
 
 import { SafeRemoteImage } from "@/components/ui/SafeRemoteImage";
-import { motion } from "framer-motion";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { HOME_MARKETS } from "@/lib/constants";
@@ -26,11 +25,7 @@ export function MarketsSection() {
         <div className="grid gap-6 md:grid-cols-2">
           {HOME_MARKETS.map((market, i) => (
             <AnimateIn key={market.id} delay={i * 0.08}>
-              <motion.article
-                whileHover={{ y: -3 }}
-                transition={{ duration: 0.22 }}
-                className="group relative overflow-hidden rounded-sm border border-brand-blue-light/10 bg-charcoal-800/40 ring-1 ring-transparent transition-all duration-300 hover:border-brand-blue-light/40 hover:ring-brand-blue-light/20"
-              >
+              <article className="surface-card group relative overflow-hidden rounded-sm">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <SafeRemoteImage
                     src={market.image}
@@ -50,7 +45,7 @@ export function MarketsSection() {
                     </p>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             </AnimateIn>
           ))}
         </div>

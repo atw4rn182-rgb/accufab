@@ -151,6 +151,136 @@
   }
 }
 
+/* Machined gold controls. Unlayered so the metal shadow wins over utility shadows. */
+.btn-metal {
+  border: 1px solid rgba(255, 236, 196, 0.92);
+  background-color: #ffc247;
+  background-image:
+    linear-gradient(108deg, transparent 38%, rgba(255, 255, 255, 0.55) 50%, transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 46%),
+    linear-gradient(180deg, #ffe08a 0%, #ffc247 52%, #e89400 100%);
+  background-repeat: no-repeat;
+  background-size: 240% 100%, 100% 100%, 100% 100%;
+  background-position: 125% 0, 0 0, 0 0;
+  color: #050910;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -2px 0 rgba(122, 68, 0, 0.4),
+    0 1px 0 rgba(255, 224, 138, 0.35),
+    0 8px 14px -8px rgba(0, 0, 0, 0.72),
+    0 16px 26px -16px rgba(245, 164, 0, 0.48);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-position 680ms ease;
+}
+
+.btn-steel {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    0 8px 16px -12px rgba(0, 0, 0, 0.75);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.surface-card {
+  border: 1px solid rgba(180, 212, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 34%),
+    rgba(9, 17, 29, 0.74);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 28px -22px rgba(0, 0, 0, 0.85);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-metal:hover {
+    background-position: -20% 0, 0 0, 0 0;
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.88),
+      inset 0 -2px 0 rgba(122, 68, 0, 0.28),
+      0 14px 22px -10px rgba(0, 0, 0, 0.62),
+      0 22px 34px -18px rgba(245, 164, 0, 0.42);
+  }
+
+  .btn-steel:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+      0 14px 24px -12px rgba(0, 0, 0, 0.72);
+  }
+
+  .surface-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(180, 212, 255, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 18px 32px -18px rgba(0, 0, 0, 0.78);
+  }
+}
+
+.btn-metal:active,
+.btn-steel:active {
+  transform: translateY(1px);
+}
+
+.btn-metal:active {
+  background-position: 125% 0, 0 0, 0 0;
+  box-shadow:
+    inset 0 2px 3px rgba(90, 48, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 2px 5px -3px rgba(0, 0, 0, 0.65);
+}
+
+.btn-steel:active {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.38),
+    0 2px 4px -2px rgba(0, 0, 0, 0.55);
+}
+
+.btn-metal:disabled,
+.btn-metal:disabled:active {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-metal,
+  .btn-steel,
+  .surface-card,
+  .surface-media {
+    transition: none;
+  }
+
+  .btn-metal:hover,
+  .btn-metal:active,
+  .btn-steel:hover,
+  .btn-steel:active,
+  .surface-card:hover,
+  .surface-media:hover {
+    transform: none;
+  }
+
+  .surface-card:hover img,
+  .surface-media:hover img {
+    transform: none;
+  }
+}
+
 /* Keep the homepage hero copy on the artwork, including pseudos. */
 [aria-label="Hero"],
 [aria-label="Hero"]::before,

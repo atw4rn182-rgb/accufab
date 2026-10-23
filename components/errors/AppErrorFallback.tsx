@@ -38,7 +38,7 @@ export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
       <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
         <button
           type="button"
-          className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-charcoal-950 shadow-lg shadow-accent/20 transition-colors hover:bg-accent-light"
+          className="btn-metal rounded-sm px-6 py-3 text-sm font-semibold text-charcoal-950"
           onClick={() => {
             if (typeof window !== "undefined") window.location.reload();
           }}
@@ -47,14 +47,14 @@ export function AppErrorFallback({ reset, error }: AppErrorFallbackProps) {
         </button>
         <button
           type="button"
-          className="rounded-sm border border-brand-blue-light/45 bg-transparent px-6 py-3 text-sm font-semibold text-steel-100 transition-colors hover:border-accent hover:text-accent"
+          className="btn-steel rounded-sm border border-brand-blue-light/45 bg-transparent px-6 py-3 text-sm font-semibold text-steel-100 hover:border-accent hover:text-accent"
           onClick={() => reset()}
         >
           Try again
         </button>
         <Link
           href="/"
-          className="inline-flex items-center justify-center rounded-sm border border-brand-blue-light/20 px-6 py-3 text-sm font-semibold text-steel-300 transition-colors hover:border-brand-blue-light/35 hover:text-steel-100"
+          className="btn-steel inline-flex items-center justify-center rounded-sm border border-brand-blue-light/20 px-6 py-3 text-sm font-semibold text-steel-300 hover:border-brand-blue-light/35 hover:text-steel-100"
         >
           Home
         </Link>

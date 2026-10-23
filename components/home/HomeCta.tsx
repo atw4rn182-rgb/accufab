@@ -27,7 +27,7 @@ export function HomeCta() {
             Send prints, sketches, or a short description—we will confirm feasibility and outline next steps.
           </p>
           <div className="mt-10 flex w-full flex-col gap-4 sm:flex-row sm:justify-center">
-            <Button href="/quote" size="lg" className="glow-accent whitespace-nowrap" transition>
+            <Button href="/quote" size="lg" className="whitespace-nowrap" transition>
               Get a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
             </Button>

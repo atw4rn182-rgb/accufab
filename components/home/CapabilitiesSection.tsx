@@ -43,7 +43,7 @@ export function CapabilitiesSection() {
             const Icon = capabilityIcons[cap.icon];
             return (
               <AnimateIn key={cap.title} delay={i * 0.06}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-brand-blue-light/10 bg-charcoal-900/72 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue-light/45 hover:shadow-xl hover:shadow-brand-blue-light/10">
+                <article className="surface-card group flex h-full flex-col overflow-hidden rounded-sm">
                   <div className="relative h-28 w-full shrink-0 overflow-hidden">
                     <SafeRemoteImage
                       src={cap.image}

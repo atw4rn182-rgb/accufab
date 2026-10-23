@@ -32,7 +32,7 @@ function markNudgePlayed() {
 }
 
 const secondaryLinkClass = cn(
-  "inline-flex items-center justify-center rounded-sm border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-md transition-all duration-200",
+  "btn-steel inline-flex items-center justify-center rounded-sm border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-md",
   "hover:border-accent hover:bg-white/15 hover:text-accent",
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
   "w-full sm:w-auto sm:py-4"
@@ -159,7 +159,7 @@ export function Hero() {
 
         <div className="mx-auto flex w-full flex-col items-center pt-5 sm:mt-auto sm:w-max sm:pt-6">
           <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
-            <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
+            <Button href="/quote" size="lg" className="w-full shrink-0 sm:w-auto" transition>
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
             </Button>

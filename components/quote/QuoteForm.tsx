@@ -227,7 +227,7 @@ export function QuoteForm() {
         <button
           type="submit"
           disabled={formLocked}
-          className="inline-flex w-full items-center justify-center rounded-sm border border-accent-light/70 bg-gradient-to-br from-accent-light via-accent to-accent-hover px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-charcoal-950 shadow-xl shadow-accent/40 ring-1 ring-accent-light/35 transition-all hover:-translate-y-0.5 hover:scale-[1.03] hover:from-white hover:via-accent-light hover:to-accent hover:shadow-2xl hover:shadow-accent/60 hover:ring-2 hover:ring-accent-light/70 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+          className="btn-metal inline-flex w-full items-center justify-center rounded-sm px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-charcoal-950 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
           {status === "sending"
             ? "Submitting..."

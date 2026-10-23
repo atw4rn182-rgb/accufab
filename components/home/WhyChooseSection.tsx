@@ -35,7 +35,7 @@ export function WhyChooseSection() {
         <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_STATS.map((stat, i) => (
             <AnimateIn key={stat.label} delay={i * 0.06}>
-              <div className="flex h-full flex-col rounded-sm border border-brand-blue-light/30 bg-gradient-to-br from-brand-blue-light/[0.08] to-transparent px-5 py-6">
+              <div className="surface-card flex h-full flex-col rounded-sm px-5 py-6">
                 <p className="text-3xl font-black tracking-tight text-steel-100">{stat.value}</p>
                 <p className="mt-2 text-xs font-black uppercase tracking-wider text-brand-blue-light">
                   {stat.label}
@@ -51,7 +51,7 @@ export function WhyChooseSection() {
             const Icon = iconMap[item.icon];
             return (
               <AnimateIn key={item.title} delay={i * 0.08}>
-                <article className="group relative h-full rounded-sm border border-brand-blue-light/10 bg-charcoal-900/70 p-6 transition-all duration-300 hover:border-brand-blue-light/45 hover:bg-charcoal-900/85">
+                <article className="surface-card group relative h-full rounded-sm p-6">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-sm bg-brand-blue-light/15 text-brand-blue-light transition-colors duration-300 group-hover:bg-brand-blue-light group-hover:text-charcoal-950">
                     <Icon className="h-6 w-6" aria-hidden />
                   </div>
