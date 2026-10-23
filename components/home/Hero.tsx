@@ -65,11 +65,9 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
-      </div>
 
-      <div className="hero-copy flex w-full justify-center pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5 sm:pt-6">
-        <div className="flex w-full flex-col items-center gap-4 sm:w-max sm:gap-5">
-          <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
+        <div className="mx-auto flex w-full flex-col items-center pt-5 sm:mt-auto sm:w-max sm:pt-6">
+          <div className="flex w-full flex-col items-center gap-3 pb-4 sm:w-auto sm:flex-row sm:justify-center sm:gap-4 sm:pb-5">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
@@ -78,9 +76,15 @@ export function Hero() {
               Explore services
             </button>
           </div>
-          <GoogleReviewBadge />
+          <div className="relative h-0 w-full">
+            <div className="absolute inset-x-0 top-0">
+              <GoogleReviewBadge />
+            </div>
+          </div>
         </div>
       </div>
+
+      <div aria-hidden className="mx-auto aspect-[1296/480] w-[84%] sm:w-[22.365rem]" />
     </section>
   );
 }
