@@ -2,13 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
-import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
-import { cn } from "@/lib/utils";
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/CWx7-sAOmhQBECE/review";
 
 export function GoogleReviewBadge() {
-  const { isOpen } = useNavigationMenu();
   const reduceMotion = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -30,15 +27,12 @@ export function GoogleReviewBadge() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
-      className={cn(
-        "review-badge-float fixed right-4 top-[6.75rem] z-30 block w-[5.1rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-6 sm:top-[7.5rem] sm:w-[6.8rem] md:top-[8.5rem] md:w-[7.65rem] lg:top-[9.5rem]",
-        isOpen && "invisible"
-      )}
+      className="mx-auto mt-5 block w-[8.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:mt-6 sm:w-[10.5rem]"
     >
-      <span className="block aspect-square overflow-hidden rounded-full [clip-path:circle(50%)]">
+      <span className="relative block aspect-square overflow-hidden rounded-full [clip-path:circle(50%)]">
         <video
           ref={videoRef}
-          src="/brand/google-review-badge.mp4"
+          src="/brand/google-review-badge-v2.mp4"
           autoPlay
           muted
           loop
@@ -46,7 +40,7 @@ export function GoogleReviewBadge() {
           preload="auto"
           disablePictureInPicture
           aria-hidden
-          className="pointer-events-none block h-auto w-full"
+          className="pointer-events-none absolute left-[2.59%] top-[-21.77%] h-[151.72%] w-[279.31%] max-w-none"
         />
       </span>
     </a>

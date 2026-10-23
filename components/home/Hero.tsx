@@ -65,8 +65,7 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <GoogleReviewBadge />
-        <div className="hero-copy flex w-full justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-4 sm:mt-auto sm:pt-8">
+        <div className="hero-copy flex w-full flex-col items-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-4 sm:mt-auto sm:pt-8">
           <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
               Request a quote
@@ -76,6 +75,7 @@ export function Hero() {
               Explore services
             </button>
           </div>
+          <GoogleReviewBadge />
         </div>
       </section>
   );
