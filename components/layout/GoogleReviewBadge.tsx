@@ -35,7 +35,7 @@ export function GoogleReviewBadge() {
         isOpen && "invisible"
       )}
     >
-      <span className="block overflow-hidden rounded-[20%] [clip-path:inset(0_round_20%)]">
+      <span className="block aspect-square overflow-hidden rounded-full [clip-path:circle(50%)]">
         <video
           ref={videoRef}
           src="/brand/google-review-badge.mp4"
