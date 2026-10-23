@@ -29,7 +29,7 @@ export function GoogleReviewBadge() {
       aria-label="Leave a Google review"
       className="mx-auto block w-[84%] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
-      <span className="relative block aspect-[1296/480] overflow-hidden">
+      <span className="relative block aspect-[1296/480] overflow-hidden rounded-sm [clip-path:inset(0_round_0.25rem)]">
         <video
           ref={videoRef}
           src="/brand/google-review-badge-v2.mp4"
