@@ -1,12 +1,35 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useNavigationMenu } from "@/components/layout/NavigationMenuContext";
 import { GoogleReviewBadge } from "@/components/layout/GoogleReviewBadge";
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+const NUDGE_KEY = "accufab-hero-nudge";
+const NUDGE_DISTANCE = 100;
+let nudgePlayedInMemory = false;
+
+function nudgeAlreadyPlayed() {
+  if (nudgePlayedInMemory) return true;
+  try {
+    return sessionStorage.getItem(NUDGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markNudgePlayed() {
+  nudgePlayedInMemory = true;
+  try {
+    sessionStorage.setItem(NUDGE_KEY, "1");
+  } catch {
+    // Private browsing can block storage.
+  }
+}
 
 const secondaryLinkClass = cn(
   "inline-flex items-center justify-center rounded-sm border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white shadow-[0_8px_24px_rgba(0,0,0,0.28)] backdrop-blur-md transition-all duration-200",
@@ -18,6 +41,74 @@ const secondaryLinkClass = cn(
 export function Hero() {
   const { openMenu } = useNavigationMenu();
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (reduceMotion !== false) return;
+    if (nudgeAlreadyPlayed() || window.scrollY > 16) {
+      if (window.scrollY > 16) markNudgePlayed();
+      return;
+    }
+
+    let cancelled = false;
+    let programmatic = false;
+    const cancel = () => {
+      cancelled = true;
+      markNudgePlayed();
+    };
+    const onScroll = () => {
+      if (programmatic || window.scrollY <= 16) return;
+      cancel();
+    };
+
+    const capture: AddEventListenerOptions = { passive: true, capture: true };
+    window.addEventListener("pointerdown", cancel, capture);
+    window.addEventListener("keydown", cancel, capture);
+    window.addEventListener("touchstart", cancel, capture);
+    window.addEventListener("wheel", cancel, capture);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    let onVisible: (() => void) | null = null;
+    const nudge = () => {
+      if (cancelled || window.scrollY > 16 || nudgeAlreadyPlayed()) return;
+      if (document.visibilityState !== "visible") {
+        onVisible = () => {
+          if (document.visibilityState !== "visible") return;
+          document.removeEventListener("visibilitychange", onVisible!);
+          onVisible = null;
+          nudge();
+        };
+        document.addEventListener("visibilitychange", onVisible);
+        return;
+      }
+      markNudgePlayed();
+      programmatic = true;
+      window.scrollBy({ top: NUDGE_DISTANCE, behavior: "smooth" });
+    };
+    const timer = window.setTimeout(nudge, 5000);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+      if (onVisible) document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("pointerdown", cancel, capture);
+      window.removeEventListener("keydown", cancel, capture);
+      window.removeEventListener("touchstart", cancel, capture);
+      window.removeEventListener("wheel", cancel, capture);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [reduceMotion]);
+
+  const scrollToNext = () => {
+    markNudgePlayed();
+    const target = document.getElementById("explore-services");
+    if (!target) return;
+    const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  };
 
   return (
     <section
@@ -67,7 +158,7 @@ export function Hero() {
         </motion.div>
 
         <div className="mx-auto flex w-full flex-col items-center pt-5 sm:mt-auto sm:w-max sm:pt-6">
-          <div className="flex w-full flex-col items-center gap-3 pb-4 sm:w-auto sm:flex-row sm:justify-center sm:gap-4 sm:pb-5">
+          <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
             <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
               Request a quote
               <ArrowRight className="h-5 w-5" aria-hidden />
@@ -76,6 +167,28 @@ export function Hero() {
               Explore services
             </button>
           </div>
+          <motion.button
+            type="button"
+            onClick={scrollToNext}
+            aria-label="Scroll to see more"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.4, delay: 0.75 }}
+            className="relative z-10 mt-1.5 mb-2 inline-flex h-8 w-8 items-center justify-center text-steel-300 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            <motion.span
+              aria-hidden
+              animate={reduceMotion ? undefined : { y: [0, 6, 0] }}
+              transition={
+                reduceMotion
+                  ? undefined
+                  : { duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 1.15 }
+              }
+              className="inline-flex"
+            >
+              <ChevronDown className="h-5 w-5" strokeWidth={1.75} />
+            </motion.span>
+          </motion.button>
           <div className="relative h-0 w-full">
             <div className="absolute inset-x-0 top-0">
               <GoogleReviewBadge />
