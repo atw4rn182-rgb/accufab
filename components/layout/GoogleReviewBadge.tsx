@@ -27,9 +27,9 @@ export function GoogleReviewBadge() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
-      className="mx-auto mt-5 block w-[8.5rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:mt-6 sm:w-[10.5rem]"
+      className="block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
-      <span className="relative block aspect-square overflow-hidden rounded-full [clip-path:circle(50%)]">
+      <span className="relative block aspect-[1296/480] overflow-hidden">
         <video
           ref={videoRef}
           src="/brand/google-review-badge-v2.mp4"
@@ -40,7 +40,7 @@ export function GoogleReviewBadge() {
           preload="auto"
           disablePictureInPicture
           aria-hidden
-          className="pointer-events-none absolute left-[2.59%] top-[-21.77%] h-[151.72%] w-[279.31%] max-w-none"
+          className="pointer-events-none absolute left-0 top-[-21.67%] h-[146.67%] w-full max-w-none"
         />
       </span>
     </a>

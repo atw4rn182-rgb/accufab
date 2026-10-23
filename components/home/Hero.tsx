@@ -65,17 +65,19 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <div className="hero-copy flex w-full flex-col items-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-4 sm:mt-auto sm:pt-8">
-          <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
-            <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
-              Request a quote
-              <ArrowRight className="h-5 w-5" aria-hidden />
-            </Button>
-            <button type="button" onClick={openMenu} className={secondaryLinkClass}>
-              Explore services
-            </button>
+        <div className="hero-copy flex w-full justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-4 sm:mt-auto sm:pt-8">
+          <div className="flex w-full flex-col items-center gap-5 sm:w-max sm:gap-6">
+            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
+              <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
+                Request a quote
+                <ArrowRight className="h-5 w-5" aria-hidden />
+              </Button>
+              <button type="button" onClick={openMenu} className={secondaryLinkClass}>
+                Explore services
+              </button>
+            </div>
+            <GoogleReviewBadge />
           </div>
-          <GoogleReviewBadge />
         </div>
       </section>
   );
