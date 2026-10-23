@@ -20,10 +20,11 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-      <section
-        className="relative z-10 flex min-h-svh w-full flex-col items-center bg-transparent px-4 pb-6 pt-28 shadow-none sm:px-6 sm:pb-8 md:pb-10 md:pt-40 lg:pt-44"
-        aria-label="Hero"
-      >
+    <section
+      className="relative z-10 flex w-full flex-col items-center bg-transparent px-4 pt-28 shadow-none sm:px-6 md:pt-40 lg:pt-44"
+      aria-label="Hero"
+    >
+      <div className="flex w-full min-h-[calc(100svh-7rem)] flex-col md:min-h-[calc(100svh-10rem)] lg:min-h-[calc(100svh-11rem)]">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,21 +65,22 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
+      </div>
 
-        <div className="hero-copy flex w-full justify-center pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-4 sm:mt-auto sm:pt-8">
-          <div className="flex w-full flex-col items-center gap-5 sm:w-max sm:gap-6">
-            <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
-              <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
-                Request a quote
-                <ArrowRight className="h-5 w-5" aria-hidden />
-              </Button>
-              <button type="button" onClick={openMenu} className={secondaryLinkClass}>
-                Explore services
-              </button>
-            </div>
-            <GoogleReviewBadge />
+      <div className="hero-copy flex w-full justify-center pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5 sm:pt-6">
+        <div className="flex w-full flex-col items-center gap-4 sm:w-max sm:gap-5">
+          <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:justify-center sm:gap-4">
+            <Button href="/quote" size="lg" className="glow-accent w-full shrink-0 sm:w-auto" transition>
+              Request a quote
+              <ArrowRight className="h-5 w-5" aria-hidden />
+            </Button>
+            <button type="button" onClick={openMenu} className={secondaryLinkClass}>
+              Explore services
+            </button>
           </div>
+          <GoogleReviewBadge />
         </div>
-      </section>
+      </div>
+    </section>
   );
 }

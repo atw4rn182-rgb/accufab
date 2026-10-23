@@ -27,7 +27,7 @@ export function GoogleReviewBadge() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Leave a Google review"
-      className="block w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+      className="mx-auto block w-[84%] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
     >
       <span className="relative block aspect-[1296/480] overflow-hidden">
         <video
