@@ -81,6 +81,17 @@ export function Footer() {
             Locally owned · Precision welding · CNC and manual machining · Milan, New Mexico
           </p>
         </div>
+        <p className="container-narrow mx-auto mt-4 text-center text-xs font-medium text-steel-400">
+          Website by{" "}
+          <a
+            href="https://www.4wardwebdesign.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-steel-100"
+          >
+            4ward Web Design
+          </a>
+        </p>
       </div>
     </footer>
   );
